@@ -26,9 +26,6 @@ export const Experience = ({ experience }: ExperienceProps) => {
 
   return (
     <section id="experience" className="py-24 relative overflow-hidden">
-        {/* Background Decorative Line */}
-        <div className="absolute left-[28px] md:left-1/2 top-32 bottom-0 w-px bg-border -translate-x-1/2 hidden md:block" />
-
         <div className="container mx-auto px-4 relative">
             <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -43,6 +40,8 @@ export const Experience = ({ experience }: ExperienceProps) => {
             </motion.div>
             
             <div className="space-y-12 max-w-5xl mx-auto relative">
+                {/* Background Decorative Line */}
+                <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2 hidden md:block" />
                 {sorted.map((exp, index) => (
                     <motion.div 
                         key={exp.id}
