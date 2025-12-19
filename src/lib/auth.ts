@@ -12,12 +12,14 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         // This is where you would validate against your database
-        // For now, we'll check against a hardcoded admin or add an Admin model later
         if (!credentials?.email || !credentials?.password) return null
+
+        // Secure admin credentials using environment variables with fallbacks
+        const adminEmail = process.env.ADMIN_EMAIL || "ayush.donga@gmail.com"
+        const adminPassword = process.env.ADMIN_PASSWORD || "Ayush@6936"
         
-        // Simple example: Allow a hardcoded admin for portfolio owner
-        if (credentials.email === "ayush@example.com" && credentials.password === "admin123") {
-           return { id: "1", name: "Ayush Donga", email: "ayush@example.com" }
+        if (credentials.email === adminEmail && credentials.password === adminPassword) {
+           return { id: "1", name: "Ayush Donga", email: adminEmail }
         }
         
         return null
