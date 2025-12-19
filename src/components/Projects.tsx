@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Github, ExternalLink, Code2 } from 'lucide-react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import NextImage from 'next/image'
 
 interface Project {
   id: string
@@ -66,8 +67,12 @@ export const Projects = ({ projects }: ProjectsProps) => {
                         <Card className="flex flex-col h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border-border/50 overflow-hidden">
                             <div className="h-48 w-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
                                 {project.imageUrl ? (
-                                    // eslint-disable-next-line @next/next/no-img-element
-                                    <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                                    <NextImage 
+                                      src={project.imageUrl} 
+                                      alt={project.title} 
+                                      fill
+                                      className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                                    />
                                 ) : (
                                     <>
                                         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:24px_24px]" />

@@ -8,6 +8,8 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Badge } from '@/components/ui/badge'
 import { motion, AnimatePresence } from 'framer-motion'
+import { ImageUpload } from '@/components/admin/ImageUpload'
+import NextImage from 'next/image'
 
 interface Project {
   id: string
@@ -116,7 +118,12 @@ export default function ProjectsAdmin() {
           >
             <div className="aspect-video relative overflow-hidden bg-slate-100 dark:bg-black/40">
                {proj.imageUrl ? (
-                  <img src={proj.imageUrl} alt={proj.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" />
+                  <NextImage 
+                     src={proj.imageUrl} 
+                     alt={proj.title} 
+                     fill 
+                     className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" 
+                  />
                ) : (
                   <div className="flex items-center justify-center h-full">
                      <FolderGit2 className="w-12 h-12 text-slate-200 dark:text-white/10" />
@@ -232,13 +239,12 @@ export default function ProjectsAdmin() {
                            />
                         </div>
 
-                        <div className="space-y-2 col-span-2">
-                           <label className="text-xs font-black uppercase tracking-widest text-slate-400">Preview Image URL</label>
-                           <Input 
+                        <div className="space-y-4 col-span-2">
+                           <label className="text-xs font-black uppercase tracking-widest text-slate-400">Project Visual Showcase</label>
+                           <ImageUpload 
                               value={formData.imageUrl || ''} 
-                              onChange={e => setFormData({...formData, imageUrl: e.target.value})}
-                              placeholder="https://images.unsplash.com/photo-..."
-                              className="h-14 rounded-2xl bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 px-5 font-bold"
+                              onChange={(url) => setFormData({...formData, imageUrl: url})}
+                              onRemove={() => setFormData({...formData, imageUrl: ''})}
                            />
                         </div>
 

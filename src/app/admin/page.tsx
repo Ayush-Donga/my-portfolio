@@ -3,6 +3,7 @@ import { prisma } from '@/lib/prisma'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Briefcase, Code2, FolderGit2, Mail, Plus, ChevronRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import NextImage from 'next/image'
 
 async function getStats() {
   const [experienceCount, skillsCount, projectsCount, contactCount] = await Promise.all([
@@ -90,8 +91,8 @@ export default async function AdminDashboard() {
              <div className="space-y-4">
                 {recentProjects.map(project => (
                    <div key={project.id} className="flex items-center gap-4 p-4 rounded-2xl border border-slate-50 dark:border-white/5 hover:bg-slate-50 dark:hover:bg-white/5 transition-all group">
-                      <div className="w-16 h-12 rounded-xl bg-slate-100 dark:bg-black/40 overflow-hidden border border-slate-200 dark:border-white/10">
-                         {project.imageUrl && <img src={project.imageUrl} alt="" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />}
+                      <div className="w-16 h-12 rounded-xl bg-slate-100 dark:bg-black/40 overflow-hidden border border-slate-200 dark:border-white/10 relative">
+                         {project.imageUrl && <NextImage src={project.imageUrl} alt="" fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />}
                       </div>
                       <div className="flex-1 min-w-0">
                          <h4 className="text-sm font-bold text-slate-900 dark:text-white truncate">{project.title}</h4>
