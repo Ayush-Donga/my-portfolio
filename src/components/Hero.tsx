@@ -32,7 +32,7 @@ export const Hero = () => {
             </div>
             <div className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-emerald-500/20 bg-emerald-500/10 text-emerald-500 animate-pulse">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-              Available for Hire
+              Remote & Worldwide
             </div>
           </motion.div>
           <motion.h1 

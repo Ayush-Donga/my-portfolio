@@ -88,9 +88,9 @@ export const Services = () => {
           >
             <div>
               <ShieldCheck className="w-12 h-12 mb-6 opacity-80" />
-              <h3 className="text-2xl font-bold mb-3">Open for Remote Opportunities</h3>
+              <h3 className="text-2xl font-bold mb-3">Global Collaboration</h3>
               <p className="opacity-90 text-sm leading-relaxed mb-6">
-                Looking for a specialized developer or team lead to help scale your project? I'm available for full-time remote roles or high-impact freelance projects worldwide.
+                Ready to work across any timezone. I provide flexible overlapping hours for US, UK, Europe, and Australia based clients to ensure smooth async and sync communication.
               </p>
             </div>
             <div className="flex items-center gap-2 text-xs font-mono bg-white/10 px-3 py-2 rounded-full w-fit">

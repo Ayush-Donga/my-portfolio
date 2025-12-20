@@ -61,10 +61,10 @@ export const Contact = () => {
                 <div className="flex flex-wrap justify-center gap-4 mb-6">
                     <div className="text-xs font-medium px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                        Working Hours: 9 AM - 7 PM IST
+                        Flexible Timezones: Global Coverage
                     </div>
                     <div className="text-xs font-medium px-3 py-1 rounded-full bg-secondary text-secondary-foreground border border-border flex items-center gap-2">
-                        🌍 Available for GMT-5 to GMT+5
+                        🌎 Overlapping with US, EU & APAC Hours
                     </div>
                 </div>
                 <p className="text-muted-foreground text-lg">

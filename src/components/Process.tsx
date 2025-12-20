@@ -59,7 +59,7 @@ export const Process = () => {
                                 transition={{ delay: i * 0.1 }}
                                 className="p-8 rounded-2xl bg-card border border-border/50 hover:border-primary/30 transition-all hover:shadow-lg relative overflow-hidden group"
                             >
-                                <div className="absolute -right-4 -bottom-4 text-8xl font-black text-primary/5 select-none group-hover:text-primary/10 transition-colors">0{i+1}</div>
+                                <div className="absolute -right-4 -bottom-4 text-8xl font-black text-slate-200 dark:text-primary/5 select-none group-hover:text-primary/10 dark:group-hover:text-primary/10 transition-colors">0{i+1}</div>
                                 <step.icon className="w-10 h-10 text-primary mb-6" />
                                 <h3 className="text-xl font-bold mb-3">{step.title}</h3>
                                 <p className="text-sm text-muted-foreground leading-relaxed relative z-10">{step.desc}</p>
