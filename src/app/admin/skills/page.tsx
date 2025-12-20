@@ -214,16 +214,17 @@ export default function SkillsAdmin() {
                        />
                     </div>
                     
-                    <div className="space-y-2">
+                    <div className="space-y-4">
                        <label className="text-xs font-black uppercase tracking-widest text-slate-400">Technical Domain</label>
-                       <div className="grid grid-cols-3 gap-2">
-                          {defaultCategories.map((c: string) => (
+                       
+                       <div className="grid grid-cols-3 gap-2 max-h-[200px] overflow-y-auto p-1 scrollbar-thin scrollbar-thumb-slate-200 dark:scrollbar-thumb-white/10 pr-2">
+                          {allCategories.map((c: string) => (
                              <button
                                 key={c}
                                 type="button"
                                 onClick={() => setFormData({...formData, category: c})}
                                 className={cn(
-                                   "py-3 rounded-xl text-xs font-bold border transition-all",
+                                   "py-3 rounded-xl text-[10px] font-bold border transition-all truncate px-2",
                                    formData.category === c
                                       ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20"
                                       : "bg-white dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-500 hover:border-primary/50"
@@ -232,6 +233,16 @@ export default function SkillsAdmin() {
                                 {c}
                              </button>
                           ))}
+                       </div>
+
+                       <div className="pt-2">
+                          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.1em] mb-2">Or Define New Domain</p>
+                          <Input 
+                             placeholder="e.g. Cloud Architecture" 
+                             value={formData.category}
+                             onChange={e => setFormData({...formData, category: e.target.value})}
+                             className="h-12 rounded-xl bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 px-5 font-bold text-sm"
+                          />
                        </div>
                     </div>
 
