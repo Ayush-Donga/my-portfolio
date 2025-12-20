@@ -65,7 +65,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
                 {projects.map((project) => (
                     <motion.div key={project.id} variants={cardVars} className="h-full">
                         <Card className="flex flex-col h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border-border/50 overflow-hidden">
-                            <div className="h-48 w-full bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
+                            <div className="h-48 w-full bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 flex items-center justify-center relative overflow-hidden border-b border-border/50 dark:border-none">
                                 {project.imageUrl ? (
                                     <NextImage 
                                       src={project.imageUrl} 
@@ -75,16 +75,16 @@ export const Projects = ({ projects }: ProjectsProps) => {
                                     />
                                 ) : (
                                     <>
-                                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:24px_24px]" />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-60" />
-                                        <Code2 className="w-16 h-16 text-primary/20 group-hover:text-primary/40 transition-colors duration-500 scale-110 group-hover:scale-125 transform" />
-                                        <span className="absolute bottom-4 left-4 text-3xl font-black text-white/5 select-none font-mono">{project.title.substring(0,3).toUpperCase()}</span>
+                                        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:24px_24px]" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-200/50 to-transparent dark:from-slate-900/60 dark:to-transparent" />
+                                        <Code2 className="w-16 h-16 text-primary/30 dark:text-primary/20 group-hover:text-primary/50 dark:group-hover:text-primary/40 transition-colors duration-500 scale-110 group-hover:scale-125 transform relative z-10" />
+                                        <span className="absolute bottom-4 left-4 text-3xl font-black text-slate-900/5 dark:text-white/5 select-none font-mono">{project.title.substring(0,3).toUpperCase()}</span>
                                     </>
                                 )}
                                 
                                 {project.category && (
                                     <div className="absolute top-4 right-4 z-10">
-                                        <Badge className="bg-background/80 backdrop-blur-md text-foreground border-white/10 shadow-sm">{project.category}</Badge>
+                                        <Badge className="bg-background/80 backdrop-blur-md text-foreground border-border/50 dark:border-white/10 shadow-sm">{project.category}</Badge>
                                     </div>
                                 )}
                             </div>
