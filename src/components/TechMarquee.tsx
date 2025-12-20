@@ -8,14 +8,16 @@ const tech = [
   { name: 'Next.js', color: 'text-foreground' },
   { name: 'TypeScript', color: 'text-blue-500' },
   { name: 'Node.js', color: 'text-green-500' },
+  { name: 'Nest.js', color: 'text-green-500' },
+  { name: 'Express.js', color: 'text-green-500' },
+  { name: 'FastAPI', color: 'text-green-500' },
   { name: 'PostgreSQL', color: 'text-blue-400' },
+  { name: 'MySQL', color: 'text-blue-400' },
   { name: 'Prisma', color: 'text-indigo-400' },
   { name: 'Tailwind', color: 'text-cyan-400' },
   { name: 'AWS', color: 'text-orange-400' },
   { name: 'MongoDB', color: 'text-green-600' },
   { name: 'Docker', color: 'text-blue-600' },
-  { name: 'Express', color: 'text-gray-400' },
-  { name: 'Framer', color: 'text-purple-500' },
 ]
 
 export const TechMarquee = () => {
