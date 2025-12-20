@@ -14,7 +14,8 @@ import {
   ExternalLink,
   ChevronRight,
   User,
-  Settings
+  Settings,
+  FileText
 } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
@@ -24,6 +25,7 @@ const navigation = [
   { name: 'Experience', href: '/admin/experience', icon: Briefcase },
   { name: 'Skills', href: '/admin/skills', icon: Code2 },
   { name: 'Projects', href: '/admin/projects', icon: FolderGit2 },
+  { name: 'Resumes', href: '/admin/resumes', icon: FileText },
   { name: 'Messages', href: '/admin/messages', icon: Mail },
 ]
 

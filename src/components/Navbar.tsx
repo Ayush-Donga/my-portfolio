@@ -37,7 +37,7 @@ export const Navbar = () => {
           <div className="h-4 w-px bg-border/50 mx-2"></div>
           <ThemeToggle />
           <Button variant="ghost" className="text-sm font-medium" asChild>
-            <a href="/resume.pdf" download>Resume</a>
+            <Link href="/resume">Resume</Link>
           </Button>
           <Button size="sm" className="rounded-full shadow-lg shadow-primary/20" asChild>
             <Link href="#contact">Hire Me</Link>
@@ -68,7 +68,7 @@ export const Navbar = () => {
             <ThemeToggle />
           </div>
           <Button className="w-full" asChild>
-            <a href="/resume.pdf" download>Download Resume</a>
+            <Link href="/resume" onClick={toggleMobileMenu}>View Resume</Link>
           </Button>
         </div>
       )}

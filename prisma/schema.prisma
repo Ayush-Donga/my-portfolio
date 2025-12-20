@@ -55,3 +55,18 @@ model Contact {
   message   String
   createdAt DateTime @default(now())
 }
+
+model Resume {
+  id              String   @id @default(uuid())
+  internalName    String   // e.g., "Full Stack Lead - 2025"
+  isActive        Boolean  @default(false)
+  
+  // Personal Details
+  personalInfo    Json     // { fullName, professionalTitle, photo, email, phone, location, socials: [], ... }
+  
+  // Custom Sections & Standard Sections (Curated data for this specific resume)
+  content         Json     // Array of sections: { type: 'experience'|'education'|'skills'|'projects'|'custom', heading: string, items: [] }
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
