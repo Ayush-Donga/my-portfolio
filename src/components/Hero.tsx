@@ -25,9 +25,15 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-primary/10 text-primary"
+            className="flex items-center gap-4"
           >
-            🚀 6+ Years Experience
+            <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-primary/10 text-primary">
+              🚀 6+ Years Experience
+            </div>
+            <div className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-emerald-500/20 bg-emerald-500/10 text-emerald-500 animate-pulse">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              Available for Hire
+            </div>
           </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}

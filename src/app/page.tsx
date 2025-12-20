@@ -1,8 +1,13 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { TrustStats } from "@/components/TrustStats";
+import { Services } from "@/components/Services";
+import { Process } from "@/components/Process";
+import { Reviews } from "@/components/Reviews";
 import { Skills } from "@/components/Skills";
 import { Experience } from "@/components/Experience";
 import { Projects } from "@/components/Projects";
+import { CTA } from "@/components/CTA";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { prisma } from "@/lib/prisma";
@@ -18,9 +23,14 @@ export default async function Home() {
     <main className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary">
       <Navbar />
       <Hero />
+      <TrustStats />
+      <Services />
+      <Process />
       <Skills skills={skills} />
       <Experience experience={experience} />
       <Projects projects={projects} />
+      <Reviews />
+      <CTA />
       <Contact />
       <Footer />
     </main>

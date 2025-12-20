@@ -56,10 +56,19 @@ export const Contact = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-             <div className="max-w-2xl mx-auto text-center mb-12">
+             <div className="max-w-3xl mx-auto text-center mb-12">
                 <h2 className="text-3xl font-bold mb-4">Let's Work <span className="text-primary">Together</span></h2>
-                <p className="text-muted-foreground">
-                    Interested in working together? We should queue up a time to chat. I’ll buy the coffee.
+                <div className="flex flex-wrap justify-center gap-4 mb-6">
+                    <div className="text-xs font-medium px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                        Working Hours: 9 AM - 7 PM IST
+                    </div>
+                    <div className="text-xs font-medium px-3 py-1 rounded-full bg-secondary text-secondary-foreground border border-border flex items-center gap-2">
+                        🌍 Available for GMT-5 to GMT+5
+                    </div>
+                </div>
+                <p className="text-muted-foreground text-lg">
+                    Have a vision for your next big project? I'm available for new opportunities and high-impact remote roles worldwide.
                 </p>
              </div>
 
