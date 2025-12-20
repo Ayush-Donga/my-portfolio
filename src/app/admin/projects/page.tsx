@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Plus, Trash2, Edit2, Loader2, Save, X, ExternalLink, Github, Image as ImageIcon, FolderGit2 } from 'lucide-react'
+import { Plus, Trash2, Edit2, Loader2, Save, X, ExternalLink, Github, Image as ImageIcon, FolderGit2, Eye, ShieldCheck } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -35,7 +35,7 @@ export default function ProjectsAdmin() {
     imageUrl: '',
     liveUrl: '',
     githubUrl: '',
-    category: 'Full Stack'
+    category: 'Product Engineering'
   })
 
   useEffect(() => {
@@ -65,7 +65,7 @@ export default function ProjectsAdmin() {
          imageUrl: '',
          liveUrl: '',
          githubUrl: '',
-         category: 'Full Stack'
+         category: 'Product Engineering'
        })
     }
     setIsFormOpen(true)
@@ -98,14 +98,20 @@ export default function ProjectsAdmin() {
   }
 
   return (
-    <div className="space-y-10">
-      <div className="flex items-center justify-between">
+    <div className="space-y-12">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <h1 className="text-4xl font-black tracking-tight text-slate-900 dark:text-white">Project <span className="text-primary font-black">Archive</span></h1>
-          <p className="text-slate-500 font-medium mt-1">Manage your portfolio showcases and case studies.</p>
+          <div className="flex items-center gap-2 mb-3">
+             <div className="p-1 rounded bg-primary/10 text-primary">
+                <FolderGit2 className="w-3 h-3" />
+             </div>
+             <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Asset Management</span>
+          </div>
+          <h1 className="text-4xl lg:text-5xl font-black tracking-tight text-slate-900 dark:text-white leading-none">Strategic <span className="text-primary italic">Showcase</span></h1>
+          <p className="text-slate-500 font-medium mt-3 max-w-lg">Manage your high-impact case studies and architectural portfolios for global stakeholders.</p>
         </div>
-        <Button onClick={() => handleOpenForm()} className="h-12 px-6 rounded-2xl gap-2 font-bold shadow-xl shadow-primary/20">
-          <Plus className="w-5 h-5" /> Launch New Project
+        <Button onClick={() => handleOpenForm()} className="h-14 px-8 rounded-2xl gap-3 font-bold shadow-2xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all text-base">
+          <Plus className="w-5 h-5" /> Launch New Asset
         </Button>
       </div>
 
@@ -114,9 +120,9 @@ export default function ProjectsAdmin() {
           <motion.div 
             layout
             key={proj.id}
-            className="group bg-white dark:bg-white/5 rounded-[2.5rem] border border-slate-100 dark:border-white/5 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 dark:hover:shadow-none transition-all duration-500"
+            className="group bg-white dark:bg-white/5 rounded-[2.5rem] border border-slate-100 dark:border-white/5 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 dark:hover:shadow-none transition-all duration-700 hover:-translate-y-2"
           >
-            <div className="aspect-video relative overflow-hidden bg-slate-100 dark:bg-black/40">
+            <div className="aspect-[16/10] relative overflow-hidden bg-slate-100 dark:bg-black/40">
                {proj.imageUrl ? (
                   <NextImage 
                      src={proj.imageUrl} 
@@ -126,34 +132,46 @@ export default function ProjectsAdmin() {
                   />
                ) : (
                   <div className="flex items-center justify-center h-full">
-                     <FolderGit2 className="w-12 h-12 text-slate-200 dark:text-white/10" />
+                     <FolderGit2 className="w-16 h-16 text-slate-200 dark:text-white/10" />
                   </div>
                )}
-               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
-                  <div className="flex gap-2 w-full">
-                     <Button variant="secondary" className="flex-1 rounded-xl h-10 font-bold bg-white/20 backdrop-blur-md border-white/20 text-white hover:bg-white hover:text-black" onClick={() => handleOpenForm(proj)}>
-                        <Edit2 className="w-4 h-4 mr-2" /> Edit Details
+               
+               {/* Premium Overlay Actions */}
+               <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-center items-center px-8 text-center gap-4">
+                  <div className="p-3 rounded-full bg-white/10 text-white mb-2 translate-y-4 group-hover:translate-y-0 transition-all delay-75">
+                     <ShieldCheck className="w-6 h-6" />
+                  </div>
+                  <div className="flex gap-3 w-full translate-y-8 group-hover:translate-y-0 transition-all delay-150">
+                     <Button variant="secondary" className="flex-1 rounded-xl h-12 font-black uppercase text-[10px] tracking-widest bg-white text-black hover:bg-slate-100" onClick={() => handleOpenForm(proj)}>
+                        Edit
                      </Button>
-                     <Button variant="destructive" className="flex-1 rounded-xl h-10 font-bold" onClick={() => handleDelete(proj.id)}>
-                        <Trash2 className="w-4 h-4 mr-2" /> Remove
+                     <Button variant="destructive" className="flex-1 rounded-xl h-12 font-black uppercase text-[10px] tracking-widest bg-red-500 text-white hover:bg-red-600" onClick={() => handleDelete(proj.id)}>
+                        Remove
                      </Button>
                   </div>
                </div>
-               <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-[10px] font-black text-white uppercase tracking-widest">
+
+               <div className="absolute top-5 left-5 z-10">
+                  <span className="px-4 py-1.5 rounded-xl bg-black/60 backdrop-blur-xl border border-white/10 text-[9px] font-black text-white uppercase tracking-[0.2em]">
                      {proj.category}
                   </span>
                </div>
             </div>
 
-            <div className="p-8">
-               <h3 className="text-xl font-black text-slate-900 dark:text-white leading-none mb-3">{proj.title}</h3>
-               <p className="text-sm text-slate-500 dark:text-slate-400 font-medium line-clamp-2 leading-relaxed mb-6">
+            <div className="p-10 border-t border-slate-50 dark:border-white/5">
+               <div className="flex items-start justify-between gap-4 mb-4">
+                  <h3 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight leading-[0.9]">{proj.title}</h3>
+                  <div className="flex gap-2">
+                    {proj.liveUrl && <ExternalLink className="w-4 h-4 text-slate-400" />}
+                    {proj.githubUrl && <Github className="w-4 h-4 text-slate-400" />}
+                  </div>
+               </div>
+               <p className="text-sm text-slate-500 dark:text-slate-400 font-medium line-clamp-2 leading-relaxed mb-8">
                   {proj.description}
                </p>
-               <div className="flex flex-wrap gap-2">
+               <div className="flex flex-wrap gap-2.5">
                   {proj.techStack.map(tech => (
-                     <span key={tech} className="px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-black/40 text-[10px] font-bold text-slate-400 border border-slate-100 dark:border-white/10">
+                     <span key={tech} className="px-3 py-1 rounded-lg bg-slate-50 dark:bg-white/5 text-[10px] font-bold text-slate-400 border border-slate-100 dark:border-white/10 uppercase tracking-wider">
                         {tech}
                      </span>
                   ))}
@@ -171,111 +189,118 @@ export default function ProjectsAdmin() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsFormOpen(false)}
-              className="fixed inset-0 bg-slate-900/40 dark:bg-black/60 backdrop-blur-sm z-50 overflow-hidden"
+              className="fixed inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-md z-[100] overflow-hidden"
             />
             <motion.div 
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 bottom-0 w-full max-w-2xl bg-white dark:bg-[#030712] z-[60] shadow-2xl border-l border-slate-200 dark:border-white/5 overflow-y-auto custom-scrollbar"
+              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              className="fixed right-0 top-0 bottom-0 w-full max-w-3xl bg-white dark:bg-[#030712] z-[110] shadow-2xl border-l border-slate-200 dark:border-white/5 overflow-y-auto custom-scrollbar"
             >
-               <div className="p-10">
-                  <div className="flex items-center justify-between mb-10">
-                    <div>
-                      <h2 className="text-3xl font-black tracking-tight text-slate-900 dark:text-white">
-                        {editingId ? 'Edit Project' : 'Launch New Project'}
-                      </h2>
-                      <p className="text-slate-500 font-medium mt-1">Fill in the strategic project details.</p>
+               <div className="p-8 lg:p-14">
+                  <div className="flex items-center justify-between mb-12">
+                    <div className="flex items-center gap-4">
+                       <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary border border-primary/20">
+                          {editingId ? <Edit2 className="w-7 h-7" /> : <Plus className="w-7 h-7" />}
+                       </div>
+                       <div>
+                        <h2 className="text-3xl font-black tracking-tight text-slate-900 dark:text-white uppercase italic italic">
+                          {editingId ? 'Edit Strategic Asset' : 'Launch New Asset'}
+                        </h2>
+                        <p className="text-slate-500 font-medium mt-1">Refining the narrative of your technical expertise.</p>
+                       </div>
                     </div>
-                    <Button variant="ghost" size="icon" className="w-12 h-12 rounded-2xl" onClick={() => setIsFormOpen(false)}>
+                    <Button variant="ghost" size="icon" className="w-12 h-12 rounded-2xl hover:bg-slate-100 dark:hover:bg-white/5" onClick={() => setIsFormOpen(false)}>
                       <X className="w-6 h-6" />
                     </Button>
                   </div>
 
-                  <form onSubmit={handleSubmit} className="space-y-8">
-                     <div className="grid grid-cols-2 gap-6">
-                        <div className="space-y-2 col-span-2">
-                           <label className="text-xs font-black uppercase tracking-widest text-slate-400">Project Title</label>
+                  <form onSubmit={handleSubmit} className="space-y-10">
+                     <div className="grid grid-cols-2 gap-8">
+                        <div className="space-y-3 col-span-2">
+                           <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Asset Headline</label>
                            <Input 
                               value={formData.title} 
                               onChange={e => setFormData({...formData, title: e.target.value})}
-                              placeholder="e.g. Acme Dashboard"
+                              placeholder="e.g. Enterprise Cloud Infrastructure"
                               required
-                              className="h-14 rounded-2xl bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 px-5 font-bold"
+                              className="h-16 rounded-[1.25rem] bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 px-6 font-bold text-lg focus:ring-primary shadow-sm"
                            />
                         </div>
                         
-                        <div className="space-y-2 col-span-2">
-                           <label className="text-xs font-black uppercase tracking-widest text-slate-400">Category Tag</label>
+                        <div className="space-y-3 col-span-2">
+                           <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Strategic Category</label>
                            <Input 
                               value={formData.category || ''} 
                               onChange={e => setFormData({...formData, category: e.target.value})}
-                              placeholder="e.g. Next.js SaaS"
+                              placeholder="e.g. Distributed Systems"
                               required
-                              className="h-14 rounded-2xl bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 px-5 font-bold"
+                              className="h-16 rounded-[1.25rem] bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 px-6 font-bold shadow-sm"
                            />
                         </div>
 
-                        <div className="space-y-2 col-span-2">
-                           <label className="text-xs font-black uppercase tracking-widest text-slate-400">Deep Description</label>
+                        <div className="space-y-3 col-span-2">
+                           <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">The Technical Narrative</label>
                            <Textarea 
                               value={formData.description} 
                               onChange={e => setFormData({...formData, description: e.target.value})}
-                              placeholder="Describe the architectural impact and technical challenges."
+                              placeholder="Focus on technical challenges, architectural decisions, and the business impact of the solution."
                               required
-                              className="min-h-[120px] rounded-2xl bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 p-5 font-medium leading-relaxed"
+                              className="min-h-[160px] rounded-[1.25rem] bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 p-6 font-medium leading-relaxed shadow-sm"
                            />
                         </div>
 
-                        <div className="space-y-2 col-span-2">
-                           <label className="text-xs font-black uppercase tracking-widest text-slate-400">Tech Stack (comma separated)</label>
+                        <div className="space-y-3 col-span-2">
+                           <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Core Tech Stack</label>
                            <Input 
                               value={formData.techStack?.join(', ')} 
                               onChange={e => setFormData({...formData, techStack: e.target.value.split(',').map(s => s.trim())})}
-                              placeholder="React, Tailwind, Prisma, PostgreSQL"
+                              placeholder="comma separated values"
                               required
-                              className="h-14 rounded-2xl bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 px-5 font-bold"
+                              className="h-16 rounded-[1.25rem] bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 px-6 font-bold shadow-sm"
                            />
                         </div>
 
                         <div className="space-y-4 col-span-2">
-                           <label className="text-xs font-black uppercase tracking-widest text-slate-400">Project Visual Showcase</label>
-                           <ImageUpload 
-                              value={formData.imageUrl || ''} 
-                              onChange={(url) => setFormData({...formData, imageUrl: url})}
-                              onRemove={() => setFormData({...formData, imageUrl: ''})}
-                           />
+                           <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Visual Asset</label>
+                           <div className="bg-slate-50 dark:bg-white/5 rounded-[2rem] p-6 border-2 border-dashed border-slate-200 dark:border-white/10">
+                              <ImageUpload 
+                                 value={formData.imageUrl || ''} 
+                                 onChange={(url) => setFormData({...formData, imageUrl: url})}
+                                 onRemove={() => setFormData({...formData, imageUrl: ''})}
+                              />
+                           </div>
                         </div>
 
-                        <div className="space-y-2 col-span-1">
-                           <label className="text-xs font-black uppercase tracking-widest text-slate-400">Live Workspace</label>
+                        <div className="space-y-3 col-span-1">
+                           <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Live Endpoint</label>
                            <Input 
                               value={formData.liveUrl || ''} 
                               onChange={e => setFormData({...formData, liveUrl: e.target.value})}
-                              placeholder="https://acme.com"
-                              className="h-14 rounded-2xl bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 px-5 font-bold"
+                              placeholder="https://..."
+                              className="h-16 rounded-[1.25rem] bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 px-6 font-bold shadow-sm"
                            />
                         </div>
 
-                        <div className="space-y-2 col-span-1">
-                           <label className="text-xs font-black uppercase tracking-widest text-slate-400">Code Repository</label>
+                        <div className="space-y-3 col-span-1">
+                           <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Source Control</label>
                            <Input 
                               value={formData.githubUrl || ''} 
                               onChange={e => setFormData({...formData, githubUrl: e.target.value})}
-                              placeholder="https://github.com/ayush/..."
-                              className="h-14 rounded-2xl bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 px-5 font-bold"
+                              placeholder="https://github.com/..."
+                              className="h-16 rounded-[1.25rem] bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 px-6 font-bold shadow-sm"
                            />
                         </div>
                      </div>
 
-                     <div className="flex gap-4 pt-4 sticky bottom-0 bg-white dark:bg-[#030712] py-4 border-t border-slate-100 dark:border-white/5">
-                        <Button type="button" variant="outline" className="flex-1 h-14 rounded-2xl font-bold" onClick={() => setIsFormOpen(false)}>
-                           Discard Changes
+                     <div className="flex gap-4 pt-8 sticky bottom-0 bg-white dark:bg-[#030712] py-8 border-t border-slate-100 dark:border-white/5">
+                        <Button type="button" variant="outline" className="flex-1 h-16 rounded-[1.25rem] font-black uppercase text-xs tracking-[0.2em]" onClick={() => setIsFormOpen(false)}>
+                           Discard
                         </Button>
-                        <Button type="submit" className="flex-1 h-14 rounded-2xl font-bold gap-2 shadow-xl shadow-primary/20" disabled={loading}>
+                        <Button type="submit" className="flex-[2] h-16 rounded-[1.25rem] font-black uppercase text-xs tracking-[0.2em] gap-3 shadow-2xl shadow-primary/30 active:scale-95 transition-all" disabled={loading}>
                            {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Save className="w-5 h-5" />}
-                           {editingId ? 'Push Update' : 'Launch Showcase'}
+                           {editingId ? 'Push Update' : 'Launch Asset'}
                         </Button>
                      </div>
                   </form>
