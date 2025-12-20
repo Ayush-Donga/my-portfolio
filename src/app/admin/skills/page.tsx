@@ -1,12 +1,13 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Plus, Trash2, Edit2, Loader2, Save, X, Code2 } from 'lucide-react'
+import { Plus, Trash2, Edit2, Loader2, Save, X, Code2, AlertTriangle } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
+import { toast } from 'sonner'
 
 interface Skill {
   id: string
@@ -26,6 +27,10 @@ export default function SkillsAdmin() {
     category: 'Frontend',
     level: 80
   })
+
+  // Delete Confirmation State
+  const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null)
+  const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
     fetchSkills()
@@ -55,6 +60,7 @@ export default function SkillsAdmin() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
+    const toastId = toast.loading(editingId ? 'Updating skill...' : 'Registering new skill...')
     try {
       const url = editingId ? `/api/skills/${editingId}` : '/api/skills'
       const method = editingId ? 'PATCH' : 'POST'
@@ -64,18 +70,36 @@ export default function SkillsAdmin() {
         body: JSON.stringify(formData)
       })
       if (res.ok) {
+        toast.success(editingId ? 'Skill optimized successfully' : 'New strategic skill registered', { id: toastId })
         fetchSkills()
         setIsFormOpen(false)
+      } else {
+        toast.error('Failed to sync skill data', { id: toastId })
       }
+    } catch (error) {
+      toast.error('A technical error occurred during sync', { id: toastId })
     } finally {
       setLoading(false)
     }
   }
 
   const handleDelete = async (id: string) => {
-    if (!confirm('Permanently delete this skill?')) return
-    await fetch(`/api/skills/${id}`, { method: 'DELETE' })
-    fetchSkills()
+    setIsDeleting(true)
+    const toastId = toast.loading('Removing skill from stack...')
+    try {
+      const res = await fetch(`/api/skills/${id}`, { method: 'DELETE' })
+      if (res.ok) {
+        toast.success('Skill successfully decommissioned', { id: toastId })
+        fetchSkills()
+        setDeleteConfirmId(null)
+      } else {
+        toast.error('Failed to remove skill', { id: toastId })
+      }
+    } catch (error) {
+      toast.error('Error during skill decommissioning', { id: toastId })
+    } finally {
+      setIsDeleting(false)
+    }
   }
 
   const defaultCategories = ['Frontend', 'Backend', 'Database', 'DevOps', 'Tools', 'Mobile']
@@ -146,9 +170,9 @@ export default function SkillsAdmin() {
                             <Button variant="ghost" size="icon" className="w-8 h-8 rounded-lg" onClick={() => handleOpenForm(skill)}>
                                <Edit2 className="w-4 h-4" />
                             </Button>
-                            <Button variant="ghost" size="icon" className="w-8 h-8 rounded-lg text-red-500" onClick={() => handleDelete(skill.id)}>
-                               <Trash2 className="w-4 h-4" />
-                            </Button>
+                             <Button variant="ghost" size="icon" className="w-8 h-8 rounded-lg text-red-500" onClick={() => setDeleteConfirmId(skill.id)}>
+                                <Trash2 className="w-4 h-4" />
+                             </Button>
                          </div>
                       </div>
                       <div className="space-y-1.5">
@@ -278,6 +302,55 @@ export default function SkillsAdmin() {
               </motion.div>
             </motion.div>
           </>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {deleteConfirmId && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setDeleteConfirmId(null)}
+              className="absolute inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-md"
+            />
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="relative w-full max-w-md bg-white dark:bg-[#030712] rounded-[2.5rem] shadow-2xl border border-slate-200 dark:border-white/5 overflow-hidden p-8"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="w-20 h-20 rounded-3xl bg-red-50 dark:bg-red-500/10 flex items-center justify-center text-red-500 mb-6 ring-8 ring-red-500/5">
+                  <AlertTriangle className="w-10 h-10" />
+                </div>
+                <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2">Decommission Skill?</h3>
+                <p className="text-slate-500 font-medium">
+                  This action will permanently remove <span className="text-slate-900 dark:text-white font-bold">{skills.find(s => s.id === deleteConfirmId)?.name}</span> from your technical arsenal. This cannot be undone.
+                </p>
+              </div>
+
+              <div className="flex gap-4 mt-10">
+                <Button 
+                  variant="outline" 
+                  className="flex-1 h-14 rounded-2xl font-bold border-2" 
+                  onClick={() => setDeleteConfirmId(null)}
+                  disabled={isDeleting}
+                >
+                  Keep Skill
+                </Button>
+                <Button 
+                  className="flex-1 h-14 rounded-2xl font-bold bg-red-500 hover:bg-red-600 text-white shadow-xl shadow-red-500/20 gap-2"
+                  onClick={() => handleDelete(deleteConfirmId)}
+                  disabled={isDeleting}
+                >
+                  {isDeleting ? <Loader2 className="w-5 h-5 animate-spin" /> : <Trash2 className="w-5 h-5" />}
+                  Confirm
+                </Button>
+              </div>
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </div>

@@ -1,13 +1,14 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import { Plus, Trash2, Edit2, Loader2, Calendar, MapPin, Building2, Save, X, Briefcase } from 'lucide-react'
+import { Plus, Trash2, Edit2, Loader2, Calendar, MapPin, Building2, Save, X, Briefcase, AlertTriangle } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Badge } from '@/components/ui/badge'
 import { motion, AnimatePresence } from 'framer-motion'
+import { toast } from 'sonner'
 
 interface Experience {
   id: string
@@ -35,6 +36,10 @@ export default function ExperienceAdmin() {
     current: false,
     description: ['']
   })
+
+  // Delete Confirmation State
+  const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null)
+  const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
     fetchExperiences()
@@ -83,6 +88,7 @@ export default function ExperienceAdmin() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
+    const toastId = toast.loading(editingId ? 'Updating professional record...' : 'Recording new career milestone...')
     try {
       const url = editingId ? `/api/experience/${editingId}` : '/api/experience'
       const method = editingId ? 'PATCH' : 'POST'
@@ -92,18 +98,36 @@ export default function ExperienceAdmin() {
         body: JSON.stringify(formData)
       })
       if (res.ok) {
+        toast.success(editingId ? 'Career record optimized' : 'Professional experience recorded successfully', { id: toastId })
         fetchExperiences()
         setIsFormOpen(false)
+      } else {
+        toast.error('Failed to sync career data', { id: toastId })
       }
+    } catch (error) {
+      toast.error('Technical error during experience synchronization', { id: toastId })
     } finally {
       setLoading(false)
     }
   }
 
   const handleDelete = async (id: string) => {
-    if (!confirm('Permanently remove this entry?')) return
-    await fetch(`/api/experience/${id}`, { method: 'DELETE' })
-    fetchExperiences()
+    setIsDeleting(true)
+    const toastId = toast.loading('Removing entry from professional history...')
+    try {
+      const res = await fetch(`/api/experience/${id}`, { method: 'DELETE' })
+      if (res.ok) {
+        toast.success('Experience record successfully archived', { id: toastId })
+        fetchExperiences()
+        setDeleteConfirmId(null)
+      } else {
+        toast.error('Failed to remove career entry', { id: toastId })
+      }
+    } catch (error) {
+      toast.error('Error during experience decommission', { id: toastId })
+    } finally {
+      setIsDeleting(false)
+    }
   }
 
   return (
@@ -168,7 +192,7 @@ export default function ExperienceAdmin() {
                   <Button variant="ghost" size="icon" className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-white/5 hover:bg-primary/10 hover:text-primary transition-all" onClick={() => handleOpenForm(exp)}>
                      <Edit2 className="w-5 h-5" />
                   </Button>
-                  <Button variant="ghost" size="icon" className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-white/5 hover:bg-red-50 hover:text-red-500 transition-all" onClick={() => handleDelete(exp.id)}>
+                  <Button variant="ghost" size="icon" className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-white/5 hover:bg-red-50 hover:text-red-500 transition-all" onClick={() => setDeleteConfirmId(exp.id)}>
                      <Trash2 className="w-5 h-5" />
                   </Button>
                </div>
@@ -304,6 +328,55 @@ export default function ExperienceAdmin() {
                </div>
             </motion.div>
           </>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {deleteConfirmId && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setDeleteConfirmId(null)}
+              className="absolute inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-md"
+            />
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              className="relative w-full max-w-md bg-white dark:bg-[#030712] rounded-[2.5rem] shadow-2xl border border-slate-200 dark:border-white/5 overflow-hidden p-8"
+            >
+              <div className="flex flex-col items-center text-center">
+                <div className="w-20 h-20 rounded-3xl bg-red-50 dark:bg-red-500/10 flex items-center justify-center text-red-500 mb-6 ring-8 ring-red-500/5">
+                  <AlertTriangle className="w-10 h-10" />
+                </div>
+                <h3 className="text-2xl font-black text-slate-900 dark:text-white mb-2">Delete Experience?</h3>
+                <p className="text-slate-500 font-medium">
+                  This action will permanently remove <span className="text-slate-900 dark:text-white font-bold">{experiences.find(e => e.id === deleteConfirmId)?.title}</span> at <span className="text-slate-900 dark:text-white font-bold">{experiences.find(e => e.id === deleteConfirmId)?.company}</span> from your professional history. This cannot be undone.
+                </p>
+              </div>
+
+              <div className="flex gap-4 mt-10">
+                <Button 
+                  variant="outline" 
+                  className="flex-1 h-14 rounded-2xl font-bold border-2" 
+                  onClick={() => setDeleteConfirmId(null)}
+                  disabled={isDeleting}
+                >
+                  Keep Record
+                </Button>
+                <Button 
+                  className="flex-1 h-14 rounded-2xl font-bold bg-red-500 hover:bg-red-600 text-white shadow-xl shadow-red-500/20 gap-2"
+                  onClick={() => handleDelete(deleteConfirmId)}
+                  disabled={isDeleting}
+                >
+                  {isDeleting ? <Loader2 className="w-5 h-5 animate-spin" /> : <Trash2 className="w-5 h-5" />}
+                  Confirm
+                </Button>
+              </div>
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </div>
