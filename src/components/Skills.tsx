@@ -49,7 +49,7 @@ export const Skills = ({ skills }: SkillsProps) => {
             >
                 <h2 className="text-3xl font-bold mb-4">Technical <span className="text-primary">Expertise</span></h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                    A comprehensive toolset developed over 6+ years of full-stack development.
+                    A comprehensive toolset developed over 6+ years of engineering high-scale systems.
                 </p>
             </motion.div>
             

@@ -49,9 +49,9 @@ export const Projects = ({ projects }: ProjectsProps) => {
                 viewport={{ once: true }}
                 className="text-center mb-16"
             >
-                <h2 className="text-3xl font-bold mb-4">Featured <span className="text-primary">Projects</span></h2>
+                <h2 className="text-3xl font-bold mb-4">Strategic <span className="text-primary">Case Studies</span></h2>
                 <p className="text-muted-foreground max-w-2xl mx-auto">
-                    A selection of projects demonstrating full-stack capabilities and architectural expertise.
+                    A deep dive into architectural challenges and high-impact engineering solutions delivered for global stakeholders.
                 </p>
             </motion.div>
             

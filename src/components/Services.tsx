@@ -6,7 +6,7 @@ import { Code2, Server, Layout, MessageSquare, Rocket, ShieldCheck } from 'lucid
 
 const services = [
   {
-    title: 'Full Stack Development',
+    title: 'Product Engineering',
     description: 'Building end-to-end web applications with modern stacks like MERN or Next.js. Focused on scalability and performance.',
     icon: Code2,
     color: 'text-blue-500',

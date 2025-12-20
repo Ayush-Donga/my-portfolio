@@ -11,7 +11,7 @@ export const Footer = () => {
                             Ayush Donga
                         </Link>
                         <p className="text-muted-foreground max-w-sm leading-relaxed">
-                            Full Stack Lead specializing in building high-performance web applications and leading remote engineering teams to success.
+                            Engineering Lead specializing in building high-performance web applications and leading remote engineering teams to success.
                         </p>
                         <div className="flex gap-4">
                             {/* Social Icons would go here */}

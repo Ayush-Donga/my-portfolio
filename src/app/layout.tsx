@@ -14,13 +14,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ayush Donga | Full Stack Developer",
-  description: "Experienced MERN Stack Team Lead & Developer with 6+ years of expertise in building scalable web applications using React, Next.js, Node.js, and PostgreSQL.",
-  keywords: ["Full Stack Developer", "MERN Stack", "React", "Next.js", "Node.js", "Team Lead", "Ayush Donga"],
+  title: "Ayush Donga | Engineering Lead & Technical Partner",
+  description: "Engineering Lead specializing in building high-performance web applications and leading remote engineering teams to success. Bridging the gap between business and technology.",
+  keywords: ["Engineering Lead", "Technical Partner", "Full Stack Architect", "Next.js Expert", "Node.js Lead", "Remote Engineering Leader"],
   authors: [{ name: "Ayush Donga" }],
   openGraph: {
-    title: "Ayush Donga | Full Stack Developer",
-    description: "Experienced MERN Stack Team Lead & Developer",
+    title: "Ayush Donga | Engineering Lead & Technical Partner",
+    description: "Architecting high-performance systems for global-scale products.",
     type: "website",
   },
 };

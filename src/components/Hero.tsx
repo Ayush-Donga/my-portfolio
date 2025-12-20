@@ -42,8 +42,8 @@ export const Hero = () => {
             transition={{ delay: 0.3 }}
             className="text-4xl md:text-6xl font-bold tracking-tight"
           >
-            Building Scalable <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Digital Solutions</span>
+            Architecting High-Performance <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Systems for Global Scale</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -51,7 +51,7 @@ export const Hero = () => {
             transition={{ delay: 0.4 }}
             className="text-lg text-muted-foreground leading-relaxed max-w-lg"
           >
-            Hi, I'm <span className="text-foreground font-semibold">Ayush Donga</span>. A specialized Full Stack MERN Developer & Team Lead. I architect, build, and scale modern web applications with a focus on performance and user experience.
+            Engineering the technical foundation for next-generation products. I bridge the gap between business objectives and robust architecture as an <span className="text-foreground font-semibold">Full Stack Lead & Technical Partner</span>.
           </motion.p>
           
           <motion.div 
@@ -115,12 +115,15 @@ export const Hero = () => {
                     <p className="text-muted-foreground"><span className="text-purple-400">const</span> <span className="text-blue-400">me</span> = <span className="text-yellow-400">new</span> <span className="text-green-400">Developer</span>({'{'}</p>
                     <div className="pl-6 space-y-2 border-l-2 border-border/50">
                         <p><span className="text-blue-300">name</span>: <span className="text-orange-300">"Ayush Donga"</span>,</p>
-                        <p><span className="text-blue-300">role</span>: <span className="text-orange-300">"Full Stack Team Lead"</span>,</p>
-                        <p><span className="text-blue-300">skills</span>: [</p>
-                        <p className="pl-4 text-green-300">"Next.js", "React", "Node.js",</p>
-                        <p className="pl-4 text-green-300">"PostgreSQL", "Prisma", "AWS"</p>
+                        <p><span className="text-blue-300">role</span>: <span className="text-orange-300">"Full Stack Lead"</span>,</p>
+                        <p><span className="text-blue-300">focus</span>: <span className="text-orange-300">"Scalable Architecture"</span>,</p>
+                        <p><span className="text-blue-300">stack</span>: [</p>
+                        <p className="pl-4 text-green-300">"React", "Next.js", "Node.js", "AWS",</p>
+                        <p className="pl-4 text-green-300">"PostgreSQL", "Docker", "Typescript"</p>
                         <p>],</p>
                         <p><span className="text-blue-300">location</span>: <span className="text-orange-300">"India"</span></p>
+                        <p><span className="text-blue-300">remote</span>: <span className="text-orange-300">"Available"</span></p>
+
                     </div>
                     <p className="text-muted-foreground">{'}'});</p>
                     

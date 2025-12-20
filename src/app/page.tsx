@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { TechMarquee } from "@/components/TechMarquee";
 import { TrustStats } from "@/components/TrustStats";
 import { Services } from "@/components/Services";
+import { QualityStandards } from "@/components/QualityStandards";
 import { Process } from "@/components/Process";
 import { Reviews } from "@/components/Reviews";
 import { Skills } from "@/components/Skills";
@@ -28,6 +29,7 @@ export default async function Home() {
       <TechMarquee />
       <TrustStats />
       <Services />
+      <QualityStandards />
       <Process />
       <Skills skills={skills} />
       <Experience experience={experience} />
