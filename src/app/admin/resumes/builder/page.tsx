@@ -312,7 +312,7 @@ export default function ResumeBuilder() {
                         <label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Brand Color Accent</label>
                       </div>
                       <div className="flex gap-3">
-                        {['#3b82f6', '#8b5cf6', '#ec4899', '#10b981', '#f59e0b', '#0f172a'].map(color => (
+                        {['#3b82f6', '#8b5cf6', '#ec4899', '#10b981', '#f59e0b', '#0f172a'].map((color: string) => (
                           <button 
                             key={color}
                             onClick={() => setAccentColor(color)}
@@ -429,7 +429,7 @@ export default function ResumeBuilder() {
                      <p className="text-slate-400 font-bold italic">Start adding modules from the sidebar to build your story.</p>
                   </div>
                 ) : (
-                  sections.map((section, sIndex) => (
+                  sections.map((section: ResumeSection, sIndex: number) => (
                     <div key={section.id} className="bg-white dark:bg-white/5 rounded-[2.5rem] border border-slate-100 dark:border-white/5 overflow-hidden">
                        <div className="p-6 bg-slate-50 dark:bg-black/20 border-bottom border-slate-100 dark:border-white/5 flex items-center justify-between">
                           <div className="flex items-center gap-4">
@@ -465,7 +465,7 @@ export default function ResumeBuilder() {
                        </div>
 
                        <div className="p-8 space-y-8">
-                          {section.items.map((item, iIndex) => (
+                          {section.items.map((item: ResumeItem, iIndex: number) => (
                             <div key={item.id} className="relative group/item bg-slate-50 dark:bg-black/10 rounded-2xl p-6 border border-slate-100 dark:border-white/5">
                                <div className="grid grid-cols-2 gap-6">
                                   {section.type === 'experience' && (
@@ -796,7 +796,7 @@ export default function ResumeBuilder() {
                               <div className="prose prose-sm font-sans text-slate-600 max-w-none" dangerouslySetInnerHTML={{ __html: personalInfo.summary }} />
                            </div>
                         )}
-                        {sections.map(section => (
+                        {sections.map((section: ResumeSection) => (
                           <div key={section.id} className="space-y-4">
                              <h2 className="text-sm font-black uppercase tracking-[0.3em] text-slate-400 border-b border-slate-100 pb-2">{section.heading}</h2>
                              <div className="space-y-6">

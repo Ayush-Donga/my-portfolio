@@ -70,7 +70,7 @@ export default function MessagesAdmin() {
           </div>
         )}
         
-        {messages.map((msg, index) => (
+        {messages.map((msg: Message, index: number) => (
           <motion.div 
             layout
             key={msg.id}

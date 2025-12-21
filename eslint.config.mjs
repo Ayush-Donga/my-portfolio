@@ -12,10 +12,7 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  {
-    ignores: [".next/**", "out/**", "build/**", "next-env.d.ts"],
-  },
-  ...compat.extends("next/core-web-vitals").map(config => {
+  ...compat.extends("next/core-web-vitals", "next/typescript").map(config => {
     // Strip name property if present in any of the returned config objects.
     // This is a workaround for Next.js 15.1+ where some configs include
     // a 'name' property that @eslint/eslintrc's FlatCompat does not expect
@@ -23,6 +20,9 @@ const eslintConfig = [
     const { name, ...rest } = config;
     return rest;
   }),
+  {
+    ignores: [".next/**", "out/**", "build/**", "next-env.d.ts", "node_modules/**"],
+  }
 ];
 
 export default eslintConfig;

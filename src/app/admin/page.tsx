@@ -4,6 +4,15 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Briefcase, Code2, FolderGit2, Mail, Plus, ChevronRight, Activity, Globe, Database, Cpu } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import NextImage from 'next/image'
+import { Project, Contact } from '@prisma/client'
+
+interface StatItem {
+  name: string
+  value: number
+  icon: any
+  color: string
+  trend: string
+}
 
 async function getStats() {
   const [experienceCount, skillsCount, projectsCount, contactCount] = await Promise.all([
@@ -67,7 +76,7 @@ export default async function AdminDashboard() {
 
       {/* Stats Grid with Glassmorphism */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {stats.map((stat, index) => (
+        {stats.map((stat: StatItem, index: number) => (
           <Card key={stat.name} className="group relative border-none bg-white dark:bg-white/5 shadow-2xl shadow-slate-200/50 dark:shadow-none rounded-[2rem] overflow-hidden transition-all duration-500 hover:shadow-primary/5">
             <CardContent className="p-8 relative">
               <div className={cn("absolute -top-10 -right-10 w-32 h-32 blur-[60px] opacity-20 rounded-full transition-all duration-700 group-hover:scale-150 group-hover:opacity-30", stat.color.replace('text-', 'bg-'))} />
@@ -110,7 +119,7 @@ export default async function AdminDashboard() {
             </CardHeader>
             <CardContent className="p-10 pt-6">
               <div className="grid sm:grid-cols-2 gap-4">
-                  {recentProjects.map((project: any) => (
+                  {recentProjects.map((project: Project) => (
                     <div key={project.id} className="flex flex-col gap-4 p-5 rounded-3xl border border-slate-50 dark:border-white/5 hover:bg-slate-50 dark:hover:bg-white/5 transition-all group cursor-pointer">
                         <div className="aspect-video w-full rounded-[1.5rem] bg-slate-100 dark:bg-black/40 overflow-hidden border border-slate-200 dark:border-white/10 relative">
                           {project.imageUrl ? (
@@ -127,7 +136,7 @@ export default async function AdminDashboard() {
                         <div className="flex-1">
                           <h4 className="font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors line-clamp-1">{project.title}</h4>
                           <div className="flex flex-wrap gap-2 mt-3">
-                            {project.techStack.slice(0, 3).map((tech: any) => (
+                            {project.techStack.slice(0, 3).map((tech: string) => (
                                 <span key={tech} className="text-[10px] font-bold text-slate-400"># {tech}</span>
                             ))}
                           </div>
@@ -178,7 +187,7 @@ export default async function AdminDashboard() {
                     <div className="text-center py-8">
                        <p className="text-sm text-slate-500 uppercase font-black tracking-widest">No Inbound Active</p>
                     </div>
-                  ) : recentMessages.map(msg => (
+                  ) : recentMessages.map((msg: Contact) => (
                     <div key={msg.id} className="group cursor-pointer">
                         <div className="flex items-center justify-between mb-1.5">
                           <p className="text-sm font-black text-slate-200 group-hover:text-primary transition-colors">{msg.name}</p>

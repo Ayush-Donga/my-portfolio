@@ -24,8 +24,47 @@ const ResumeDownloadButton = dynamic(
  * 2. 2-COLUMN STRUCTURE: Sidebar for meta-data, Main for deep work.
  * 3. PRINT OPTIMIZED: Exact A4 dimensions with zero margin bleed.
  */
+interface ResumeItem {
+  id: string
+  title?: string
+  subtitle?: string
+  company?: string
+  school?: string
+  degree?: string
+  link?: string
+  startDate?: string
+  endDate?: string
+  location?: string
+  description?: string
+  level?: number
+  subskills?: string
+}
+
+interface ResumeSection {
+  id: string
+  type: string
+  heading: string
+  items: ResumeItem[]
+}
+
+interface ResumeData {
+  id: string
+  internalName: string
+  personalInfo: {
+    fullName: string
+    professionalTitle: string
+    email: string
+    phone: string
+    location: string
+    linkedin?: string
+    github?: string
+    summary?: string
+  }
+  content: ResumeSection[]
+}
+
 export default function PublicResume() {
-  const [resume, setResume] = useState<any>(null)
+  const [resume, setResume] = useState<ResumeData | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -81,8 +120,8 @@ export default function PublicResume() {
   // Let's put Experience and Projects in Main. Education in Sidebar (or Main bottom).
   // Given the user wants "FlowCV" style, a sidebar is very common.
   
-  const mainSections = content.filter((s: any) => ['experience', 'projects'].includes(s.type))
-  const sideSections = content.filter((s: any) => ['skills', 'education', 'languages', 'interests', 'awards'].includes(s.type))
+  const mainSections = content.filter((s: ResumeSection) => ['experience', 'projects'].includes(s.type))
+  const sideSections = content.filter((s: ResumeSection) => ['skills', 'education', 'languages', 'interests', 'awards'].includes(s.type))
   
   // If education has long descriptions, maybe move it to main. For now, let's keep it in sidebar for compactness or check length.
   // Actually, usually Education goes in Main if you are a new grad, Sidebar if experienced.
@@ -181,13 +220,13 @@ export default function PublicResume() {
                     </h2>
                     <div 
                       className="text-[11.5px] leading-[1.6] text-slate-600 dark:text-slate-400 text-justify print:text-black/80"
-                      dangerouslySetInnerHTML={{ __html: personalInfo.summary }}
+                      dangerouslySetInnerHTML={{ __html: personalInfo.summary || '' }}
                     />
                  </section>
               )}
 
               {/* Main Content Loop (Experience, Projects) */}
-              {content.filter((s:any) => ['experience', 'projects'].includes(s.type)).map((section: any) => (
+              {content.filter((s: ResumeSection) => ['experience', 'projects'].includes(s.type)).map((section: ResumeSection) => (
                 <section key={section.id} className="space-y-4 break-inside-avoid">
                    <div className="flex items-center gap-3 mb-2">
                       <h2 className="text-[12px] font-bold uppercase tracking-widest text-slate-900 dark:text-white print:text-black whitespace-nowrap">
@@ -197,7 +236,7 @@ export default function PublicResume() {
                    </div>
 
                    <div className="space-y-5">
-                      {section.items.map((item: any) => (
+                      {section.items.map((item: ResumeItem) => (
                         <div key={item.id} className="relative">
                            <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-1 gap-1">
                               <div className="flex items-center gap-2">
@@ -225,7 +264,7 @@ export default function PublicResume() {
                            {item.description && (
                              <div 
                                className="text-[11px] leading-[1.55] text-slate-600 dark:text-slate-400 print:text-black/85 [&>ul]:list-disc [&>ul]:pl-4 [&>ul]:space-y-1 [&>ul>li::marker]:text-slate-400"
-                               dangerouslySetInnerHTML={{ __html: item.description }}
+                               dangerouslySetInnerHTML={{ __html: item.description || '' }}
                              />
                            )}
                         </div>
@@ -239,20 +278,20 @@ export default function PublicResume() {
             <div className="bg-slate-50 dark:bg-zinc-900/40 p-8 md:p-10 md:pt-10 border-l border-slate-100 dark:border-white/5 space-y-8 print:bg-slate-50 print:p-8 print:pt-10">
                
                {/* Skills */}
-               {content.filter((s:any) => s.type === 'skills').map((section: any) => (
+               {content.filter((s: ResumeSection) => s.type === 'skills').map((section: ResumeSection) => (
                  <section key={section.id} className="space-y-3 break-inside-avoid">
                     <h2 className="text-[11px] font-bold uppercase tracking-widest text-slate-900 dark:text-white print:text-black pb-1">
                       {section.heading}
                     </h2>
                     <div className="space-y-3">
-                      {section.items.map((item: any) => (
+                      {section.items.map((item: ResumeItem) => (
                         <div key={item.id}>
                            <h3 className="text-[11px] font-bold text-slate-700 dark:text-slate-300 mb-1">
                              {item.title}
                            </h3>
                            <div 
                              className="text-[10.5px] leading-relaxed text-slate-500 dark:text-slate-400 print:text-black/70"
-                             dangerouslySetInnerHTML={{ __html: item.subskills || item.description }}
+                             dangerouslySetInnerHTML={{ __html: item.subskills || item.description || '' }}
                            />
                         </div>
                       ))}
@@ -261,13 +300,13 @@ export default function PublicResume() {
                ))}
 
                {/* Education (Placed in Sidebar for compactness) */}
-               {content.filter((s:any) => s.type === 'education').map((section: any) => (
+               {content.filter((s: ResumeSection) => s.type === 'education').map((section: ResumeSection) => (
                  <section key={section.id} className="space-y-3 break-inside-avoid">
                     <h2 className="text-[11px] font-bold uppercase tracking-widest text-slate-900 dark:text-white print:text-black pb-1">
                       {section.heading}
                     </h2>
                     <div className="space-y-3">
-                      {section.items.map((item: any) => (
+                      {section.items.map((item: ResumeItem) => (
                         <div key={item.id}>
                            <div className="flex justify-between items-start">
                              <h3 className="text-[11px] font-bold text-slate-800 dark:text-slate-200">
@@ -287,19 +326,19 @@ export default function PublicResume() {
                ))}
 
                {/* Other items (Languages, Interests) */}
-               {content.filter((s:any) => !['experience', 'projects', 'education', 'skills'].includes(s.type)).map((section: any) => (
+               {content.filter((s: ResumeSection) => !['experience', 'projects', 'education', 'skills'].includes(s.type)).map((section: ResumeSection) => (
                  <section key={section.id} className="space-y-3 break-inside-avoid">
                     <h2 className="text-[11px] font-bold uppercase tracking-widest text-slate-900 dark:text-white print:text-black pb-1">
                       {section.heading}
                     </h2>
                     <div className="space-y-2">
-                       {section.items.map((item: any) => (
+                       {section.items.map((item: ResumeItem) => (
                          <div key={item.id}>
                              <h3 className="text-[11px] font-bold text-slate-700 dark:text-slate-300">
                                {item.title}
                              </h3>
                              {item.description && (
-                               <div className="text-[10.5px] text-slate-500" dangerouslySetInnerHTML={{__html: item.description}} />
+                               <div className="text-[10.5px] text-slate-500" dangerouslySetInnerHTML={{__html: item.description || ''}} />
                              )}
                          </div>
                        ))}
