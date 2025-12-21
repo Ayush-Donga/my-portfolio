@@ -103,7 +103,7 @@ export default function SkillsAdmin() {
   }
 
   const defaultCategories = ['Frontend', 'Backend', 'Database', 'DevOps', 'Tools', 'Mobile']
-  const allCategories = Array.from(new Set([...defaultCategories, ...skills.map(s => s.category)]))
+  const allCategories = Array.from(new Set([...defaultCategories, ...skills.map((s: Skill) => s.category)]))
 
   if (loading && skills.length === 0) {
     return (
@@ -137,8 +137,8 @@ export default function SkillsAdmin() {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {allCategories.map(category => {
-            const catSkills = skills.filter(s => s.category === category)
+          {allCategories.map((category: string) => {
+            const catSkills = skills.filter((s: Skill) => s.category === category)
             if (catSkills.length === 0) return null
             
             return (
@@ -151,7 +151,7 @@ export default function SkillsAdmin() {
                    </span>
                 </div>
                 <div className="space-y-3">
-                  {catSkills.map(skill => (
+                  {catSkills.map((skill: Skill) => (
                     <motion.div 
                       layout
                       key={skill.id}

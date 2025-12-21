@@ -110,7 +110,7 @@ export default async function AdminDashboard() {
             </CardHeader>
             <CardContent className="p-10 pt-6">
               <div className="grid sm:grid-cols-2 gap-4">
-                  {recentProjects.map(project => (
+                  {recentProjects.map((project: any) => (
                     <div key={project.id} className="flex flex-col gap-4 p-5 rounded-3xl border border-slate-50 dark:border-white/5 hover:bg-slate-50 dark:hover:bg-white/5 transition-all group cursor-pointer">
                         <div className="aspect-video w-full rounded-[1.5rem] bg-slate-100 dark:bg-black/40 overflow-hidden border border-slate-200 dark:border-white/10 relative">
                           {project.imageUrl ? (
@@ -127,7 +127,7 @@ export default async function AdminDashboard() {
                         <div className="flex-1">
                           <h4 className="font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors line-clamp-1">{project.title}</h4>
                           <div className="flex flex-wrap gap-2 mt-3">
-                            {project.techStack.slice(0, 3).map(tech => (
+                            {project.techStack.slice(0, 3).map((tech: any) => (
                                 <span key={tech} className="text-[10px] font-bold text-slate-400"># {tech}</span>
                             ))}
                           </div>

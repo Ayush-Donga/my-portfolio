@@ -150,7 +150,7 @@ export default function ExperienceAdmin() {
           </div>
         )}
         
-        {experiences.map((exp) => (
+        {experiences.map((exp: Experience) => (
           <motion.div 
             layout
             key={exp.id}
@@ -179,7 +179,7 @@ export default function ExperienceAdmin() {
                      </div>
                   </div>
                   <ul className="space-y-3">
-                     {exp.description.map((point, i) => (
+                     {exp.description.map((point: string, i: number) => (
                         <li key={i} className="flex gap-3 text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
                            <span className="w-1.5 h-1.5 rounded-full bg-primary/40 mt-2 shrink-0" />
                            {point}
@@ -299,7 +299,7 @@ export default function ExperienceAdmin() {
                            </Button>
                         </div>
                         <div className="space-y-3">
-                           {formData.description?.map((point, index) => (
+                           {formData.description?.map((point: string, index: number) => (
                               <div key={index} className="flex gap-2">
                                  <Textarea 
                                     value={point} 

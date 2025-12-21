@@ -140,7 +140,7 @@ export default function ProjectsAdmin() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((proj) => (
+        {projects.map((proj: Project) => (
           <motion.div 
             layout
             key={proj.id}
@@ -194,7 +194,7 @@ export default function ProjectsAdmin() {
                   {proj.description}
                </p>
                <div className="flex flex-wrap gap-2.5">
-                  {proj.techStack.map(tech => (
+                  {proj.techStack.map((tech: string) => (
                      <span key={tech} className="px-3 py-1 rounded-lg bg-slate-50 dark:bg-white/5 text-[10px] font-bold text-slate-400 border border-slate-100 dark:border-white/10 uppercase tracking-wider">
                         {tech}
                      </span>
@@ -279,7 +279,7 @@ export default function ProjectsAdmin() {
                            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Core Tech Stack</label>
                            <Input 
                               value={formData.techStack?.join(', ')} 
-                              onChange={e => setFormData({...formData, techStack: e.target.value.split(',').map(s => s.trim())})}
+                              onChange={e => setFormData({...formData, techStack: e.target.value.split(',').map((s: string) => s.trim())})}
                               placeholder="comma separated values"
                               required
                               className="h-16 rounded-[1.25rem] bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 px-6 font-bold shadow-sm"
