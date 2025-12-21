@@ -5,6 +5,16 @@ import { motion } from 'framer-motion'
 import { Download, Mail, Phone, MapPin, Linkedin, Globe, Loader2, ChevronLeft, Github, ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
+
+const ResumeDownloadButton = dynamic(
+  () => import('@/components/resume/ResumeDownloadButton'),
+  { ssr: false, loading: () => (
+    <Button disabled className="h-10 px-6 rounded-xl font-bold gap-2 bg-blue-600/50 text-white text-xs">
+      <Download className="w-4 h-4" /> Loading...
+    </Button>
+  ) }
+)
 
 /**
  * PublicResume Component - Modern Professional Edition (FlowCV Style)
@@ -102,12 +112,9 @@ export default function PublicResume() {
                 <ChevronLeft className="w-4 h-4" /> Back
              </Button>
           </Link>
-          <Button 
-            onClick={handleDownload} 
-            className="h-10 px-6 rounded-xl font-bold gap-2 shadow-lg shadow-blue-500/20 bg-blue-600 text-white hover:bg-blue-700 active:scale-95 transition-all text-xs"
-          >
-             <Download className="w-4 h-4" /> Save as PDF
-          </Button>
+          {resume && (
+            <ResumeDownloadButton resume={resume} />
+          )}
         </div>
 
         {/* 
