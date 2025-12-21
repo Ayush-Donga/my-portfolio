@@ -5,30 +5,32 @@ import { authOptions } from '@/lib/auth'
 
 export async function GET(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params
   const resume = await prisma.resume.findUnique({
-    where: { id: params.id }
+    where: { id }
   })
   return NextResponse.json(resume)
 }
 
 export async function PATCH(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params
   const session = await getServerSession(authOptions)
   if (!session) return new NextResponse("Unauthorized", { status: 401 })
 
   const body = await req.json()
   const resume = await prisma.resume.update({
-    where: { id: params.id },
+    where: { id },
     data: body
   })
 
   if (body.isActive) {
     await prisma.resume.updateMany({
-      where: { id: { not: params.id } },
+      where: { id: { not: id } },
       data: { isActive: false }
     })
   }
@@ -38,13 +40,14 @@ export async function PATCH(
 
 export async function DELETE(
   req: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
+  const { id } = await params
   const session = await getServerSession(authOptions)
   if (!session) return new NextResponse("Unauthorized", { status: 401 })
 
   await prisma.resume.delete({
-    where: { id: params.id }
+    where: { id }
   })
 
   return new NextResponse(null, { status: 204 })
