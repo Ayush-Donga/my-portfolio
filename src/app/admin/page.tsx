@@ -4,7 +4,26 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Briefcase, Code2, FolderGit2, Mail, Plus, ChevronRight, Activity, Globe, Database, Cpu } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import NextImage from 'next/image'
-import { Project, Contact } from '@prisma/client'
+
+type Project = {
+  id: string
+  title: string
+  description: string
+  techStack: string[]
+  liveUrl: string | null
+  githubUrl: string | null
+  imageUrl: string | null
+  category: string | null
+  createdAt: Date
+}
+
+type Contact = {
+  id: string
+  name: string
+  email: string
+  message: string
+  createdAt: Date
+}
 
 interface StatItem {
   name: string

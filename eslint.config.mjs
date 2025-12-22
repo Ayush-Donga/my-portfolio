@@ -13,12 +13,20 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript").map(config => {
-    // Strip name property if present in any of the returned config objects.
-    // This is a workaround for Next.js 15.1+ where some configs include
-    // a 'name' property that @eslint/eslintrc's FlatCompat does not expect
-    // when validating legacy-style objects.
-    const { name, ...rest } = config;
-    return rest;
+    // Strip name property and deeply clone to avoid circular references
+    const { name, plugins, ...rest } = config;
+    
+    // Handle plugins separately to avoid circular structure
+    const cleanedConfig = { ...rest };
+    
+    if (plugins) {
+      cleanedConfig.plugins = Object.keys(plugins).reduce((acc, key) => {
+        acc[key] = plugins[key];
+        return acc;
+      }, {});
+    }
+    
+    return cleanedConfig;
   }),
   {
     ignores: [".next/**", "out/**", "build/**", "next-env.d.ts", "node_modules/**"],
