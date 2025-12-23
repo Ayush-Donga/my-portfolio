@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { signOut, useSession } from 'next-auth/react'
+import Link from 'next/link'
 import { Search, Bell, Monitor, Settings, Menu, User, LogOut, ChevronRight, Sparkles, CreditCard } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -48,8 +49,10 @@ export function AdminHeader({ onMenuClick }: AdminHeaderProps) {
            <Button variant="ghost" size="icon" className="hidden md:flex w-9 h-9 rounded-xl hover:bg-white dark:hover:bg-white/10 hover:shadow-sm transition-all">
               <Monitor className="w-4.5 h-4.5 text-slate-500 dark:text-slate-400" />
            </Button>
-           <Button variant="ghost" size="icon" className="w-8 h-8 md:w-9 md:h-9 rounded-xl hover:bg-white dark:hover:bg-white/10 hover:shadow-sm transition-all">
-              <Settings className="w-4 h-4 md:w-4.5 md:h-4.5 text-slate-500 dark:text-slate-400" />
+           <Button variant="ghost" size="icon" className="w-8 h-8 md:w-9 md:h-9 rounded-xl hover:bg-white dark:hover:bg-white/10 hover:shadow-sm transition-all" asChild>
+              <Link href="/admin/settings">
+                 <Settings className="w-4 h-4 md:w-4.5 md:h-4.5 text-slate-500 dark:text-slate-400" />
+              </Link>
            </Button>
         </div>
         

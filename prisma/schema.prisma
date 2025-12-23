@@ -70,3 +70,31 @@ model Resume {
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 }
+
+model Settings {
+  id              String   @id @default(uuid())
+  // Profile
+  fullName        String   @default("Ayush Donga")
+  professionalTitle String @default("Full Stack Developer")
+  bio             String?
+  avatarUrl       String?
+  
+  // Contact
+  email           String   @default("ayush.donga@gmail.com")
+  phone           String?
+  location        String?
+  
+  // Socials
+  githubUrl       String?
+  linkedinUrl     String?
+  twitterUrl      String?
+  instagramUrl    String?
+  
+  // SEO & Site Config
+  websiteUrl      String?
+  seoTitle        String?
+  seoDescription  String?
+  seoKeywords     String[] 
+  
+  updatedAt       DateTime @updatedAt
+}
