@@ -78,13 +78,13 @@ export default function ResumesAdmin() {
 
   return (
     <div className="space-y-10">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-4xl font-black tracking-tight text-slate-900 dark:text-white">Resume <span className="text-primary font-black">Builder</span></h1>
           <p className="text-slate-500 font-medium mt-1">Manage and curate your professional identity.</p>
         </div>
         <Link href="/admin/resumes/builder">
-          <Button className="h-12 px-6 rounded-2xl gap-2 font-bold shadow-xl shadow-primary/20">
+          <Button className="h-12 px-6 rounded-2xl gap-2 font-bold shadow-xl shadow-primary/20 w-full md:w-auto">
             <Plus className="w-5 h-5" /> Design New Resume
           </Button>
         </Link>

@@ -77,7 +77,7 @@ export default function MessagesAdmin() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            className="group relative bg-white dark:bg-white/5 rounded-[3rem] border border-slate-100 dark:border-white/5 p-10 hover:shadow-2xl hover:shadow-slate-200/50 dark:hover:shadow-none transition-all duration-700"
+            className="group relative bg-white dark:bg-white/5 rounded-[2rem] md:rounded-[3rem] border border-slate-100 dark:border-white/5 p-6 md:p-10 hover:shadow-2xl hover:shadow-slate-200/50 dark:hover:shadow-none transition-all duration-700"
           >
             <div className="absolute top-10 left-0 w-1.5 h-16 bg-primary opacity-0 group-hover:opacity-100 rounded-full transition-all duration-500 translate-x-[-0.75px]" />
             
@@ -120,20 +120,20 @@ export default function MessagesAdmin() {
                      </div>
                   </div>
 
-                  <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
-                     <div className="flex items-center gap-3">
-                        <Button className="h-12 px-8 rounded-2xl font-black uppercase text-[10px] tracking-widest gap-3 shadow-xl shadow-primary/20 transition-all hover:-translate-y-0.5" asChild>
+                  <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+                     <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+                        <Button className="h-12 px-6 sm:px-8 w-full sm:w-auto rounded-2xl font-black uppercase text-[10px] tracking-widest gap-3 shadow-xl shadow-primary/20 transition-all hover:-translate-y-0.5" asChild>
                            <a href={`mailto:${msg.email}`}>
-                              <Reply className="w-4 h-4" /> Initiate Correspondence
+                              <Reply className="w-4 h-4" /> <span className="truncate">Initiate Correspondence</span>
                            </a>
                         </Button>
-                        <Button variant="ghost" className="h-12 px-6 rounded-2xl font-black uppercase text-[10px] tracking-widest gap-3 text-red-500 hover:bg-red-50 hover:text-red-600 transition-all" onClick={() => handleDelete(msg.id, msg.name)}>
+                        <Button variant="ghost" className="h-12 px-6 w-full sm:w-auto rounded-2xl font-black uppercase text-[10px] tracking-widest gap-3 text-red-500 hover:bg-red-50 hover:text-red-600 transition-all" onClick={() => handleDelete(msg.id, msg.name)}>
                            <Trash2 className="w-4 h-4" /> Purge Asset
                         </Button>
                      </div>
                      
-                     <div className="flex items-center gap-6">
-                        <div className="flex flex-col items-end">
+                     <div className="flex items-center gap-6 w-full sm:w-auto justify-between sm:justify-end border-t sm:border-t-0 border-slate-100 dark:border-white/5 pt-4 sm:pt-0">
+                        <div className="flex flex-col items-start sm:items-end">
                            <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest mb-1">Inquiry ID</p>
                            <p className="text-xs font-mono font-bold text-slate-600 dark:text-slate-400">#{msg.id.slice(-6).toUpperCase()}</p>
                         </div>

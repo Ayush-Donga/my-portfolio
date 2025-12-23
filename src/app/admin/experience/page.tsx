@@ -132,12 +132,12 @@ export default function ExperienceAdmin() {
 
   return (
     <div className="space-y-8">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h1 className="text-4xl font-black tracking-tight text-slate-900 dark:text-white">Professional <span className="text-primary font-black">History</span></h1>
           <p className="text-slate-500 font-medium mt-1">Timeline of your career journey.</p>
         </div>
-        <Button onClick={() => handleOpenForm()} className="h-12 px-6 rounded-2xl gap-2 font-bold shadow-xl shadow-primary/20">
+        <Button onClick={() => handleOpenForm()} className="h-12 px-6 rounded-2xl gap-2 font-bold shadow-xl shadow-primary/20 w-full md:w-auto">
           <Plus className="w-5 h-5" /> Add Experience
         </Button>
       </div>

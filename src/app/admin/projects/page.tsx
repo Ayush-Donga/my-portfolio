@@ -134,7 +134,7 @@ export default function ProjectsAdmin() {
           <h1 className="text-4xl lg:text-5xl font-black tracking-tight text-slate-900 dark:text-white leading-none">Strategic <span className="text-primary italic">Showcase</span></h1>
           <p className="text-slate-500 font-medium mt-3 max-w-lg">Manage your high-impact case studies and architectural portfolios for global stakeholders.</p>
         </div>
-        <Button onClick={() => handleOpenForm()} className="h-14 px-8 rounded-2xl gap-3 font-bold shadow-2xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all text-base">
+        <Button onClick={() => handleOpenForm()} className="h-14 px-8 rounded-2xl gap-3 font-bold shadow-2xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all text-base w-full md:w-auto">
           <Plus className="w-5 h-5" /> Launch New Asset
         </Button>
       </div>
