@@ -16,15 +16,50 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ayush Donga | Engineering Lead & Technical Partner",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://ayushd-portfolio.vercel.app"),
+  title: {
+    default: "Ayush Donga | Engineering Lead & Technical Partner",
+    template: "%s | Ayush Donga",
+  },
   description: "Engineering Lead specializing in building high-performance web applications and leading remote engineering teams to success. Bridging the gap between business and technology.",
-  keywords: ["Engineering Lead", "Technical Partner", "Full Stack Architect", "Next.js Expert", "Node.js Lead", "Remote Engineering Leader"],
+  keywords: ["Engineering Lead", "Technical Partner", "Full Stack Architect", "Next.js Expert", "Node.js Lead", "Remote Engineering Leader", "Ayush Donga"],
   authors: [{ name: "Ayush Donga" }],
+  creator: "Ayush Donga",
   openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "/",
     title: "Ayush Donga | Engineering Lead & Technical Partner",
     description: "Architecting high-performance systems for global-scale products.",
-    type: "website",
+    siteName: "Ayush Donga",
   },
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ayush Donga",
+  "url": process.env.NEXT_PUBLIC_APP_URL || "https://ayushd-portfolio.vercel.app",
+  "sameAs": [
+    "https://www.linkedin.com/in/ayush-donga",
+    "https://github.com/ayush-donga",
+  ],
+  "jobTitle": "Engineering Lead",
+  "description": "Engineering Lead specializing in building high-performance web applications.",
 };
 
 export default function RootLayout({
@@ -38,6 +73,10 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          />
           {children}
         </Providers>
       </body>
