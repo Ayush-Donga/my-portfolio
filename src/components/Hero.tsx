@@ -33,7 +33,7 @@ export const Hero = () => {
             </div>
             <div className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-emerald-500/20 bg-emerald-500/10 text-emerald-500 animate-pulse">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-              Remote & Worldwide
+              Seeking Remote Roles: Germany · UK · EU · US
             </div>
           </motion.div>
           <motion.h1 
@@ -42,8 +42,8 @@ export const Hero = () => {
             transition={{ delay: 0.3 }}
             className="text-4xl md:text-6xl font-bold tracking-tight"
           >
-            Architecting High-Performance <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Systems for Global Scale</span>
+            Senior Full Stack Engineer <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Building Scalable SaaS Products</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -51,7 +51,7 @@ export const Hero = () => {
             transition={{ delay: 0.4 }}
             className="text-lg text-muted-foreground leading-relaxed max-w-lg"
           >
-            Engineering the technical foundation for next-generation products. I bridge the gap between business objectives and robust architecture as an <span className="text-foreground font-semibold">Full Stack Lead & Technical Partner</span>.
+            Engineering high-performance systems for global scale. Available for overlap with <strong>UK/EU (10am–4pm CET)</strong> and <strong>US (12pm–8pm EST)</strong>.
           </motion.p>
           
           <motion.div 
@@ -66,7 +66,7 @@ export const Hero = () => {
                 </Link>
             </Button>
             <Button size="lg" variant="outline" asChild className="rounded-full backdrop-blur-sm bg-background/50">
-                <Link href="#contact">Contact Me</Link>
+                <Link href="/resume">Download Resume</Link>
             </Button>
           </motion.div>
 

@@ -28,6 +28,9 @@ model Project {
   githubUrl   String?
   imageUrl    String?
   category    String?
+  problem     String?
+  role        String?
+  outcome     String?
   createdAt   DateTime @default(now())
 }
 

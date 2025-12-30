@@ -18,6 +18,10 @@ interface Project {
   githubUrl: string | null
   imageUrl: string | null
   category: string | null
+  // Enhanced fields for Case Studies
+  problem?: string
+  role?: string
+  outcome?: string
 }
 
 interface ProjectsProps {
@@ -50,7 +54,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
                 className="text-center mb-16"
             >
                 <h2 className="text-3xl font-bold mb-4">Strategic <span className="text-primary">Case Studies</span></h2>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
+                <p className="text-muted-foreground mr-auto ml-auto max-w-2xl">
                     A deep dive into architectural challenges and high-impact engineering solutions delivered for global stakeholders.
                 </p>
             </motion.div>
@@ -96,6 +100,22 @@ export const Projects = ({ projects }: ProjectsProps) => {
                                 <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
                                     {project.description}
                                 </p>
+                                
+                                {(project.problem || project.outcome) && (
+                                    <div className="space-y-2 pt-2 border-t border-border/50">
+                                        {project.problem && (
+                                            <div className="text-xs">
+                                                <span className="font-semibold text-foreground">Problem:</span> <span className="text-muted-foreground">{project.problem}</span>
+                                            </div>
+                                        )}
+                                        {project.outcome && (
+                                            <div className="text-xs">
+                                                <span className="font-semibold text-emerald-500">Outcome:</span> <span className="text-muted-foreground">{project.outcome}</span>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+
                                 <div className="flex flex-wrap gap-2 pt-2">
                                     {project.techStack.map(tech => (
                                         <Badge key={tech} variant="secondary" className="text-xs bg-secondary/50 font-normal border border-transparent hover:border-primary/20 transition-colors">
