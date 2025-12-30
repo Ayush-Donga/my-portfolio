@@ -22,9 +22,15 @@ export const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full z-[100] bg-background/70 backdrop-blur-xl border-b border-border/40">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 hover:opacity-80 transition-opacity">
-          Ayush Donga
-        </Link>
+        <div className="flex items-center gap-3">
+            <Link href="/" className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 hover:opacity-80 transition-opacity">
+              Ayush Donga
+            </Link>
+            <div className="hidden lg:flex items-center gap-2 text-[10px] font-mono bg-emerald-500/10 text-emerald-500 px-2 py-0.5 rounded-full border border-emerald-500/20">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              AVAILABLE NOW
+            </div>
+        </div>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex gap-8 items-center">

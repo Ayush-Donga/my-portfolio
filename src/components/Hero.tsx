@@ -29,11 +29,11 @@ export const Hero = () => {
             className="flex items-center gap-4"
           >
             <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-primary/10 text-primary">
-              🚀 6+ Years Experience
+              🚀 Senior MERN Stack Specialist
             </div>
             <div className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-emerald-500/20 bg-emerald-500/10 text-emerald-500 animate-pulse">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-              Seeking Remote Roles: Germany · UK · EU · US
+              Available for Remote Roles (US/EU/UK)
             </div>
           </motion.div>
           <motion.h1 
@@ -43,7 +43,7 @@ export const Hero = () => {
             className="text-4xl md:text-6xl font-bold tracking-tight"
           >
             Senior Full Stack Engineer <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Building Scalable SaaS Products</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Architecting Scalable SaaS</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -51,7 +51,11 @@ export const Hero = () => {
             transition={{ delay: 0.4 }}
             className="text-lg text-muted-foreground leading-relaxed max-w-lg"
           >
-            Engineering high-performance systems for global scale. Available for overlap with <strong>UK/EU (10am–4pm CET)</strong> and <strong>US (12pm–8pm EST)</strong>.
+            Helping global startups build production-grade web applications. Expert in <strong>React, Node.js, and Cloud Architecture</strong> with a focus on performance and seamless UX.
+            <br className="mb-2" />
+            <span className="text-sm opacity-80 block mt-2">
+               ✅ 4+ hours timezone overlap with <strong>London, Berlin, & NYC</strong>.
+            </span>
           </motion.p>
           
           <motion.div 
@@ -62,11 +66,11 @@ export const Hero = () => {
           >
             <Button size="lg" asChild className="rounded-full shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-shadow">
                 <Link href="#projects">
-                    View Projects <ArrowRight className="ml-2 h-4 w-4" />
+                    View Case Studies <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
             </Button>
             <Button size="lg" variant="outline" asChild className="rounded-full backdrop-blur-sm bg-background/50">
-                <Link href="/resume">Download Resume</Link>
+                <Link href="#contact">Book a Strategy Call</Link>
             </Button>
           </motion.div>
 
@@ -112,22 +116,20 @@ export const Hero = () => {
                     <div className="w-3 h-3 rounded-full bg-green-500 group-hover:bg-green-400 transition-colors"></div>
                 </div>
                 <div className="space-y-4 font-mono text-sm">
-                    <p className="text-muted-foreground"><span className="text-purple-400">const</span> <span className="text-blue-400">me</span> = <span className="text-yellow-400">new</span> <span className="text-green-400">Developer</span>({'{'}</p>
+                    <p className="text-muted-foreground"><span className="text-purple-400">const</span> <span className="text-blue-400">lead</span> = <span className="text-yellow-400">new</span> <span className="text-green-400">SeniorFullStack</span>({'{'}</p>
                     <div className="pl-6 space-y-2 border-l-2 border-border/50">
                         <p><span className="text-blue-300">name</span>: <span className="text-orange-300">"Ayush Donga"</span>,</p>
-                        <p><span className="text-blue-300">role</span>: <span className="text-orange-300">"Full Stack Lead"</span>,</p>
                         <p><span className="text-blue-300">focus</span>: <span className="text-orange-300">"Scalable Architecture"</span>,</p>
                         <p><span className="text-blue-300">stack</span>: [</p>
-                        <p className="pl-4 text-green-300">"React", "Next.js", "Node.js", "AWS",</p>
-                        <p className="pl-4 text-green-300">"PostgreSQL", "Docker", "Typescript"</p>
+                        <p className="pl-4 text-green-300">"Next.js", "React", "Node.js", "AWS", "Docker",</p>
+                        <p className="pl-4 text-green-300">"PostgreSQL", "Redis", "TypeScript"</p>
                         <p>],</p>
-                        <p><span className="text-blue-300">location</span>: <span className="text-orange-300">"India"</span></p>
-                        <p><span className="text-blue-300">remote</span>: <span className="text-orange-300">"Available"</span></p>
-
+                        <p><span className="text-blue-300">location</span>: <span className="text-orange-300">"Remote (US / EU)"</span>,</p>
+                        <p><span className="text-blue-300">style</span>: <span className="text-orange-300">"Async-First & Proactive"</span></p>
                     </div>
                     <p className="text-muted-foreground">{'}'});</p>
                     
-                    <p className="text-muted-foreground mt-4"><span className="text-purple-400">await</span> me.<span className="text-blue-400">buildFuture</span>();</p>
+                    <p className="text-muted-foreground mt-4"><span className="text-purple-400">await</span> lead.<span className="text-blue-400">buildProductionReady</span>();</p>
                 </div>
              </div>
         </motion.div>

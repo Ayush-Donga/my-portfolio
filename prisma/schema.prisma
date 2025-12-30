@@ -101,3 +101,14 @@ model Settings {
   
   updatedAt       DateTime @updatedAt
 }
+
+model Testimonial {
+  id        String   @id @default(uuid())
+  name      String
+  role      String
+  company   String
+  quote     String
+  avatar    String?  // Initials or URL
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+}

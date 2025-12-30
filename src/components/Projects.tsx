@@ -4,7 +4,7 @@ import React from 'react'
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Github, ExternalLink, Code2 } from 'lucide-react'
+import { Github, ExternalLink, Code2, ArrowUpRight, TrendingUp, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import NextImage from 'next/image'
@@ -18,7 +18,6 @@ interface Project {
   githubUrl: string | null
   imageUrl: string | null
   category: string | null
-  // Enhanced fields for Case Studies
   problem?: string | null
   role?: string | null
   outcome?: string | null
@@ -28,127 +27,140 @@ interface ProjectsProps {
   projects: Project[]
 }
 
-const containerVars = {
-    hidden: { opacity: 0 },
-    visible: { 
-        opacity: 1,
-        transition: { 
-            staggerChildren: 0.15 
-        } 
-    }
-};
-
-const cardVars = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0 }
-};
-
 export const Projects = ({ projects }: ProjectsProps) => {
   return (
-    <section id="projects" className="py-24 bg-muted/30">
-        <div className="container mx-auto px-4">
-             <motion.div 
+    <section id="projects" className="py-24 bg-background relative overflow-hidden">
+        {/* Background Decorative Elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+             <div className="absolute top-[20%] right-[10%] w-72 h-72 bg-primary/5 rounded-full blur-[100px]"></div>
+             <div className="absolute bottom-[20%] left-[10%] w-72 h-72 bg-blue-500/5 rounded-full blur-[100px]"></div>
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+            <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-center mb-16"
+                className="text-center mb-20"
             >
-                <h2 className="text-3xl font-bold mb-4">Strategic <span className="text-primary">Case Studies</span></h2>
-                <p className="text-muted-foreground mr-auto ml-auto max-w-2xl">
-                    A deep dive into architectural challenges and high-impact engineering solutions delivered for global stakeholders.
+                <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider border border-primary/20">
+                    <Code2 className="w-3 h-3" />
+                    Selected Works
+                </div>
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Case Studies</span></h2>
+                <p className="text-muted-foreground mr-auto ml-auto max-w-2xl text-lg leading-relaxed">
+                    A selection of production-grade applications that solve real business problems. 
+                    Focusing on scalability, performance, and user experience.
                 </p>
             </motion.div>
             
-            <motion.div 
-                variants={containerVars}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-50px" }}
-                className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
-            >
-                {projects.map((project) => (
-                    <motion.div key={project.id} variants={cardVars} className="h-full">
-                        <Card className="flex flex-col h-full hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group bg-card border-border/50 overflow-hidden">
-                            <div className="h-48 w-full bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900 flex items-center justify-center relative overflow-hidden border-b border-border/50 dark:border-none">
+            <div className="space-y-24">
+                {projects.map((project, index) => (
+                    <motion.div 
+                        key={project.id}
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.7, delay: index * 0.1 }}
+                        className={`flex flex-col lg:flex-row gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+                    >
+                        {/* Image / Visual Side */}
+                        <div className="w-full lg:w-3/5 group">
+                            <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl bg-muted aspect-video cursor-pointer">
+                                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10"></div>
                                 {project.imageUrl ? (
                                     <NextImage 
                                       src={project.imageUrl} 
                                       alt={project.title} 
                                       fill
-                                      className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                                      className="object-cover transition-transform duration-700 group-hover:scale-105" 
                                     />
                                 ) : (
-                                    <>
-                                        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:24px_24px]" />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-200/50 to-transparent dark:from-slate-900/60 dark:to-transparent" />
-                                        <Code2 className="w-16 h-16 text-primary/30 dark:text-primary/20 group-hover:text-primary/50 dark:group-hover:text-primary/40 transition-colors duration-500 scale-110 group-hover:scale-125 transform relative z-10" />
-                                        <span className="absolute bottom-4 left-4 text-3xl font-black text-slate-900/5 dark:text-white/5 select-none font-mono">{project.title.substring(0,3).toUpperCase()}</span>
-                                    </>
-                                )}
-                                
-                                {project.category && (
-                                    <div className="absolute top-4 right-4 z-10">
-                                        <Badge className="bg-background/80 backdrop-blur-md text-foreground border-border/50 dark:border-white/10 shadow-sm">{project.category}</Badge>
+                                    <div className="flex items-center justify-center h-full w-full bg-gradient-to-br from-gray-50 to-gray-100 dark:from-slate-900 dark:to-slate-950 border border-border/50 relative overflow-hidden group-hover:border-primary/20 transition-colors">
+                                         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+                                         <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
+                                         <Code2 className="w-24 h-24 text-muted-foreground/10 group-hover:text-primary/20 transition-colors duration-500 transform group-hover:scale-110 relative z-10" />
                                     </div>
                                 )}
+                                
+                                {/* Overlay Links */}
+                                <div className="absolute bottom-6 right-6 z-20 flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0 duration-300">
+                                     {project.liveUrl && (
+                                        <Link href={project.liveUrl} target="_blank" className="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform">
+                                            Visit Live <ArrowUpRight className="w-4 h-4" />
+                                        </Link>
+                                     )}
+                                     {project.githubUrl && (
+                                        <Link href={project.githubUrl} target="_blank" className="flex items-center gap-2 bg-black/80 text-white backdrop-blur px-4 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform border border-white/20">
+                                            Github <Github className="w-4 h-4" />
+                                        </Link>
+                                     )}
+                                </div>
                             </div>
+                        </div>
 
-                            <CardHeader>
-                                <CardTitle className="line-clamp-1 text-xl group-hover:text-primary transition-colors">{project.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent className="flex-grow space-y-4">
-                                <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
+                        {/* Content Side */}
+                        <div className="w-full lg:w-2/5 space-y-6">
+                            <div>
+                                <div className="flex items-center gap-3 mb-3">
+                                    <span className="text-primary font-mono text-sm tracking-wider">0{index + 1}</span>
+                                    <div className="h-px bg-primary/30 flex-grow"></div>
+                                    {project.category && (
+                                        <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground border border-border px-2 py-1 rounded">{project.category}</span>
+                                    )}
+                                </div>
+                                <h3 className="text-3xl font-bold mb-4">{project.title}</h3>
+                                <p className="text-muted-foreground text-lg leading-relaxed">
                                     {project.description}
                                 </p>
-                                
-                                {(project.problem || project.outcome) && (
-                                    <div className="space-y-2 pt-2 border-t border-border/50">
-                                        {project.problem && (
-                                            <div className="text-xs">
-                                                <span className="font-semibold text-foreground">Problem:</span> <span className="text-muted-foreground">{project.problem}</span>
-                                            </div>
-                                        )}
-                                        {project.outcome && (
-                                            <div className="text-xs">
-                                                <span className="font-semibold text-emerald-500">Outcome:</span> <span className="text-muted-foreground">{project.outcome}</span>
-                                            </div>
-                                        )}
-                                    </div>
-                                )}
+                            </div>
 
-                                <div className="flex flex-wrap gap-2 pt-2">
-                                    {project.techStack.map(tech => (
-                                        <Badge key={tech} variant="secondary" className="text-xs bg-secondary/50 font-normal border border-transparent hover:border-primary/20 transition-colors">
-                                            {tech}
-                                        </Badge>
-                                    ))}
+                            {/* Tech Stack Pills */}
+                            <div className="flex flex-wrap gap-2">
+                                {project.techStack.map(tech => (
+                                    <Badge key={tech} variant="secondary" className="px-3 py-1 bg-secondary/50 hover:bg-secondary text-secondary-foreground border-transparent transition-colors">
+                                        {tech}
+                                    </Badge>
+                                ))}
+                            </div>
+
+                            {/* Metrics / Case Study Highlights */}
+                            {(project.problem || project.outcome) && (
+                                <div className="grid grid-cols-1 gap-4 pt-6 mt-6 border-t border-border/50">
+                                    {project.outcome && (
+                                        <div className="flex gap-4 items-start">
+                                            <div className="bg-emerald-500/10 p-2 rounded-lg text-emerald-500 mt-1">
+                                                <TrendingUp className="w-5 h-5" />
+                                            </div>
+                                            <div>
+                                                <h4 className="font-bold text-sm text-foreground">Key Outcome</h4>
+                                                <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{project.outcome}</p>
+                                            </div>
+                                        </div>
+                                    )}
+                                     {project.role && (
+                                        <div className="text-sm">
+                                            <span className="font-bold text-foreground">My Role:</span> <span className="text-muted-foreground">{project.role}</span>
+                                        </div>
+                                    )}
                                 </div>
-                            </CardContent>
-                            <CardFooter className="flex gap-3 pt-4 border-t border-border/50 bg-muted/5">
-                                {project.githubUrl ? (
-                                    <Button size="sm" variant="outline" asChild className="flex-1 hover:bg-background hover:text-primary border-border/50">
-                                        <Link href={project.githubUrl} target="_blank">
-                                            <Github className="w-4 h-4 mr-2" /> Code
-                                        </Link>
-                                    </Button>
-                                ) : null}
+                            )}
+
+                            <div className="pt-4 lg:hidden">
                                 {project.liveUrl ? (
-                                <Button size="sm" asChild className="flex-1 shadow-md shadow-primary/10">
-                                        <Link href={project.liveUrl} target="_blank">
-                                            <ExternalLink className="w-4 h-4 mr-2" /> Demo
-                                        </Link>
-                                </Button>
-                                ) : null}
-                                {!project.githubUrl && !project.liveUrl && (
-                                    <Button size="sm" variant="secondary" className="w-full opacity-70 cursor-not-allowed bg-muted" disabled>
-                                        Enterprise Project
+                                    <Button asChild variant="default" className="w-full">
+                                        <Link href={project.liveUrl} target="_blank">View Live Project</Link>
+                                    </Button>
+                                ) : (
+                                     <Button asChild variant="outline" className="w-full">
+                                        <Link href={project.githubUrl || '#'} target="_blank">View Code</Link>
                                     </Button>
                                 )}
-                            </CardFooter>
-                        </Card>
+                            </div>
+                        </div>
                     </motion.div>
                 ))}
-            </motion.div>
+            </div>
         </div>
     </section>
   )

@@ -160,6 +160,34 @@ async function main() {
       }
     ]
   })
+
+  // Testimonials
+  await prisma.testimonial.deleteMany()
+  await prisma.testimonial.createMany({
+    data: [
+      {
+        quote: "Ayush is an exceptional developer who doesn't just write code but understands the business requirements perfectly. His leadership skills were vital for our project's success.",
+        name: "Sarah Johnson",
+        role: "Product Manager",
+        company: "TechFlow",
+        avatar: "SJ"
+      },
+      {
+        quote: "Working with Ayush was a breeze. He delivered a complex MERN application ahead of schedule and with zero technical debt. Highly recommended for remote leadership roles.",
+        name: "Michael Chen",
+        role: "CTO",
+        company: "CloudScale Systems",
+        avatar: "MC"
+      },
+      {
+        quote: "The architectural decisions Ayush made for our SaaS platform saved us months of rework. He's a true professional who global teams can rely on.",
+        name: "David Miller",
+        role: "Founder",
+        company: "StartupPulse",
+        avatar: "DM"
+      }
+    ]
+  })
 }
 
 main()

@@ -8,22 +8,22 @@ const steps = [
     {
         icon: Search,
         title: "Discovery",
-        desc: "Understanding your vision, business goals, and project requirements to establish a solid foundation."
+        desc: "Deep-dive into requirements. I define technical specs and database schemas before writing a single line of code."
     },
     {
         icon: PenTool,
         title: "Architecture",
-        desc: "Designing a scalable architecture and user-friendly UX that aligns with modern web standards."
+        desc: "Designing type-safe systems with TypeScript. Choosing the right db stack (SQL vs NoSQL) for your specific data needs."
     },
     {
         icon: Code,
         title: "Development",
-        desc: "High-quality, modular coding using Next.js/React with continuous feedback loops."
+        desc: "Iterative development with CI/CD pipelines. Every commit is linted, tested, and previewed to ensure zero regressions."
     },
     {
         icon: Zap,
-        title: "Deployment",
-        desc: "Rigorous testing and optimization before launching on global infrastructure like AWS or Vercel."
+        title: "Production",
+        desc: "Stress-testing and deployment on edge networks. Setting up monitoring (Sentry/Datadog) for real-time health checks."
     }
 ]
 

@@ -6,36 +6,36 @@ import { Code2, Server, Layout, MessageSquare, Rocket, ShieldCheck } from 'lucid
 
 const services = [
   {
-    title: 'Product Engineering',
-    description: 'Building end-to-end web applications with modern stacks like MERN or Next.js. Focused on scalability and performance.',
+    title: 'SaaS Engineering',
+    description: 'Building end-to-end multi-tenant SaaS platforms with Next.js & Supabase/Postgres. Focused on auth, payments (Stripe), and scalability.',
     icon: Code2,
     color: 'text-blue-500',
     bg: 'bg-blue-500/10'
   },
   {
-    title: 'UI/UX Implementation',
-    description: 'Transforming designs into pixel-perfect, interactive, and responsive user interfaces with framer-motion and Tailwind.',
+    title: 'Design Systems & UI',
+    description: 'Creating reusable component libraries (Shadcn/UI, Tailwind) to ensure consistent user experience across large-scale applications.',
     icon: Layout,
     color: 'text-purple-500',
     bg: 'bg-purple-500/10'
   },
   {
-    title: 'Backend & API Design',
-    description: 'Architecting robust RESTful and GraphQL APIs with Node.js, Express, and PostgreSQL/Prisma.',
+    title: 'Microservices & API',
+    description: 'Breaking down monoliths into resilient Node.js microservices. Documented with Swagger/OpenAPI for seamless team integration.',
     icon: Server,
     color: 'text-green-500',
     bg: 'bg-green-500/10'
   },
   {
-    title: 'Team Leadership',
-    description: 'Managing development teams, conducting code reviews, and implementing CI/CD workflows for efficient delivery.',
+    title: 'Tech Leadership',
+    description: 'Mentoring junior devs, establishing code quality standards (ESLint/Prettier), and leading agile sprint planning.',
     icon: MessageSquare,
     color: 'text-orange-500',
     bg: 'bg-orange-500/10'
   },
   {
-    title: 'Performance Optimization',
-    description: 'Analyzing and improving application speed, Core Web Vitals, and overall frontend performance.',
+    title: 'Performance Audits',
+    description: 'Boosting Core Web Vitals, reducing bundle sizes, and optimizing server-side rendering for maximum SEO impact.',
     icon: Rocket,
     color: 'text-red-500',
     bg: 'bg-red-500/10'
