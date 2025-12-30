@@ -21,6 +21,10 @@ interface Project {
   githubUrl: string | null
   imageUrl: string | null
   category: string | null
+  order: number
+  problem: string | null
+  role: string | null
+  outcome: string | null
 }
 
 export default function ProjectsAdmin() {
@@ -36,7 +40,11 @@ export default function ProjectsAdmin() {
     imageUrl: '',
     liveUrl: '',
     githubUrl: '',
-    category: 'Product Engineering'
+    category: 'Product Engineering',
+    order: 0,
+    problem: '',
+    role: '',
+    outcome: ''
   })
 
   // Delete Confirmation State
@@ -70,7 +78,11 @@ export default function ProjectsAdmin() {
          imageUrl: '',
          liveUrl: '',
          githubUrl: '',
-         category: 'Product Engineering'
+         category: 'Product Engineering',
+         order: 0,
+         problem: '',
+         role: '',
+         outcome: ''
        })
     }
     setIsFormOpen(true)
@@ -253,12 +265,24 @@ export default function ProjectsAdmin() {
                            />
                         </div>
                         
-                        <div className="space-y-3 col-span-2">
+   <div className="space-y-3 col-span-1">
                            <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Strategic Category</label>
                            <Input 
                               value={formData.category || ''} 
                               onChange={e => setFormData({...formData, category: e.target.value})}
                               placeholder="e.g. Distributed Systems"
+                              required
+                              className="h-16 rounded-[1.25rem] bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 px-6 font-bold shadow-sm"
+                           />
+                        </div>
+
+                        <div className="space-y-3 col-span-1">
+                           <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Display Order</label>
+                           <Input 
+                              type="number"
+                              value={formData.order?.toString()} 
+                              onChange={e => setFormData({...formData, order: parseInt(e.target.value) || 0})}
+                              placeholder="0"
                               required
                               className="h-16 rounded-[1.25rem] bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 px-6 font-bold shadow-sm"
                            />
@@ -272,6 +296,36 @@ export default function ProjectsAdmin() {
                               placeholder="Focus on technical challenges, architectural decisions, and the business impact of the solution."
                               required
                               className="min-h-[160px] rounded-[1.25rem] bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 p-6 font-medium leading-relaxed shadow-sm"
+                           />
+                        </div>
+
+                        <div className="space-y-3 col-span-2">
+                           <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">The Problem</label>
+                           <Textarea 
+                              value={formData.problem || ''} 
+                              onChange={e => setFormData({...formData, problem: e.target.value})}
+                              placeholder="What challenge were you solving?"
+                              className="min-h-[100px] rounded-[1.25rem] bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 p-6 font-medium leading-relaxed shadow-sm"
+                           />
+                        </div>
+
+                        <div className="space-y-3 col-span-2">
+                           <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">My Role</label>
+                           <Input 
+                              value={formData.role || ''} 
+                              onChange={e => setFormData({...formData, role: e.target.value})}
+                              placeholder="e.g. Lead Full Stack Architect"
+                              className="h-16 rounded-[1.25rem] bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 px-6 font-bold shadow-sm"
+                           />
+                        </div>
+
+                        <div className="space-y-3 col-span-2">
+                           <label className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Result & Impact</label>
+                           <Textarea 
+                              value={formData.outcome || ''} 
+                              onChange={e => setFormData({...formData, outcome: e.target.value})}
+                              placeholder="What were the measurable results?"
+                              className="min-h-[100px] rounded-[1.25rem] bg-slate-50 dark:bg-white/5 border-slate-200 dark:border-white/10 p-6 font-medium leading-relaxed shadow-sm"
                            />
                         </div>
 

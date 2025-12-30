@@ -29,7 +29,11 @@ export const metadata: Metadata = {
 export default async function Home() {
   const skills = await prisma.skill.findMany();
   const experience = await prisma.experience.findMany();
-  const projects = await prisma.project.findMany();
+  const projects = await prisma.project.findMany({
+    orderBy: {
+      order: 'asc'
+    }
+  });
   
   const testimonials = await prisma.testimonial.findMany({
     where: { active: true }

@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Github, ExternalLink, Code2, ArrowUpRight, TrendingUp, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import NextImage from 'next/image'
+
 
 interface Project {
   id: string
@@ -66,17 +66,16 @@ export const Projects = ({ projects }: ProjectsProps) => {
                     >
                         {/* Image / Visual Side */}
                         <div className="w-full lg:w-3/5 group">
-                            <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl bg-muted aspect-video cursor-pointer">
+                            <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl bg-muted cursor-pointer">
                                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10"></div>
                                 {project.imageUrl ? (
-                                    <NextImage 
+                                    <img 
                                       src={project.imageUrl} 
                                       alt={project.title} 
-                                      fill
-                                      className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                                      className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" 
                                     />
                                 ) : (
-                                    <div className="flex items-center justify-center h-full w-full bg-gradient-to-br from-gray-50 to-gray-100 dark:from-slate-900 dark:to-slate-950 border border-border/50 relative overflow-hidden group-hover:border-primary/20 transition-colors">
+                                    <div className="aspect-video flex items-center justify-center h-full w-full bg-gradient-to-br from-gray-50 to-gray-100 dark:from-slate-900 dark:to-slate-950 border border-border/50 relative overflow-hidden group-hover:border-primary/20 transition-colors">
                                          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:24px_24px]"></div>
                                          <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
                                          <Code2 className="w-24 h-24 text-muted-foreground/10 group-hover:text-primary/20 transition-colors duration-500 transform group-hover:scale-110 relative z-10" />

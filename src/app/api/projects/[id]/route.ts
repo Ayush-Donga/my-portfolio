@@ -12,7 +12,7 @@ export async function PATCH(
   if (!session) return new NextResponse("Unauthorized", { status: 401 })
 
   const body = await req.json()
-  const { title, description, techStack, liveUrl, githubUrl, imageUrl, category } = body
+  const { title, description, techStack, liveUrl, githubUrl, imageUrl, category, order, problem, role, outcome } = body
 
   const project = await prisma.project.update({
     where: { id },
@@ -23,7 +23,11 @@ export async function PATCH(
       liveUrl,
       githubUrl,
       imageUrl: imageUrl || null,
-      category
+      category,
+      order: order || 0,
+      problem,
+      role,
+      outcome
     }
   })
   return NextResponse.json(project)
