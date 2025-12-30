@@ -19,9 +19,9 @@ interface Project {
   imageUrl: string | null
   category: string | null
   // Enhanced fields for Case Studies
-  problem?: string
-  role?: string
-  outcome?: string
+  problem?: string | null
+  role?: string | null
+  outcome?: string | null
 }
 
 interface ProjectsProps {
