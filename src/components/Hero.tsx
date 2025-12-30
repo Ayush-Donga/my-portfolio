@@ -124,7 +124,7 @@ export const Hero = () => {
                         <p className="pl-4 text-green-300">"Next.js", "React", "Node.js", "AWS", "Docker",</p>
                         <p className="pl-4 text-green-300">"PostgreSQL", "Redis", "TypeScript"</p>
                         <p>],</p>
-                        <p><span className="text-blue-300">location</span>: <span className="text-orange-300">"Remote (US / EU)"</span>,</p>
+                        <p><span className="text-blue-300">location</span>: <span className="text-orange-300">"Remote ( Germany / UK / EU / US)"</span>,</p>
                         <p><span className="text-blue-300">style</span>: <span className="text-orange-300">"Async-First & Proactive"</span></p>
                     </div>
                     <p className="text-muted-foreground">{'}'});</p>
