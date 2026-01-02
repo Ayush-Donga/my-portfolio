@@ -39,12 +39,13 @@ export default async function Home() {
     where: { active: true }
   });
   
-
+  const settings = await prisma.settings.findFirst();
+  
   return (
     <main className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary">
       <Navbar />
       <Hero />
-      <About />
+      <About avatarUrl={settings?.avatarUrl} />
       <TechMarquee />
       <BackendExcellence />
       <TrustStats />
