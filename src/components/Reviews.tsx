@@ -2,7 +2,8 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Quote } from 'lucide-react'
+import { Quote, Linkedin, ExternalLink } from 'lucide-react'
+import Link from 'next/link'
 
 const clientLogos = [
     "TechFlow", "CloudScale", "StartupPulse", "NexGen", "DataLogic", "SkyNet"
@@ -15,6 +16,8 @@ interface Testimonial {
     company: string
     quote: string
     avatar?: string | null
+    linkedinUrl?: string | null
+    logoUrl?: string | null
 }
 
 interface ReviewsProps {
@@ -52,13 +55,31 @@ export const Reviews = ({ testimonials = [] }: ReviewsProps) => {
                         >
                             <Quote className="absolute top-6 right-8 w-10 h-10 text-primary/5 group-hover:text-primary/10 transition-colors" />
                             <p className="text-muted-foreground italic mb-6 relative z-10 leading-relaxed">"{t.quote}"</p>
-                            <div className="flex items-center gap-4">
-                                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs uppercase">
-                                    {t.avatar || t.name.substring(0,2)}
-                                </div>
-                                <div>
-                                    <div className="font-bold text-sm tracking-wide">{t.name}</div>
-                                    <div className="text-xs text-muted-foreground">{t.role}, {t.company}</div>
+                            <div className="flex items-center justify-between gap-4">
+                                <div className="flex items-center gap-4">
+                                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs uppercase overflow-hidden border border-primary/20">
+                                        {t.avatar ? (
+                                            <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
+                                        ) : (
+                                            t.name.substring(0,2)
+                                        )}
+                                    </div>
+                                    <div>
+                                        <div className="flex items-center gap-2">
+                                            <div className="font-bold text-sm tracking-wide">{t.name}</div>
+                                            {t.linkedinUrl && (
+                                                <Link href={t.linkedinUrl} target="_blank" className="text-muted-foreground hover:text-[#0077B5] transition-colors">
+                                                    <Linkedin className="w-3 h-3" />
+                                                </Link>
+                                            )}
+                                        </div>
+                                        <div className="text-xs text-muted-foreground flex items-center gap-1.5">
+                                            {t.role}, {t.company}
+                                            {t.logoUrl && (
+                                                <img src={t.logoUrl} alt={t.company} className="h-3 w-auto opacity-50 grayscale hover:grayscale-0 transition-all" />
+                                            )}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>

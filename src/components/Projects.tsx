@@ -123,27 +123,40 @@ export const Projects = ({ projects }: ProjectsProps) => {
                                 ))}
                             </div>
 
-                            {/* Metrics / Case Study Highlights */}
-                            {(project.problem || project.outcome) && (
-                                <div className="grid grid-cols-1 gap-4 pt-6 mt-6 border-t border-border/50">
-                                    {project.outcome && (
-                                        <div className="flex gap-4 items-start">
-                                            <div className="bg-emerald-500/10 p-2 rounded-lg text-emerald-500 mt-1">
-                                                <TrendingUp className="w-5 h-5" />
-                                            </div>
-                                            <div>
-                                                <h4 className="font-bold text-sm text-foreground">Key Outcome</h4>
-                                                <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{project.outcome}</p>
-                                            </div>
+                            {/* Problem vs. Solution Section */}
+                            <div className="grid grid-cols-1 gap-6 pt-6 mt-6 border-t border-border/50">
+                                {project.problem && (
+                                    <div className="space-y-2">
+                                        <div className="flex items-center gap-2 text-red-500/80">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-red-500"></div>
+                                            <h4 className="font-bold text-xs uppercase tracking-widest">The Problem</h4>
                                         </div>
-                                    )}
-                                     {project.role && (
-                                        <div className="text-sm">
-                                            <span className="font-bold text-foreground">My Role:</span> <span className="text-muted-foreground">{project.role}</span>
+                                        <p className="text-sm text-muted-foreground leading-relaxed">{project.problem}</p>
+                                    </div>
+                                )}
+                                
+                                {project.outcome && (
+                                    <div className="space-y-2">
+                                        <div className="flex items-center gap-2 text-emerald-500">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+                                            <h4 className="font-bold text-xs uppercase tracking-widest">The Solution & Outcome</h4>
                                         </div>
-                                    )}
-                                </div>
-                            )}
+                                        <div className="flex gap-4 items-start bg-emerald-500/5 p-4 rounded-xl border border-emerald-500/10">
+                                            <div className="bg-emerald-500/10 p-2 rounded-lg text-emerald-500 mt-0.5">
+                                                <TrendingUp className="w-4 h-4" />
+                                            </div>
+                                            <p className="text-sm text-foreground font-medium leading-relaxed">{project.outcome}</p>
+                                        </div>
+                                    </div>
+                                )}
+
+                                 {project.role && (
+                                    <div className="text-xs flex items-center gap-2 text-muted-foreground">
+                                        <span className="font-bold text-foreground">My Role:</span> 
+                                        <span className="bg-secondary/50 px-2 py-0.5 rounded">{project.role}</span>
+                                    </div>
+                                )}
+                            </div>
 
                             <div className="pt-4 lg:hidden">
                                 {project.liveUrl ? (

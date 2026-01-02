@@ -89,12 +89,20 @@ export const Experience = ({ experience }: ExperienceProps) => {
                                     </div>
 
                                     <ul className="space-y-3">
-                                        {exp.description.map((item, idx) => (
-                                            <li key={idx} className="flex items-start gap-3 text-muted-foreground text-sm leading-relaxed">
-                                                <CheckCircle2 className="w-5 h-5 text-primary/60 flex-shrink-0 mt-0.5" />
-                                                <span>{item}</span>
-                                            </li>
-                                        ))}
+                                        {exp.description.map((item, idx) => {
+                                            // Highlight metrics like 25%, 30%, 4+ hours, etc.
+                                            const highlightedItem = item.replace(
+                                                /(\d+%|\d+\+?\s*(?:hours|developers|years|months|reduction|increase|improvement|growth))/gi, 
+                                                '<strong>$1</strong>'
+                                            );
+                                            
+                                            return (
+                                                <li key={idx} className="flex items-start gap-3 text-muted-foreground text-sm leading-relaxed">
+                                                    <CheckCircle2 className="w-5 h-5 text-primary/60 flex-shrink-0 mt-0.5" />
+                                                    <span dangerouslySetInnerHTML={{ __html: highlightedItem }}></span>
+                                                </li>
+                                            );
+                                        })}
                                     </ul>
                                 </CardContent>
                             </Card>

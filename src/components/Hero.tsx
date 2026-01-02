@@ -29,7 +29,7 @@ export const Hero = () => {
             className="flex items-center gap-4"
           >
             <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-primary/10 text-primary">
-              🚀 Senior MERN Stack Specialist
+              🚀 Production-Ready SaaS Expert
             </div>
             <div className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-emerald-500/20 bg-emerald-500/10 text-emerald-500 animate-pulse">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
@@ -40,10 +40,10 @@ export const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-4xl md:text-6xl font-bold tracking-tight"
+            className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1]"
           >
             Senior Full Stack Engineer <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Architecting Scalable SaaS</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Building High-Performance SaaS for Global Startups</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -69,7 +69,7 @@ export const Hero = () => {
                     View Case Studies <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
             </Button>
-            <Button size="lg" variant="outline" asChild className="rounded-full backdrop-blur-sm bg-background/50">
+            <Button size="lg" variant="default" asChild className="rounded-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white border-none shadow-lg shadow-orange-500/20 px-8">
                 <Link href="#contact">Book a Strategy Call</Link>
             </Button>
           </motion.div>
