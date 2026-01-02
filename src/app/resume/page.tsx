@@ -167,17 +167,17 @@ export default function PublicResume() {
           id="resume-content"
         >
           {/* HEADER (Full Width) */}
-          <header className="px-6 py-8 md:px-16 md:py-12 border-b border-slate-100 dark:border-white/5 bg-white dark:bg-zinc-950 print:bg-white text-center">
+          <header className="px-6 py-6 md:px-16 md:py-8 border-b border-slate-100 dark:border-white/5 bg-white dark:bg-zinc-950 print:bg-white text-center">
              <div className="max-w-3xl mx-auto">
                 <h1 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white print:text-black leading-tight mb-2">
                     {personalInfo.fullName}
                 </h1>
-                <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.25em] text-blue-600 dark:text-blue-400 print:text-blue-700 mb-6">
+                <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.25em] text-blue-600 dark:text-blue-400 print:text-blue-700 mb-4">
                     {personalInfo.professionalTitle}
                 </p>
                 
                 {/* Contact Info - Optimized for Professional Look */}
-                <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-[10.5px] md:text-[11.5px] font-bold text-slate-500 dark:text-slate-400 print:text-slate-600">
+                <div className="flex flex-wrap justify-center items-center gap-x-5 gap-y-2 text-[10px] md:text-[11px] font-bold text-slate-500 dark:text-slate-400 print:text-slate-600">
                     <a href={`mailto:${personalInfo.email}`} className="flex items-center gap-2 hover:text-blue-600 transition-colors">
                       <Mail className="w-3.5 h-3.5 text-blue-500/70" /> 
                       <span>{personalInfo.email}</span>
@@ -209,32 +209,40 @@ export default function PublicResume() {
           <div className="max-w-4xl mx-auto min-h-[297mm]">
             
             {/* DOCUMENT CONTENT */}
-            <div className="p-6 md:p-12 lg:p-16 space-y-8 md:space-y-10 print:p-10">
+            <div className="p-6 md:p-8 lg:p-10 space-y-5 md:space-y-6 print:p-8">
               
               {/* Summary Section (Merged) */}
-              {(personalInfo.summary || content.find(s => s.type === 'summary' || s.type === 'profile' || s.heading.toLowerCase() === 'summary' || s.heading.toLowerCase() === 'professional profile')) && (
-                 <section className="space-y-3 md:space-y-4">
-                    <div className="flex items-center gap-2 md:gap-3 mb-2">
-                       <h2 className="text-[11px] md:text-[12px] font-bold uppercase tracking-widest text-slate-900 dark:text-white print:text-black whitespace-nowrap">
-                         Professional Profile
-                       </h2>
-                       <div className="flex-1 h-px bg-slate-200 dark:bg-white/10" />
-                    </div>
-                    {personalInfo.summary && (
-                      <div 
-                        className="text-[10.5px] md:text-[11.5px] leading-[1.6] text-slate-600 dark:text-slate-400 text-justify print:text-black/80"
-                        dangerouslySetInnerHTML={{ __html: personalInfo.summary }}
-                      />
-                    )}
-                    {content.filter(s => s.type === 'summary' || s.type === 'profile' || s.heading.toLowerCase() === 'summary' || s.heading.toLowerCase() === 'professional profile').map(section => (
-                      <div key={section.id} className="space-y-2">
-                         {section.items.map(item => (
-                            <div key={item.id} dangerouslySetInnerHTML={{ __html: item.description || '' }} className="text-[10.5px] md:text-[11.5px] leading-[1.6] text-slate-600 dark:text-slate-400 text-justify print:text-black/80" />
-                         ))}
+              {(() => {
+                const summarySec = content.find(s => s.type === 'summary' || s.type === 'profile' || s.heading.toLowerCase().includes('summary') || s.heading.toLowerCase().includes('profile'));
+                const summaryHeading = summarySec?.heading || 'Summary';
+                const hasSummary = personalInfo.summary || summarySec;
+
+                if (!hasSummary) return null;
+
+                return (
+                  <section className="space-y-3 md:space-y-4">
+                      <div className="flex items-center gap-2 md:gap-3 mb-2">
+                        <h2 className="text-[11px] md:text-[12px] font-bold uppercase tracking-widest text-slate-900 dark:text-white print:text-black whitespace-nowrap">
+                          {summaryHeading}
+                        </h2>
+                        <div className="flex-1 h-px bg-slate-200 dark:bg-white/10" />
                       </div>
-                    ))}
-                 </section>
-              )}
+                      {personalInfo.summary && (
+                        <div 
+                          className="text-[10.5px] md:text-[11.5px] leading-[1.6] text-slate-600 dark:text-slate-400 text-justify print:text-black/80"
+                          dangerouslySetInnerHTML={{ __html: personalInfo.summary }}
+                        />
+                      )}
+                      {content.filter(s => s.type === 'summary' || s.type === 'profile' || (s.heading.toLowerCase().includes('summary') && s !== summarySec)).map(section => (
+                        <div key={section.id} className="space-y-2">
+                           {section.items.map(item => (
+                              <div key={item.id} dangerouslySetInnerHTML={{ __html: item.description || '' }} className="text-[10.5px] md:text-[11.5px] leading-[1.6] text-slate-600 dark:text-slate-400 text-justify print:text-black/80" />
+                           ))}
+                        </div>
+                      ))}
+                  </section>
+                );
+              })()}
 
               {/* Main Content Loop (Experience, Skills, Education, Projects) */}
               {['experience', 'skills', 'education', 'projects'].map(type => {
@@ -242,7 +250,7 @@ export default function PublicResume() {
                  if (sections.length === 0) return null;
 
                  return sections.map((section: ResumeSection) => (
-                    <section key={section.id} className="space-y-4 md:space-y-5 break-inside-avoid">
+                    <section className="space-y-2 md:space-y-3 break-inside-avoid">
                        <div className="flex items-center gap-2 md:gap-3 mb-2">
                           <h2 className="text-[11px] md:text-[12px] font-bold uppercase tracking-widest text-slate-900 dark:text-white print:text-black whitespace-nowrap">
                             {section.heading}
@@ -250,7 +258,7 @@ export default function PublicResume() {
                           <div className="flex-1 h-px bg-slate-200 dark:bg-white/10" />
                        </div>
 
-                       <div className="space-y-5 md:space-y-6">
+                       <div className="space-y-3 md:space-y-4">
                           {section.items.map((item: ResumeItem) => (
                             <div key={item.id} className="relative group">
                                {/* Common Header Structure for all types */}

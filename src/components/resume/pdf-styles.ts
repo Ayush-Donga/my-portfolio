@@ -27,9 +27,9 @@ export const styles = StyleSheet.create({
     fontFamily: 'Helvetica',
     fontSize: 9,
     lineHeight: 1.45,
-    paddingTop: 35,
-    paddingBottom: 35,
-    paddingHorizontal: 50,
+    paddingTop: 25,
+    paddingBottom: 25,
+    paddingHorizontal: 40,
   },
   
   // Header Section - Perfect Balance
@@ -38,7 +38,7 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderBottomWidth: 0.5,
     borderBottomColor: colors.slate200,
-    marginBottom: 25,
+    marginBottom: 10,
   },
   name: {
     fontSize: 25,
@@ -89,12 +89,12 @@ export const styles = StyleSheet.create({
   
   // Section Headers
   section: {
-    marginBottom: 22,
+    marginBottom: 14,
   },
   sectionHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: 6,
     gap: 10,
   },
   sectionTitle: {
@@ -115,7 +115,7 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   itemGroup: {
-    marginBottom: 16,
+    marginBottom: 8,
   },
   itemHeader: {
     flexDirection: 'row',

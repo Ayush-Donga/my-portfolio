@@ -62,8 +62,14 @@ export const ResumePDF = ({ resume }: { resume: any }) => {
   if (!resume) return null;
   const { personalInfo, content } = resume;
 
-  // Render all sections in a single column flow
-  const allSections = content;
+  // Render sections in a specific order: Experience, Skills, Education, Projects
+  const orderedSectionTypes = ['experience', 'skills', 'education', 'projects'];
+  
+  // Filter out any sections that are already covered by personalInfo.summary
+  const mainContent = content.filter((s: any) => 
+    !['summary', 'profile'].includes(s.type) && 
+    !['summary', 'professional profile'].includes(s.heading.toLowerCase())
+  );
 
   return (
     <Document>
@@ -100,9 +106,7 @@ export const ResumePDF = ({ resume }: { resume: any }) => {
               <>
                 <Text style={styles.contactSeparator}>|</Text>
                 <View style={styles.contactItem}>
-                  <PdfLink src={personalInfo.linkedin.startsWith('http') ? personalInfo.linkedin : `https://${personalInfo.linkedin}`} style={styles.link}>
-                     <Text style={styles.contactText}>LinkedIn</Text>
-                  </PdfLink>
+                   <Text style={styles.contactText}>LinkedIn</Text>
                 </View>
               </>
             )}
@@ -110,9 +114,7 @@ export const ResumePDF = ({ resume }: { resume: any }) => {
               <>
                 <Text style={styles.contactSeparator}>|</Text>
                 <View style={styles.contactItem}>
-                  <PdfLink src={personalInfo.github.startsWith('http') ? personalInfo.github : `https://${personalInfo.github}`} style={styles.link}>
-                     <Text style={styles.contactText}>GitHub</Text>
-                  </PdfLink>
+                   <Text style={styles.contactText}>GitHub</Text>
                 </View>
               </>
             )}
@@ -121,82 +123,115 @@ export const ResumePDF = ({ resume }: { resume: any }) => {
 
         <View style={styles.mainContainer}>
           
-          {/* PROFESSIONAL PROFILE */}
-          {personalInfo.summary && (
-            <View style={styles.section} wrap={false}>
-              <View style={styles.sectionHeader}>
-                <Text style={styles.sectionTitle}>PROFESSIONAL PROFILE</Text>
-                <View style={styles.sectionLine} />
-              </View>
-              <HtmlRenderer html={personalInfo.summary} style={styles.summaryText} />
-            </View>
-          )}
+          {/* SUMMARY SECTION (DYNAMIC) */}
+          {(() => {
+            const summarySec = content.find((s: any) => s.type === 'summary' || s.type === 'profile' || s.heading.toLowerCase().includes('summary') || s.heading.toLowerCase().includes('profile'));
+            const summaryHeading = (summarySec?.heading || 'SUMMARY').toUpperCase();
+            
+            if (!personalInfo.summary && !summarySec) return null;
 
-          {/* ALL SECTIONS IN SINGLE COLUMN */}
-          {allSections.map((section: any) => (
-            <View key={section.id} style={styles.section}>
-              <View style={styles.sectionHeader}>
-                <Text style={styles.sectionTitle}>{section.heading}</Text>
-                <View style={styles.sectionLine} />
+            return (
+              <View style={styles.section} wrap={false}>
+                <View style={styles.sectionHeader}>
+                  <Text style={styles.sectionTitle}>{summaryHeading}</Text>
+                  <View style={styles.sectionLine} />
+                </View>
+                {personalInfo.summary && (
+                  <HtmlRenderer html={personalInfo.summary} style={styles.summaryText} />
+                )}
+                {content.filter((s: any) => (s.type === 'summary' || s.type === 'profile') && s !== summarySec).map((s: any) => (
+                   s.items.map((item: any, idx: number) => (
+                     <HtmlRenderer key={idx} html={item.description} style={styles.summaryText} />
+                   ))
+                ))}
               </View>
-              
-              {section.type === 'skills' ? (
-                <View style={styles.skillsGrid}>
-                  {section.items.map((item: any) => (
-                    <View key={item.id} style={styles.skillItemFull} wrap={false}>
-                      <Text style={styles.skillTitle}>{item.title}</Text>
-                      <HtmlRenderer html={item.subskills || item.description} style={styles.skillText} />
-                    </View>
-                  ))}
+            );
+          })()}
+
+          {/* ORDERED SECTIONS */}
+          {orderedSectionTypes.map(type => {
+            const sections = mainContent.filter((s: any) => s.type === type);
+            if (sections.length === 0) return null;
+
+            return sections.map((section: any) => (
+              <View key={section.id} style={styles.section}>
+                <View style={styles.sectionHeader}>
+                  <Text style={styles.sectionTitle}>{section.heading}</Text>
+                  <View style={styles.sectionLine} />
                 </View>
-              ) : section.type === 'education' ? (
-                <View style={styles.educationList}>
-                  {section.items.map((item: any) => (
-                    <View key={item.id} style={styles.educationItemFull} wrap={false}>
-                      <View style={styles.itemHeader}>
-                        <Text style={styles.itemTitle}>{item.degree || item.title}</Text>
-                        <Text style={styles.itemDate}>
-                          {item.startDate} {item.endDate ? `— ${item.endDate}` : (!item.startDate ? '' : '— Present')}
-                        </Text>
+                
+                {section.type === 'skills' ? (
+                  <View style={styles.skillsGrid}>
+                    {section.items.map((item: any) => (
+                      <View key={item.id} style={styles.skillItemFull} wrap={false}>
+                        <Text style={styles.skillTitle}>{item.title}</Text>
+                        <HtmlRenderer html={item.subskills || item.description} style={styles.skillText} />
                       </View>
-                      <Text style={styles.itemCompany}>{item.school || item.company}</Text>
-                    </View>
-                  ))}
-                </View>
-              ) : (
-                <View style={styles.itemsList}>
-                  {section.items.map((item: any) => (
-                    <View key={item.id} style={styles.itemGroup} wrap={false}>
-                      <View style={styles.itemHeader}>
-                        <View style={styles.itemTitleContainer}>
-                           <Text style={styles.itemTitle}>{item.title || item.degree}</Text>
-                           {item.link && (
-                             <PdfLink src={item.link} style={styles.link}>
-                               <Text style={{ fontSize: 9, color: colors.blue600 }}>↗</Text>
-                             </PdfLink>
-                           )}
+                    ))}
+                  </View>
+                ) : section.type === 'education' ? (
+                  <View style={styles.educationList}>
+                    {section.items.map((item: any) => (
+                      <View key={item.id} style={styles.educationItemFull} wrap={false}>
+                        <View style={styles.itemHeader}>
+                          <Text style={styles.itemTitle}>{item.degree || item.title}</Text>
+                          <Text style={styles.itemDate}>
+                            {item.startDate} {item.endDate ? `— ${item.endDate}` : (!item.startDate ? '' : '— Present')}
+                          </Text>
                         </View>
-                        <Text style={styles.itemDate}>
-                          {item.startDate} {item.endDate ? `— ${item.endDate}` : (!item.startDate ? '' : '— Present')}
-                        </Text>
+                        <Text style={styles.itemCompany}>{item.school || item.company}</Text>
                       </View>
-                      
-                      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <Text style={styles.itemCompany}>
-                          {item.company || item.school || item.subtitle}
-                        </Text>
-                        {item.location && (
-                          <Text style={styles.itemLocation}>• {item.location}</Text>
+                    ))}
+                  </View>
+                ) : (
+                  <View style={styles.itemsList}>
+                    {section.items.map((item: any) => (
+                      <View key={item.id} style={styles.itemGroup} wrap={false}>
+                        <View style={styles.itemHeader}>
+                          <View style={styles.itemTitleContainer}>
+                             <Text style={styles.itemTitle}>{item.title || item.degree}</Text>
+                          </View>
+                          <Text style={styles.itemDate}>
+                            {item.startDate} {item.endDate ? `— ${item.endDate}` : (!item.startDate ? '' : '— Present')}
+                          </Text>
+                        </View>
+                        
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                          <Text style={styles.itemCompany}>
+                            {item.company || item.school || item.subtitle}
+                          </Text>
+                          {item.location && (
+                            <Text style={styles.itemLocation}>• {item.location}</Text>
+                          )}
+                        </View>
+
+                        {item.description && (
+                          <HtmlRenderer html={item.description} style={styles.itemDescription} isBullet={true} />
                         )}
                       </View>
+                    ))}
+                  </View>
+                )}
+              </View>
+            ));
+          })}
 
-                      {item.description && (
-                        <HtmlRenderer html={item.description} style={styles.itemDescription} isBullet={true} />
-                      )}
-                    </View>
-                  ))}
-                </View>
-              )}
+          {/* OTHER SECTIONS */}
+          {mainContent.filter((s: any) => !orderedSectionTypes.includes(s.type)).map((section: any) => (
+            <View key={section.id} style={styles.section}>
+               <View style={styles.sectionHeader}>
+                 <Text style={styles.sectionTitle}>{section.heading}</Text>
+                 <View style={styles.sectionLine} />
+               </View>
+               {/* Simplified layout for other items */}
+               <View style={styles.itemsList}>
+                 {section.items.map((item: any) => (
+                   <View key={item.id} style={{ marginBottom: 8 }} wrap={false}>
+                     <Text style={styles.skillTitle}>{item.title}</Text>
+                     <HtmlRenderer html={item.description} style={styles.skillText} />
+                   </View>
+                 ))}
+               </View>
             </View>
           ))}
         </View>

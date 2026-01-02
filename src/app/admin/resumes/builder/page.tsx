@@ -395,7 +395,7 @@ export default function ResumeBuilder() {
                    </div>
 
                    <div className="col-span-2 space-y-4 pt-4 border-t border-slate-100 dark:border-white/5">
-                      <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Professional Summary / Profile</label>
+                      <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Professional Summary</label>
                       <RichTextEditor 
                         value={personalInfo.summary || ''} 
                         onChange={(val) => setPersonalInfo({...personalInfo, summary: val})}
