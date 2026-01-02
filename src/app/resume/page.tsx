@@ -91,6 +91,12 @@ export default function PublicResume() {
     window.print()
   }
 
+  const cleanHtml = (html: string) => {
+    if (!html) return '';
+    // Replace non-breaking spaces with regular spaces to ensure text wrapping works
+    return html.replace(/&nbsp;/g, ' ').replace(/\u00A0/g, ' ');
+  };
+
   if (loading) return (
     <div className="min-h-screen bg-slate-50 dark:bg-black flex items-center justify-center">
        <Loader2 className="w-12 h-12 text-primary animate-spin opacity-20" />
@@ -230,13 +236,13 @@ export default function PublicResume() {
                       {personalInfo.summary && (
                         <div 
                           className="text-[10.5px] md:text-[11.5px] leading-[1.6] text-slate-600 dark:text-slate-400 text-justify print:text-black/80"
-                          dangerouslySetInnerHTML={{ __html: personalInfo.summary }}
+                          dangerouslySetInnerHTML={{ __html: cleanHtml(personalInfo.summary) }}
                         />
                       )}
                       {content.filter(s => s.type === 'summary' || s.type === 'profile' || (s.heading.toLowerCase().includes('summary') && s !== summarySec)).map(section => (
                         <div key={section.id} className="space-y-2">
                            {section.items.map(item => (
-                              <div key={item.id} dangerouslySetInnerHTML={{ __html: item.description || '' }} className="text-[10.5px] md:text-[11.5px] leading-[1.6] text-slate-600 dark:text-slate-400 text-justify print:text-black/80" />
+                              <div key={item.id} dangerouslySetInnerHTML={{ __html: cleanHtml(item.description || '') }} className="text-[10.5px] md:text-[11.5px] leading-[1.6] text-slate-600 dark:text-slate-400 text-justify print:text-black/80" />
                            ))}
                         </div>
                       ))}
@@ -294,7 +300,7 @@ export default function PublicResume() {
                                {(item.description || item.subskills) && (
                                  <div 
                                    className="text-[10px] md:text-[11px] leading-[1.6] text-slate-600 dark:text-slate-400 print:text-black/85 [&>ul]:list-disc [&>ul]:pl-4 [&>ul]:space-y-1.5 [&>ul>li::marker]:text-slate-400 break-words overflow-hidden"
-                                   dangerouslySetInnerHTML={{ __html: item.description || item.subskills || '' }}
+                                   dangerouslySetInnerHTML={{ __html: cleanHtml(item.description || item.subskills || '') }}
                                  />
                                )}
                             </div>
