@@ -7,6 +7,7 @@ const decodeHtml = (html: string) => {
   if (!html) return '';
   return html
     .replace(/&nbsp;/g, ' ')
+    .replace(/\u00A0/g, ' ')
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
     .replace(/&gt;/g, '>')
@@ -75,7 +76,7 @@ export const ResumePDF = ({ resume }: { resume: any }) => {
     <Document>
       <Page size="A4" style={styles.page}>
         
-        {/* HEADER - Premium Design */}
+        {/* HEADER - Premium Design (Centered) */}
         <View style={styles.header}>
           <Text style={styles.name}>{personalInfo.fullName}</Text>
           <Text style={styles.professionalTitle}>{personalInfo.professionalTitle}</Text>
@@ -106,7 +107,9 @@ export const ResumePDF = ({ resume }: { resume: any }) => {
               <>
                 <Text style={styles.contactSeparator}>|</Text>
                 <View style={styles.contactItem}>
-                   <Text style={styles.contactText}>LinkedIn</Text>
+                  <PdfLink src={personalInfo.linkedin.startsWith('http') ? personalInfo.linkedin : `https://${personalInfo.linkedin}`} style={styles.link}>
+                     <Text style={styles.contactText}>LinkedIn</Text>
+                  </PdfLink>
                 </View>
               </>
             )}
@@ -114,7 +117,9 @@ export const ResumePDF = ({ resume }: { resume: any }) => {
               <>
                 <Text style={styles.contactSeparator}>|</Text>
                 <View style={styles.contactItem}>
-                   <Text style={styles.contactText}>GitHub</Text>
+                  <PdfLink src={personalInfo.github.startsWith('http') ? personalInfo.github : `https://${personalInfo.github}`} style={styles.link}>
+                     <Text style={styles.contactText}>GitHub</Text>
+                  </PdfLink>
                 </View>
               </>
             )}

@@ -39,6 +39,8 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
     borderBottomColor: colors.slate200,
     marginBottom: 10,
+    alignItems: 'center',
+    textAlign: 'center',
   },
   name: {
     fontSize: 25,
@@ -59,6 +61,7 @@ export const styles = StyleSheet.create({
   contactRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    justifyContent: 'center',
     gap: 12,
     rowGap: 4,
   },
