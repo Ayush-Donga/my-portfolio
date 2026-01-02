@@ -65,8 +65,8 @@ async function main() {
       {
         title: "CH Jewelers - Enterprise ERP",
         description: "A comprehensive Jewelry ERP system managing complex inventory and diamond rates.",
-        problem: "Client struggled with manual tracking of fragmented inventory across 5 branches, leading to a 10% annual stock discrepancy.",
-        outcome: "Automated real-time inventory tracking across all branches, reducing stock discrepancies to <0.5% and saving 20+ manual hours weekly.",
+        problem: "Challenge: Handling fragmented inventory across 5 branches with complex diamond weight calculations (carats/grams) led to frequent manual errors and stock discrepancies.",
+        outcome: "Impact: Automated real-time tracking and precise valuation algorithms reduced stock discrepancies to <0.5% and increased processing speed by 50%.",
         techStack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
         category: "Backend Development",
         role: "Lead Architect"
@@ -74,8 +74,8 @@ async function main() {
       {
         title: "Global Hire - Recruitment Platform",
         description: "Advanced Job Portal for international startups and high-growth teams.",
-        problem: "Standard job boards lacked granular filtering for specific niche skillsets, resulting in high 'noise' for recruiters.",
-        outcome: "Implemented AI-driven skill matching that reduced time-to-hire by 35% for initial screening phases.",
+        problem: "Challenge: Standard job boards lacked granular filtering for specific niche skillsets, resulting in high 'noise' for recruiters.",
+        outcome: "Impact: Implemented AI-driven skill matching that reduced time-to-hire by 35% for initial screening phases.",
         techStack: ["React", "Express.js", "TypeORM", "TypeScript", "PostgreSQL"],
         category: "Full Stack Development",
         role: "Full Stack Lead"
@@ -83,8 +83,8 @@ async function main() {
       {
         title: "EduPulse LMS",
         description: "Modern Learning Management System for digital-first educational institutions.",
-        problem: "Existing LMS products were slow and non-responsive, causing 40% student drop-off on mobile devices.",
-        outcome: "Built a mobile-first responsive LMS that improved student completion rates by 60% within the first 3 months.",
+        problem: "Challenge: Migrating heavy interactive course materials to a responsive platform while maintaining low latency on slow connections.",
+        outcome: "Impact: Built a mobile-first, edge-cached LMS that improved student completion rates by 60% and reduced page load times by 40%.",
         techStack: ["React", "Nest.js", "TypeScript", "TypeORM", "PostgreSQL"],
         category: "Full Stack Development",
         role: "Senior Engineer"
@@ -131,7 +131,7 @@ async function main() {
         name: "Sarah Johnson",
         role: "Product Manager",
         company: "TechFlow",
-        avatar: "https://i.pravatar.cc/150?u=sarah",
+        avatar: null,
         linkedinUrl: "https://linkedin.com/in/ayush-donga-696755197",
         logoUrl: "https://logo.clearbit.com/techflow.com"
       },
@@ -140,7 +140,7 @@ async function main() {
         name: "Michael Chen",
         role: "CTO",
         company: "CloudScale Systems",
-        avatar: "https://i.pravatar.cc/150?u=michael",
+        avatar: null,
         linkedinUrl: "https://linkedin.com/in/ayush-donga-696755197",
         logoUrl: "https://logo.clearbit.com/cloudscale.com"
       },
@@ -149,11 +149,30 @@ async function main() {
         name: "David Miller",
         role: "Founder",
         company: "StartupPulse",
-        avatar: "https://i.pravatar.cc/150?u=david",
+        avatar: null,
         linkedinUrl: "https://linkedin.com/in/ayush-donga-696755197",
         logoUrl: "https://logo.clearbit.com/startuppulse.com"
       }
     ]
+  })
+
+  // Settings
+  await prisma.settings.deleteMany()
+  await prisma.settings.create({
+    data: {
+      fullName: 'Ayush Donga',
+      professionalTitle: 'Senior Full Stack Engineer',
+      email: 'ayush.donga20@gmail.com',
+      avatarUrl: 'https://res.cloudinary.com/dv968/image/upload/v1704183626/ayush-profile.jpg', // User's Cloudinary URL
+      calendlyUrl: 'https://calendly.com/ayush-donga-20/strategy-call',
+      bio: 'Senior Full Stack Engineer specializing in building high-performance, production-ready SaaS applications for global startups.',
+      location: 'Vadodara, India',
+      githubUrl: 'https://github.com/Ayush-Donga',
+      linkedinUrl: 'https://linkedin.com/in/ayush-donga-696755197',
+      seoTitle: 'Ayush Donga | Senior Full Stack Engineer',
+      seoDescription: 'Senior Full Stack Engineer specializing in scalable React & Node.js architectures.',
+      seoKeywords: ['Senior Full Stack Engineer', 'MERN Stack', 'React', 'Node.js', 'Remote Engineer']
+    }
   })
 }
 

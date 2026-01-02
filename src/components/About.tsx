@@ -14,7 +14,7 @@ export const About = ({ avatarUrl }: AboutProps) => {
   return (
     <section id="about-me" className="py-24 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Visual / Image Side */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
@@ -25,23 +25,23 @@ export const About = ({ avatarUrl }: AboutProps) => {
           >
             <div className="relative z-10">
                {avatarUrl ? (
-                  <div className="relative rounded-2xl overflow-hidden aspect-[4/5] max-w-md mx-auto shadow-2xl border border-white/10 group">
+                  <div className="relative rounded-full overflow-hidden aspect-square max-w-[380px] mx-auto shadow-2xl border-[12px] border-white dark:border-white/5 group ring-1 ring-black/5">
                     <img 
                       src={avatarUrl} 
                       alt="Ayush Donga" 
                       className="w-full h-full object-cover transition-all duration-700" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent opacity-60"></div>
                   </div>
                ) : (
-                  <div className="aspect-[4/5] max-w-md mx-auto rounded-2xl bg-muted flex items-center justify-center border border-border/50">
+                  <div className="aspect-square max-w-[380px] mx-auto rounded-full bg-muted flex items-center justify-center border border-border/50">
                     <User className="w-20 h-20 text-muted-foreground/20" />
                   </div>
                )}
                
-               {/* Decorative elements around image */}
-               <div className="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-primary/30 rounded-tl-2xl"></div>
-               <div className="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-primary/30 rounded-br-2xl"></div>
+               {/* Decorative rings */}
+               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] border border-primary/20 rounded-full -z-10 animate-[spin_10s_linear_infinite]"></div>
+               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-dashed border-primary/10 rounded-full -z-10 animate-[spin_20s_linear_infinite_reverse]"></div>
             </div>
 
             {/* Floating stats or badge next to photo */}
@@ -50,7 +50,7 @@ export const About = ({ avatarUrl }: AboutProps) => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
-              className="absolute -bottom-6 -left-6 lg:left-0 z-20 bg-card/80 backdrop-blur-xl border border-border/50 p-6 rounded-2xl shadow-xl hidden sm:block"
+              className="absolute -bottom-2 -left-2 lg:left-0 z-20 bg-card/80 backdrop-blur-xl border border-border/50 p-6 rounded-2xl shadow-xl hidden sm:block"
             >
               <div className="flex items-center gap-4">
                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
@@ -92,6 +92,13 @@ export const About = ({ avatarUrl }: AboutProps) => {
                 With deep expertise in <strong>API Design, Database Optimization, and System Architecture</strong>, I solve complex problems before they become technical debts. My focus is on writing maintainable, tested, and performant code that scales.
               </p>
               
+              {/* Remote Work Highlight Statement */}
+              <div className="bg-primary/5 border-l-4 border-primary p-5 rounded-r-xl my-8">
+                 <p className="text-foreground font-medium text-base italic">
+                    "Open to Full-time Remote roles in US/UK/EU timezones. Specialized in Async-communication and Scalable Architecture."
+                 </p>
+              </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 py-6 border-y border-border/50">
                  <div className="space-y-2">
                     <h4 className="font-bold text-foreground flex items-center gap-2">
@@ -113,7 +120,7 @@ export const About = ({ avatarUrl }: AboutProps) => {
             <div className="mt-10 flex flex-wrap gap-4">
               <Button asChild size="lg" className="rounded-full px-8 shadow-lg shadow-primary/20">
                 <Link href="/resume">
-                  <Download className="w-4 h-4 mr-2" /> Download Senior Resume
+                  <Download className="w-4 h-4 mr-2" /> Download CV (ATS-Optimized)
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="rounded-full px-8">

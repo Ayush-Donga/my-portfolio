@@ -96,6 +96,7 @@ model Settings {
   
   // SEO & Site Config
   websiteUrl      String?
+  calendlyUrl     String?
   seoTitle        String?
   seoDescription  String?
   seoKeywords     String[] 

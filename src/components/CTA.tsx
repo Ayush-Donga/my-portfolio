@@ -6,7 +6,11 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { Rocket } from 'lucide-react'
 
-export const CTA = () => {
+interface CTAProps {
+    calendlyUrl?: string | null
+}
+
+export const CTA = ({ calendlyUrl }: CTAProps) => {
     return (
         <section className="py-24 relative overflow-hidden">
             {/* Background Decorative Elements */}
@@ -30,7 +34,7 @@ export const CTA = () => {
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
                         <Button size="lg" className="rounded-full px-10 h-14 text-lg bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white border-none shadow-xl shadow-orange-500/20" asChild>
-                            <Link href="#contact">
+                            <Link href={calendlyUrl || "#contact"} target={calendlyUrl ? "_blank" : undefined}>
                                 <Rocket className="mr-2 h-5 w-5" /> Book a Strategy Call
                             </Link>
                         </Button>

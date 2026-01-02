@@ -6,7 +6,11 @@ import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
-export const Hero = () => {
+interface HeroProps {
+  calendlyUrl?: string | null
+}
+
+export const Hero = ({ calendlyUrl }: HeroProps) => {
   return (
     <section id="about" className="min-h-screen flex items-center pt-16 relative overflow-hidden bg-gradient-to-b from-background to-background/50">
         {/* Background Gradients & Grid */}
@@ -70,7 +74,7 @@ export const Hero = () => {
                 </Link>
             </Button>
             <Button size="lg" variant="default" asChild className="rounded-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white border-none shadow-lg shadow-orange-500/20 px-8">
-                <Link href="#contact">Book a Strategy Call</Link>
+                <Link href={calendlyUrl || "#contact"} target={calendlyUrl ? "_blank" : undefined}>Book a Strategy Call</Link>
             </Button>
           </motion.div>
 

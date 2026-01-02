@@ -61,7 +61,7 @@ export const Reviews = ({ testimonials = [] }: ReviewsProps) => {
                                         {t.avatar ? (
                                             <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
                                         ) : (
-                                            t.name.substring(0,2)
+                                            t.name.split(' ').map(n => n[0]).join('')
                                         )}
                                     </div>
                                     <div>

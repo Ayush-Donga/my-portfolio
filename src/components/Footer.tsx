@@ -47,8 +47,10 @@ export const Footer = () => {
                                 </span>
                                 <span className="text-foreground font-medium">Available for Remote Roles</span>
                             </li>
-                            <li>Timezone: IST (UTC+5:30)</li>
-                            <li>Overlap: Germany / UK / EU / US</li>
+                            <li className="text-xs leading-relaxed italic opacity-80 pt-2">
+                                "Open to Full-time Remote roles in US/UK/EU timezones. Specialized in Async-communication and Scalable Architecture."
+                            </li>
+                            <li className="pt-2">Overlap: Germany / UK / EU / US</li>
                         </ul>
                     </div>
                 </div>
