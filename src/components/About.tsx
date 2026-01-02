@@ -86,12 +86,11 @@ export const About = ({ avatarUrl }: AboutProps) => {
             </h2>
             <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
               <p>
-                I am a <strong>Senior Full Stack Engineer</strong> who treats code as a business asset. I don't just build features; I architect <strong>scalable, production-ready systems</strong> that drive growth and user satisfaction.
+                I am a <strong>Senior Full-Stack Engineer</strong> with over <strong>6 years of experience</strong> in architecting high-performance web applications. My expertise lies in the <strong>MERN stack</strong> and cloud infrastructure <strong>(AWS/Azure)</strong>.
               </p>
               <p>
-                With deep expertise in <strong>API Design, Database Optimization, and System Architecture</strong>, I solve complex problems before they become technical debts. My focus is on writing maintainable, tested, and performant code that scales.
-              </p>
-              
+                I specialize in building <strong>scalable systems</strong> that bridge the gap between complex business logic and seamless user experience, consistently delivering projects for global clients across <strong>US, UK, and EU timezones</strong>.
+              </p>  
               {/* Remote Work Highlight Statement */}
               <div className="bg-primary/5 border-l-4 border-primary p-5 rounded-r-xl my-8">
                  <p className="text-foreground font-medium text-base italic">

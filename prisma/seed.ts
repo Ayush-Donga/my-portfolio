@@ -161,11 +161,11 @@ async function main() {
   await prisma.settings.create({
     data: {
       fullName: 'Ayush Donga',
-      professionalTitle: 'Senior Full Stack Engineer',
+      professionalTitle: 'Senior Full-Stack Engineer',
       email: 'ayush.donga20@gmail.com',
       avatarUrl: 'https://res.cloudinary.com/duxzb3nig/image/upload/v1766469968/vbnevvvxieqxcgmgdaaz.jpg', 
       calendlyUrl: 'https://calendly.com/ayush-donga20/30min',
-      bio: 'Senior Full Stack Engineer specializing in building high-performance, production-ready SaaS applications for global startups.',
+      bio: 'I am a Senior Full-Stack Engineer with over 6 years of experience in architecting high-performance web applications. My expertise lies in the MERN stack and cloud infrastructure (AWS/Azure). I specialize in building scalable systems that bridge the gap between complex business logic and seamless user experience, consistently delivering projects for global clients across US, UK, and EU timezones.',
       location: 'Vadodara, India',
       githubUrl: 'https://github.com/Ayush-Donga',
       linkedinUrl: 'https://linkedin.com/in/ayush-donga-696755197',
