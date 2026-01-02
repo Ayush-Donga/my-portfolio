@@ -781,7 +781,7 @@ export default function ResumeBuilder() {
                    <div className="flex justify-between items-start border-b-2 border-slate-900 pb-8 mb-8">
                       <div className="flex gap-6 items-center">
                          {personalInfo.photo && (
-                            <img src={personalInfo.photo} className="w-24 h-24 rounded-2xl object-cover grayscale" alt="Profile" />
+                            <img src={personalInfo.photo} className="w-24 h-24 rounded-2xl object-cover" alt="Profile" />
                          )}
                          <div>
                             <h1 className="text-4xl font-black tracking-tight mb-2">{personalInfo.fullName || 'Identity Name'}</h1>

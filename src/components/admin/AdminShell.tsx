@@ -30,14 +30,14 @@ export function AdminShell({
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden relative z-0">
         <AdminHeader onMenuClick={() => setSidebarOpen(true)} />
         
-        <main className="flex-1 overflow-y-auto overflow-x-hidden bg-secondary/20">
-          <div className="p-4 md:p-8 pb-12">
-            <div className="max-w-7xl mx-auto">
+        <main className="flex-1 overflow-y-auto overflow-x-hidden bg-white dark:bg-[#030712] flex flex-col">
+          <div className="flex-1 p-4 md:p-8 pb-12">
+            <div className="max-w-7xl mx-auto h-full">
               {children}
             </div>
           </div>
-          <footer className="px-8 py-6 border-t border-border bg-card/30 mt-auto text-center">
-             <p className="text-sm text-muted-foreground">
+          <footer className="px-8 py-6 border-t border-slate-200 dark:border-white/5 bg-slate-50/50 dark:bg-black/20 text-center shrink-0">
+             <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">
                &copy; {new Date().getFullYear()} Ayush Donga Portfolio Admin. All rights reserved.
              </p>
           </footer>

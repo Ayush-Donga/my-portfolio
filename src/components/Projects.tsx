@@ -67,7 +67,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
                         {/* Image / Visual Side */}
                         <div className="w-full lg:w-3/5 group">
                             <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl bg-muted cursor-pointer">
-                                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10"></div>
+                                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
                                 {project.imageUrl ? (
                                     <img 
                                       src={project.imageUrl} 

@@ -135,8 +135,11 @@ export default function ProjectsAdmin() {
 
   return (
     <div className="space-y-12">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <div>
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 p-10 rounded-[2.5rem] bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 relative overflow-hidden">
+        <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
+           <FolderGit2 className="w-64 h-64 rotate-12" />
+        </div>
+        <div className="relative z-10">
           <div className="flex items-center gap-2 mb-3">
              <div className="p-1 rounded bg-primary/10 text-primary">
                 <FolderGit2 className="w-3 h-3" />
@@ -146,17 +149,17 @@ export default function ProjectsAdmin() {
           <h1 className="text-4xl lg:text-5xl font-black tracking-tight text-slate-900 dark:text-white leading-none">Strategic <span className="text-primary italic">Showcase</span></h1>
           <p className="text-slate-500 font-medium mt-3 max-w-lg">Manage your high-impact case studies and architectural portfolios for global stakeholders.</p>
         </div>
-        <Button onClick={() => handleOpenForm()} className="h-14 px-8 rounded-2xl gap-3 font-bold shadow-2xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all text-base w-full md:w-auto">
+        <Button onClick={() => handleOpenForm()} className="relative z-10 h-14 px-8 rounded-2xl gap-3 font-bold shadow-2xl shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-0.5 transition-all text-base w-full md:w-auto">
           <Plus className="w-5 h-5" /> Launch New Asset
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[400px]">
         {projects.map((proj: Project) => (
           <motion.div 
             layout
             key={proj.id}
-            className="group bg-white dark:bg-white/5 rounded-[2.5rem] border border-slate-100 dark:border-white/5 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 dark:hover:shadow-none transition-all duration-700 hover:-translate-y-2"
+            className="group bg-white dark:bg-black/20 rounded-[2.5rem] border border-slate-200 dark:border-white/10 overflow-hidden hover:shadow-2xl hover:shadow-slate-200/50 dark:hover:shadow-none transition-all duration-700 hover:-translate-y-2"
           >
             <div className="aspect-[16/10] relative overflow-hidden bg-slate-100 dark:bg-black/40">
                {proj.imageUrl ? (
@@ -164,7 +167,7 @@ export default function ProjectsAdmin() {
                      src={proj.imageUrl} 
                      alt={proj.title} 
                      fill 
-                     className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" 
+                     className="object-cover group-hover:scale-110 transition-all duration-700" 
                   />
                ) : (
                   <div className="flex items-center justify-center h-full">
