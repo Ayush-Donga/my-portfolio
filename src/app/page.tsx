@@ -44,8 +44,8 @@ export default async function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary">
       <Navbar />
-      <Hero calendlyUrl={settings?.calendlyUrl} />
-      <About avatarUrl={settings?.avatarUrl} />
+      <Hero calendlyUrl={(settings as any)?.calendlyUrl} />
+      <About avatarUrl={(settings as any)?.avatarUrl} />
       <TechMarquee />
       <BackendExcellence />
       <TrustStats />
@@ -56,7 +56,7 @@ export default async function Home() {
       <Experience experience={experience} />
       <Projects projects={projects} />
       <Reviews testimonials={testimonials} />
-      <CTA calendlyUrl={settings?.calendlyUrl} />
+      <CTA calendlyUrl={(settings as any)?.calendlyUrl} />
       <Contact />
       <FloatingContact />
       <Footer />

@@ -163,8 +163,8 @@ async function main() {
       fullName: 'Ayush Donga',
       professionalTitle: 'Senior Full Stack Engineer',
       email: 'ayush.donga20@gmail.com',
-      avatarUrl: 'https://res.cloudinary.com/dv968/image/upload/v1704183626/ayush-profile.jpg', // User's Cloudinary URL
-      calendlyUrl: 'https://calendly.com/ayush-donga-20/strategy-call',
+      avatarUrl: 'https://res.cloudinary.com/duxzb3nig/image/upload/v1766469968/vbnevvvxieqxcgmgdaaz.jpg', 
+      calendlyUrl: 'https://calendly.com/ayush-donga20/30min',
       bio: 'Senior Full Stack Engineer specializing in building high-performance, production-ready SaaS applications for global startups.',
       location: 'Vadodara, India',
       githubUrl: 'https://github.com/Ayush-Donga',
