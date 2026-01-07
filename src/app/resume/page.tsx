@@ -10,8 +10,8 @@ import dynamic from 'next/dynamic'
 const ResumeDownloadButton = dynamic(
   () => import('@/components/resume/ResumeDownloadButton'),
   { ssr: false, loading: () => (
-    <Button disabled className="h-10 px-6 rounded-xl font-bold gap-2 bg-blue-600/50 text-white text-xs">
-      <Download className="w-4 h-4" /> Loading...
+    <Button disabled className="h-10 px-6 rounded-xl font-bold gap-2 bg-blue-600js/50 text-white text-xs">
+      <Loader2 className="w-4 h-4 animate-spin" /> downloading...
     </Button>
   ) }
 )
@@ -256,7 +256,7 @@ export default function PublicResume() {
                  if (sections.length === 0) return null;
 
                  return sections.map((section: ResumeSection) => (
-                    <section className="space-y-2 md:space-y-3 break-inside-avoid">
+                    <section key={section.id} className="space-y-2 md:space-y-3 break-inside-avoid">
                        <div className="flex items-center gap-2 md:gap-3 mb-2">
                           <h2 className="text-[11px] md:text-[12px] font-bold uppercase tracking-widest text-slate-900 dark:text-white print:text-black whitespace-nowrap">
                             {section.heading}
