@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react'
+import { Github, Linkedin, Mail } from 'lucide-react'
 
 export const Footer = () => {
     return (
@@ -12,7 +12,7 @@ export const Footer = () => {
                             Ayush Donga
                         </Link>
                         <p className="text-muted-foreground max-w-sm leading-relaxed text-lg">
-                            Senior Full Stack Engineer architecting scalable, production-ready SaaS platforms. Expert in high-performance systems and driving business growth through technical excellence.
+                            Senior Full Stack Engineer architecting scalable, production-ready SaaS platforms. Expert in high-performance systems and profitable technical decision making.
                         </p>
                         <div className="flex gap-4 pt-2">
                            <Link href="https://github.com/ayush-donga" target="_blank" className="p-2 bg-background border border-border rounded-full hover:border-primary/50 hover:text-primary transition-all hover:-translate-y-1">
@@ -33,24 +33,26 @@ export const Footer = () => {
                             <li><Link href="#about" className="hover:text-primary transition-colors">About</Link></li>
                             <li><Link href="#projects" className="hover:text-primary transition-colors">Case Studies</Link></li>
                             <li><Link href="#skills" className="hover:text-primary transition-colors">Technical Stack</Link></li>
-                            <li><Link href="#experience" className="hover:text-primary transition-colors">Experience</Link></li>
+                            <li><Link href="/resume" className="hover:text-primary transition-colors">Resume / CV</Link></li>
                         </ul>
                     </div>
 
                     <div>
-                        <h4 className="font-bold mb-6 text-sm uppercase tracking-[0.2em] text-primary">Status</h4>
+                        <h4 className="font-bold mb-6 text-sm uppercase tracking-[0.2em] text-primary">Availability</h4>
                         <ul className="space-y-4 text-sm text-muted-foreground">
                             <li className="flex items-center gap-3">
                                 <span className="relative flex h-3 w-3">
                                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                                   <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
                                 </span>
-                                <span className="text-foreground font-medium">Available for Remote Roles</span>
+                                <span className="text-foreground font-medium">Remote-Ready</span>
                             </li>
-                            <li className="text-xs leading-relaxed italic opacity-80 pt-2">
-                                "Open to Full-time Remote roles in US/UK/EU timezones. Specialized in Async-communication and Scalable Architecture."
+                            <li className="text-sm leading-relaxed opacity-90">
+                                6+ hours overlap with US/EU timezones (EST/GMT/CET).
                             </li>
-                            <li className="pt-2">Overlap: Germany / UK / EU / US</li>
+                            <li className="text-xs text-muted-foreground pt-2">
+                                Focused on long-term full-stack contract or employment roles.
+                            </li>
                         </ul>
                     </div>
                 </div>
