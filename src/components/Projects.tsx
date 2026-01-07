@@ -21,6 +21,8 @@ interface Project {
   problem?: string | null
   role?: string | null
   outcome?: string | null
+  architecture?: string | null
+  keyDecisions?: string | null
 }
 
 interface ProjectsProps {
@@ -123,7 +125,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
                                 ))}
                             </div>
 
-                            {/* Problem vs. Solution Section */}
+                            {/* Case Study Sections */}
                             <div className="grid grid-cols-1 gap-6 pt-6 mt-6 border-t border-border/50">
                                 {project.problem && (
                                     <div className="space-y-2">
@@ -135,11 +137,41 @@ export const Projects = ({ projects }: ProjectsProps) => {
                                     </div>
                                 )}
                                 
+                                {project.role && (
+                                    <div className="space-y-2">
+                                        <div className="flex items-center gap-2 text-blue-500/80">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                                            <h4 className="font-bold text-xs uppercase tracking-widest">My Role & Ownership</h4>
+                                        </div>
+                                        <p className="text-sm text-muted-foreground leading-relaxed">{project.role}</p>
+                                    </div>
+                                )}
+
+                                {project.architecture && (
+                                    <div className="space-y-2">
+                                        <div className="flex items-center gap-2 text-purple-500/80">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-purple-500"></div>
+                                            <h4 className="font-bold text-xs uppercase tracking-widest">Architecture Overview</h4>
+                                        </div>
+                                        <p className="text-sm text-muted-foreground leading-relaxed">{project.architecture}</p>
+                                    </div>
+                                )}
+
+                                {project.keyDecisions && (
+                                    <div className="space-y-2">
+                                        <div className="flex items-center gap-2 text-orange-500/80">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
+                                            <h4 className="font-bold text-xs uppercase tracking-widest">Key Technical Decisions</h4>
+                                        </div>
+                                        <p className="text-sm text-muted-foreground leading-relaxed">{project.keyDecisions}</p>
+                                    </div>
+                                )}
+                                
                                 {project.outcome && (
                                     <div className="space-y-2">
                                         <div className="flex items-center gap-2 text-emerald-500">
                                             <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
-                                            <h4 className="font-bold text-xs uppercase tracking-widest">The Solution & Outcome</h4>
+                                            <h4 className="font-bold text-xs uppercase tracking-widest">Results & Impact</h4>
                                         </div>
                                         <div className="flex gap-4 items-start bg-emerald-500/5 p-4 rounded-xl border border-emerald-500/10">
                                             <div className="bg-emerald-500/10 p-2 rounded-lg text-emerald-500 mt-0.5">
@@ -147,13 +179,6 @@ export const Projects = ({ projects }: ProjectsProps) => {
                                             </div>
                                             <p className="text-sm text-foreground font-medium leading-relaxed">{project.outcome}</p>
                                         </div>
-                                    </div>
-                                )}
-
-                                 {project.role && (
-                                    <div className="text-xs flex items-center gap-2 text-muted-foreground">
-                                        <span className="font-bold text-foreground">My Role:</span> 
-                                        <span className="bg-secondary/50 px-2 py-0.5 rounded">{project.role}</span>
                                     </div>
                                 )}
                             </div>

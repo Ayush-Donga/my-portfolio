@@ -86,32 +86,29 @@ export const About = ({ avatarUrl }: AboutProps) => {
             </h2>
             <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
               <p>
-                I am a <strong>Senior Full-Stack Engineer</strong> with over <strong>6 years of experience</strong> in architecting high-performance web applications. My expertise lies in the <strong>MERN stack</strong> and cloud infrastructure <strong>(AWS/Azure)</strong>.
+                I am a <strong>Senior Full-Stack Engineer</strong> who specializes in taking complex business requirements from concept to scalable production. With over <strong>6 years of experience</strong> across the <strong>MERN stack</strong> and Cloud infrastructure, I bridge the gap between architectural strategy and robust implementation.
               </p>
               <p>
-                I specialize in building <strong>scalable systems</strong> that bridge the gap between complex business logic and seamless user experience, consistently delivering projects for global clients across <strong>US, UK, and EU timezones</strong>.
+                My focus is on <strong>deep ownership</strong>. I don't just ship tickets; I take responsibility for the entire technical lifecycle—from drafting RFCs and designing schemas to optimizing CI/CD pipelines and monitoring post-launch performance.
               </p>  
-              {/* Remote Work Highlight Statement */}
-              <div className="bg-primary/5 border-l-4 border-primary p-5 rounded-r-xl my-8">
-                 <p className="text-foreground font-medium text-base italic">
-                    "Open to Full-time Remote roles in US/UK/EU timezones. Specialized in Async-communication and Scalable Architecture."
-                 </p>
-              </div>
+              <p>
+                Having collaborated with teams across the <strong>US, UK, and EU</strong>, I have mastered the remote-first workflow. I prioritize asynchronous communication, maintain rigorous documentation standards, and thrive in environments that value independent decision-making and proactive problem-solving.
+              </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 py-6 border-y border-border/50">
                  <div className="space-y-2">
                     <h4 className="font-bold text-foreground flex items-center gap-2">
                        <span className="w-2 h-2 rounded-full bg-primary"></span>
-                       Remote-Native
+                       Remote-First Engineering
                     </h4>
-                    <p className="text-sm">Years of experience with <strong>US & EU</strong> teams. Synchronous overlap with EST & CET.</p>
+                    <p className="text-sm">6+ hours overlap with <strong>EU/UK and US East</strong>. Async communication expert with proven track record in distributed teams.</p>
                  </div>
                  <div className="space-y-2">
                     <h4 className="font-bold text-foreground flex items-center gap-2">
                        <span className="w-2 h-2 rounded-full bg-primary"></span>
-                       Ownership Mindset
+                       Full Lifecycle Ownership
                     </h4>
-                    <p className="text-sm">Full lifecycle responsibility, from RFC to deployment and post-launch monitoring.</p>
+                    <p className="text-sm">From RFC to deployment and post-launch monitoring. I own the complete technical journey.</p>
                  </div>
               </div>
             </div>

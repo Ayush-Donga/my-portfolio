@@ -33,11 +33,11 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
             className="flex items-center gap-4"
           >
             <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-primary/10 text-primary">
-              🚀 Production-Ready SaaS Expert
+              6+ Years Experience | 20+ Production Launches
             </div>
             <div className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-emerald-500/20 bg-emerald-500/10 text-emerald-500 animate-pulse">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-              Available for Remote Roles (Germany / UK / EU / US)
+              Available for Remote Roles
             </div>
           </motion.div>
           <motion.h1 
@@ -46,8 +46,8 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
             transition={{ delay: 0.3 }}
             className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1]"
           >
-            Senior Full Stack Engineer <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Building High-Performance SaaS for Global Startups</span>
+            High-Impact Full-Stack Engineering <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">for Scale-Up SaaS</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -55,10 +55,10 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
             transition={{ delay: 0.4 }}
             className="text-lg text-muted-foreground leading-relaxed max-w-lg"
           >
-            Helping global startups build production-grade web applications. Expert in <strong>React, Node.js, and Cloud Architecture</strong> with a focus on performance and seamless UX.
+            Architecting resilient, production-ready systems with a focus on <strong>ownership and business growth</strong>. Expert in Node.js & React architecture with deep experience in cloud infrastructure.
             <br className="mb-2" />
             <span className="text-sm opacity-80 block mt-2">
-               ✅ 4+ hours timezone overlap with <strong>London, Berlin, & NYC</strong>.
+               ✅ 6+ hours overlap with <strong>EU/UK and US East</strong> time zones.
             </span>
           </motion.p>
           

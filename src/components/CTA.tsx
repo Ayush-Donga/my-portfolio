@@ -26,12 +26,15 @@ export const CTA = ({ calendlyUrl }: CTAProps) => {
                     className="max-w-3xl mx-auto space-y-8"
                 >
                     <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-                        Ready to transform your <span className="text-primary">Digital Presence?</span>
+                        Ready to scale <span className="text-primary">your product?</span>
                     </h2>
                     <p className="text-xl text-muted-foreground leading-relaxed">
-                        Whether you have a specific project in mind or just want to explore the possibilities, 
-                        I'm here to help you build something extraordinary.
+                        Currently considering new remote opportunities. Available for immediate start or with 2-week notice period.
                     </p>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 text-emerald-500 text-sm font-semibold border border-emerald-500/20">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        Open to Full-Time Remote Roles
+                    </div>
                     <div className="flex flex-wrap justify-center gap-4">
                         <Button size="lg" className="rounded-full px-10 h-14 text-lg bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white border-none shadow-xl shadow-orange-500/20" asChild>
                             <Link href={calendlyUrl || "#contact"} target={calendlyUrl ? "_blank" : undefined}>

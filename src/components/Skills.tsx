@@ -61,9 +61,9 @@ export const Skills = ({ skills }: SkillsProps) => {
                 transition={{ duration: 0.5 }}
                 className="text-center mb-16"
             >
-                <h2 className="text-3xl font-bold mb-4">Technical <span className="text-primary">Expertise</span></h2>
+                <h2 className="text-3xl font-bold mb-4">Technical <span className="text-primary">Stack</span></h2>
                 <p className="text-muted-foreground mr-auto ml-auto max-w-2xl">
-                    A comprehensive toolset developed over 6+ years of engineering high-scale systems.
+                    Production-tested technologies organized by domain. Built through 6+ years of architecting high-scale systems.
                 </p>
             </motion.div>
             

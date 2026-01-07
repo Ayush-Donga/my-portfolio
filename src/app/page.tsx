@@ -11,6 +11,7 @@ import { Reviews } from "@/components/Reviews";
 import { Skills } from "@/components/Skills";
 import { Experience } from "@/components/Experience";
 import { Projects } from "@/components/Projects";
+import { RemoteReadiness } from "@/components/RemoteReadiness";
 import { CTA } from "@/components/CTA";
 import { Contact } from "@/components/Contact";
 import { FloatingContact } from "@/components/FloatingContact";
@@ -21,9 +22,9 @@ import { Metadata } from "next";
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Ayush Donga | Senior Full-Stack Engineer (Remote)',
-  description: 'Senior Full-Stack Engineer with 6+ years experience in MERN & Cloud (AWS/Azure). Expert in building scalable systems for global startups across US/UK/EU.',
-  keywords: ['Senior Full-Stack Engineer', 'MERN Stack Developer', 'Cloud Architect', 'AWS', 'Azure', 'Remote Engineer', 'Scalable systems'],
+  title: 'Ayush Donga | Senior Full-Stack Engineer - Remote (EU/UK/US)',
+  description: 'Senior Full-Stack Engineer with 6+ years architecting scalable systems. Expert in MERN stack, Cloud (AWS/Azure), and remote-first collaboration. Available for EU/UK/US opportunities.',
+  keywords: ['Senior Full-Stack Engineer', 'Remote Engineer', 'MERN Stack', 'Cloud Architect', 'AWS', 'Azure', 'Node.js', 'React', 'TypeScript', 'Scalable Systems'],
 };
 
 export default async function Home() {
@@ -55,6 +56,7 @@ export default async function Home() {
       <Skills skills={skills} />
       <Experience experience={experience} />
       <Projects projects={projects} />
+      <RemoteReadiness />
       <Reviews testimonials={testimonials} />
       <CTA calendlyUrl={(settings as any)?.calendlyUrl} />
       <Contact />

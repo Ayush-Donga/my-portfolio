@@ -20,19 +20,21 @@ model Experience {
 }
 
 model Project {
-  id          String   @id @default(uuid())
-  title       String
-  description String
-  techStack   String[]
-  liveUrl     String?
-  githubUrl   String?
-  imageUrl    String?
-  category    String?
-  problem     String?
-  role        String?
-  outcome     String?
-  order       Int      @default(0)
-  createdAt   DateTime @default(now())
+  id            String   @id @default(uuid())
+  title         String
+  description   String
+  techStack     String[]
+  liveUrl       String?
+  githubUrl     String?
+  imageUrl      String?
+  category      String?
+  problem       String?
+  role          String?
+  outcome       String?
+  architecture  String?  // Architecture overview for case studies
+  keyDecisions  String?  // Key technical decisions made
+  order         Int      @default(0)
+  createdAt     DateTime @default(now())
 }
 
 model Skill {
