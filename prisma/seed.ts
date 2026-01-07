@@ -223,6 +223,119 @@ async function main() {
       seoKeywords: ['Senior Full Stack Engineer', 'SaaS Architect', 'React', 'Node.js', 'Remote Engineer', 'Cloud Native']
     }
   })
+  // Resume
+  await prisma.resume.deleteMany()
+  await prisma.resume.create({
+    data: {
+      internalName: "Senior Full Stack - 2025",
+      isActive: true,
+      personalInfo: {
+        fullName: "Ayush Donga",
+        professionalTitle: "Senior Full-Stack Engineer",
+        email: "ayush.donga20@gmail.com",
+        phone: "+91 8140000626", // Placeholder, user can update in admin
+        location: "Vadodara, India (Open to Remote)",
+        linkedin: "linkedin.com/in/ayush-donga-696755197",
+        github: "github.com/ayush-donga",
+        summary: "Senior Full-Stack Engineer with 6+ years of experience helping US/EU founders scale complex SaaS & real-time applications. Expert in React, Node.js, and Cloud-Native architectures. Proven track record of leading distributed teams, reducing technical debt, and delivering profitable technical decisions."
+      },
+      content: [
+        {
+          id: "exp-section",
+          type: "experience",
+          heading: "Professional Experience",
+          items: [
+            {
+              id: "exp-1",
+              title: "Full Stack Engineer",
+              company: "Pardy Panda Studios",
+              location: "Vadodara, India",
+              startDate: "Jan 2025",
+              endDate: "Present",
+              description: "<ul><li>Leading a distributed engineering team of 4, orchestrating sprint planning and improving delivery velocity by 20%.</li><li>Architected a high-performance Super Admin Platform resulting in a 40% reduction in data loading times.</li><li>Designed scalable cloud-native architectures that support 10k+ concurrent users with 99.9% uptime.</li><li>Optimized database queries and frontend rendering, achieving a 15% improvement in Core Web Vitals.</li></ul>"
+            },
+            {
+              id: "exp-2",
+              title: "Senior Software Engineer",
+              company: "Saas Innova",
+              location: "Surat, India",
+              startDate: "July 2022",
+              endDate: "Dec 2024",
+              description: "<ul><li>Led development of a Learning Management System (LMS) resulting in a 25% increase in user engagement.</li><li>Optimized backend architectures using NestJS and Redis, reducing server response time by 30%.</li><li>Managed a cross-functional team of 3 developers, delivering 15+ production-ready features within deadline.</li><li>Reduced infrastructure costs by 20% through efficient cloud resource management and Docker orchestration.</li></ul>"
+            },
+            {
+              id: "exp-3",
+              title: "Software Engineer",
+              company: "Red & White Softech",
+              location: "Surat, India",
+              startDate: "Nov 2020",
+              endDate: "June 2022",
+              description: "<ul><li>Developed a large scale Education ERP system, reducing operational costs for clients by 30%.</li><li>Implemented automated fee collection modules, increasing payment processing speed by 40%.</li><li>Optimized SQL queries and database indexing, leading to a 50% faster reporting engine.</li></ul>"
+            }
+          ]
+        },
+        {
+          id: "proj-section",
+          type: "projects",
+          heading: "Key Projects",
+          items: [
+            {
+              id: "proj-1",
+              title: "LuxAlgo - FinTech Platform",
+              subtitle: "Lead Full-Stack Engineer",
+              link: "luxalgo.com",
+              description: "Built core subscription infrastructure and user dashboard for a leading financial analysis company. Leveraged Stripe Subscription Schedules to handle complex 'pause' and 'resume' logic, reducing churn."
+            },
+            {
+              id: "proj-2",
+              title: "Palmswap - Decentralized Exchange",
+              subtitle: "Web3 Developer",
+              description: "High-performance DEX with real-time trading features. Hybrid architecture using On-chain settlement and AWS Lambda for sub-second chart updates."
+            },
+            {
+              id: "proj-3",
+              title: "Zellim - Collaboration Suite",
+              subtitle: "Lead Engineer",
+              description: "Unified productivity platform combining Docs, Video, and Email. Reduced context-switching for users by ~40% through a unified inbox abstraction layer."
+            },
+            {
+              id: "proj-4",
+              title: "Coverdash - InsurTech",
+              subtitle: "Founding Engineer",
+              link: "coverdash.com",
+              description: "Built MVP for comprehensive insurance brokerage. Abstracted the core flow into a reusable npm package for B2B partner embedding."
+            }
+          ]
+        },
+        {
+          id: "skills-section",
+          type: "skills",
+          heading: "Technical Skills",
+          items: [
+            { id: "s-1", title: "Frontend", description: "React, Next.js, TypeScript, Tailwind CSS, Redux, Vue.js" },
+            { id: "s-2", title: "Backend", description: "Node.js, NestJS, Express, Python, Go (Basic)" },
+            { id: "s-3", title: "Database & Cloud", description: "PostgreSQL, MongoDB, Redis, AWS, Docker, Kubernetes, CI/CD" },
+            { id: "s-4", title: "Architecture", description: "Microservices, Serverless, Event-Driven, Real-time Systems (WebSockets)" }
+          ]
+        },
+        {
+          id: "edu-section",
+          type: "education",
+          heading: "Education",
+          items: [
+            {
+              id: "edu-1",
+              degree: "Diploma in Computer Science",
+              school: "Parul University",
+              location: "Vadodara, India",
+              startDate: "2015",
+              endDate: "2018"
+            }
+          ]
+        }
+      ]
+    }
+  })
 }
 
 main()
