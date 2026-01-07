@@ -177,9 +177,17 @@ export const Contact = () => {
                                         placeholder="Hi, we're looking for a Senior Engineer for..." 
                                     />
                                 </div>
+                                <div className="hidden">
+                                    <label htmlFor="honey">Do not fill this out</label>
+                                    <input name="honey" type="text" onChange={() => setStatus('error')} />
+                                </div>
+
                                 <Button type="submit" className="w-full" size="lg" disabled={status === 'loading'}>
                                     {status === 'loading' ? 'Sending...' : <><Send className="w-4 h-4 mr-2" /> Send Message</>}
                                 </Button>
+                                <p className="text-xs text-center text-muted-foreground mt-4">
+                                    No spam. Your email is safe. I usually reply within 24 hours.
+                                </p>
                             </form>
                         )}
                     </CardContent>

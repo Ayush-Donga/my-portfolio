@@ -1,12 +1,6 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
-import { TechMarquee } from "@/components/TechMarquee";
-import { TrustStats } from "@/components/TrustStats";
-import { Services } from "@/components/Services";
-import { BackendExcellence } from "@/components/BackendExcellence";
-import { QualityStandards } from "@/components/QualityStandards";
-import { Process } from "@/components/Process";
 import { Reviews } from "@/components/Reviews";
 import { Skills } from "@/components/Skills";
 import { Experience } from "@/components/Experience";
@@ -33,7 +27,8 @@ export default async function Home() {
   const projects = await prisma.project.findMany({
     orderBy: {
       order: 'asc'
-    }
+    },
+    take: 4
   });
   
   const testimonials = await prisma.testimonial.findMany({
@@ -47,12 +42,6 @@ export default async function Home() {
       <Navbar />
       <Hero calendlyUrl={(settings as any)?.calendlyUrl} />
       <About avatarUrl={(settings as any)?.avatarUrl} />
-      <TechMarquee />
-      <BackendExcellence />
-      <TrustStats />
-      <Services />
-      <QualityStandards />
-      <Process />
       <Skills skills={skills} />
       <Experience experience={experience} />
       <Projects projects={projects} />

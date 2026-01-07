@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     default: "Ayush Donga | Engineering Lead & Technical Partner",
     template: "%s | Ayush Donga",
   },
-  description: "Engineering Lead specializing in building high-performance web applications and leading remote engineering teams to success. Bridging the gap between business and technology.",
+  description: "Senior Full-Stack Engineer helping US/EU founders scale complex SaaS & real-time applications. React, Node.js, and Cloud-Native architectures.",
   keywords: ["Engineering Lead", "Technical Partner", "Full Stack Architect", "Next.js Expert", "Node.js Lead", "Remote Engineering Leader", "Ayush Donga"],
   authors: [{ name: "Ayush Donga" }],
   creator: "Ayush Donga",

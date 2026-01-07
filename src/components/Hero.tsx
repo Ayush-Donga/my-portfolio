@@ -42,14 +42,14 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
               {HERO_CONTENT.availability}
             </div>
           </motion.div>
-          <motion.h1 
+            <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1]"
           >
             Senior Full-Stack Engineer <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Scalable SaaS & Real-Time Production Systems</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Building High-Performance SaaS & Cloud-Native Platforms</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
             transition={{ delay: 0.4 }}
             className="text-lg text-muted-foreground leading-relaxed max-w-lg"
           >
-            {HERO_CONTENT.subtitle}
+            I help US/EU founders scale complex web applications. No fluff, just production-ready code and ownership.
           </motion.p>
           
           <motion.div 
@@ -67,12 +67,12 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
             className="flex flex-wrap gap-4"
           >
             <Button size="lg" asChild className="rounded-full shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-shadow">
-                <Link href="#projects">
-                    {HERO_CONTENT.ctaPrimary} <ArrowRight className="ml-2 h-4 w-4" />
+                <Link href={calendlyUrl || "https://calendly.com/"} target="_blank">
+                    Book a Call <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
             </Button>
-            <Button size="lg" variant="default" asChild className="rounded-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white border-none shadow-lg shadow-orange-500/20 px-8">
-                <Link href={calendlyUrl || "#contact"} target={calendlyUrl ? "_blank" : undefined}>{HERO_CONTENT.ctaSecondary}</Link>
+            <Button size="lg" variant="outline" asChild className="rounded-full px-8 hover:bg-muted">
+                <Link href="mailto:ayush.donga20@gmail.com">Email Me</Link>
             </Button>
           </motion.div>
 

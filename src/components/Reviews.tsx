@@ -86,15 +86,7 @@ export const Reviews = ({ testimonials = [] }: ReviewsProps) => {
                     ))}
                 </div>
 
-                {/* Client Logo Cloud */}
-                <div className="pt-10 border-t border-border/50">
-                    <p className="text-center text-xs font-semibold text-muted-foreground/50 uppercase tracking-[0.2em] mb-10">Trusted By Forward-Thinking Teams</p>
-                    <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
-                        {clientLogos.map(logo => (
-                            <span key={logo} className="text-xl md:text-2xl font-black font-sans tracking-tighter hover:text-primary cursor-default">{logo}</span>
-                        ))}
-                    </div>
-                </div>
+                {/* Client Logo Cloud - Removed for professional minimalism */}
             </div>
         </section>
     )

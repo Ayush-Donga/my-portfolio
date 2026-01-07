@@ -71,6 +71,13 @@ export const Experience = ({ experience }: ExperienceProps) => {
                                         <div className="text-primary font-semibold text-lg flex items-center gap-2">
                                             {exp.company}
                                         </div>
+                                        {/* Industry/Scale Metadata - Hardcoded lookup for portfolio polish */}
+                                        <div className="text-xs font-medium text-muted-foreground/80">
+                                            {exp.company.includes('Pardy') ? 'Mobile Gaming Studio • 30+ Team' : 
+                                             exp.company.includes('Saas') ? 'SaaS Product Company • 15+ Team' :
+                                             exp.company.includes('Red') ? 'Enterprise Software Agency • 100+ Team' : 
+                                             'Tech Company'}
+                                        </div>
                                     </div>
                                 </CardHeader>
                                 <CardContent className="pt-6 relative z-10">
