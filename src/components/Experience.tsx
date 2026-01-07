@@ -43,9 +43,9 @@ export const Experience = ({ experience }: ExperienceProps) => {
                 </p>
             </motion.div>
             
-            <div className="space-y-12 max-w-5xl mx-auto relative">
+            <div className="space-y-12 max-w-5xl mx-auto relative pl-8 md:pl-0">
                 {/* Background Decorative Line */}
-                <div className="absolute left-[28px] md:left-1/2 top-0 bottom-0 w-px bg-border/50 -translate-x-1/2 hidden md:block" />
+                <div className="absolute left-[19px] md:left-1/2 top-0 bottom-0 w-px bg-border/50 md:-translate-x-1/2 block" />
                 
                 {sorted.map((exp, index) => (
                     <motion.div 
@@ -57,7 +57,7 @@ export const Experience = ({ experience }: ExperienceProps) => {
                         className={`flex flex-col md:flex-row gap-8 relative ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
                     >
                         {/* Timeline Dot */}
-                        <div className="absolute left-[28px] md:left-1/2 w-4 h-4 bg-background rounded-full border-4 border-primary shadow-[0_0_0_4px_rgba(59,130,246,0.1)] -translate-x-1/2 top-8 z-10 hidden md:block"></div>
+                        <div className="absolute left-[11px] md:left-1/2 w-4 h-4 bg-background rounded-full border-4 border-primary shadow-[0_0_0_4px_rgba(59,130,246,0.1)] md:-translate-x-1/2 top-8 z-10 block"></div>
 
                         {/* Content */}
                         <div className="flex-1">

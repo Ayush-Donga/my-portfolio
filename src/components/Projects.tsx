@@ -64,7 +64,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
                         className={`flex flex-col lg:flex-row gap-16 items-start ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
                     >
                         {/* Image / Visual Side */}
-                        <div className="w-full lg:w-1/2 group sticky top-24">
+                        <div className="w-full lg:w-1/2 group relative lg:sticky lg:top-24">
                             <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl bg-muted">
                                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
                                 {project.imageUrl ? (
