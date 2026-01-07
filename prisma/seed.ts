@@ -19,7 +19,7 @@ async function main() {
         startDate: new Date("2025-01-01"),
         current: true,
         description: [
-          "Leading and mentoring a team of 4 full stack developers, improving sprint velocity by 20%.",
+          "Leading a distributed engineering team of 4, orchestrating sprint planning and improving delivery velocity by 20%.",
           "Architected a high-performance Super Admin Platform resulting in a 40% reduction in data loading times.",
           "Designed scalable cloud-native architectures that support 10k+ concurrent users with 99.9% uptime.",
           "Optimized database queries and frontend rendering, achieving a 15% improvement in Core Web Vitals.",
@@ -178,7 +178,7 @@ async function main() {
       {
         quote: "Ayush bridges the gap between technical complexity and business value. His architectural decisions for our SaaS platform saved us months of potential rework.",
         name: "Sarah Johnson",
-        role: "Product Manager",
+        role: "Founder & CEO",
         company: "TechFlow",
         avatar: null,
         linkedinUrl: "https://linkedin.com/in/ayush-donga-696755197",
@@ -187,7 +187,7 @@ async function main() {
       {
         quote: "He delivers production-ready code with zero technical debt. A senior engineer you can trust to lead complex projects independently while keeping stakeholders aligned.",
         name: "Michael Chen",
-        role: "CTO",
+        role: "VP of Engineering",
         company: "CloudScale Systems",
         avatar: null,
         linkedinUrl: "https://linkedin.com/in/ayush-donga-696755197",
@@ -196,7 +196,7 @@ async function main() {
       {
         quote: "Working across time zones was seamless. Ayush's proactive communication and documentation standards set the bar for remote engineering excellence.",
         name: "David Miller",
-        role: "Engineering Manager",
+        role: "CTO",
         company: "StartupPulse",
         avatar: null,
         linkedinUrl: "https://linkedin.com/in/ayush-donga-696755197",
@@ -214,13 +214,13 @@ async function main() {
       email: 'ayush.donga20@gmail.com',
       avatarUrl: 'https://res.cloudinary.com/duxzb3nig/image/upload/v1766469968/vbnevvvxieqxcgmgdaaz.jpg', 
       calendlyUrl: 'https://calendly.com/ayush-donga20/30min',
-      bio: 'I am a Senior Full-Stack Engineer with over 6 years of experience in architecting high-performance web applications. My expertise lies in the MERN stack and cloud infrastructure (AWS/Azure). I specialize in building scalable systems that bridge the gap between complex business logic and seamless user experience, consistently delivering projects for global clients across US, UK, and EU timezones.',
+      bio: "Senior Full-Stack Engineer helping US/EU founders scale complex SaaS & real-time applications. I bridge the gap between business goals and technical execution, delivering production-ready architecture without the fluff.",
       location: 'Vadodara, India',
       githubUrl: 'https://github.com/Ayush-Donga',
       linkedinUrl: 'https://linkedin.com/in/ayush-donga-696755197',
-      seoTitle: 'Ayush Donga | Senior Full Stack Engineer',
-      seoDescription: 'Senior Full Stack Engineer specializing in scalable React & Node.js architectures.',
-      seoKeywords: ['Senior Full Stack Engineer', 'MERN Stack', 'React', 'Node.js', 'Remote Engineer']
+      seoTitle: 'Ayush Donga | Senior Full-Stack Engineer',
+      seoDescription: 'Senior Full-Stack Engineer helping US/EU founders scale complex SaaS & real-time applications. React, Node.js, and Cloud-Native architectures.',
+      seoKeywords: ['Senior Full Stack Engineer', 'SaaS Architect', 'React', 'Node.js', 'Remote Engineer', 'Cloud Native']
     }
   })
 }
