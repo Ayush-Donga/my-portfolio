@@ -1,13 +1,11 @@
 'use client'
 
 import React from 'react'
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Github, ExternalLink, Code2, ArrowUpRight, TrendingUp, ArrowRight } from 'lucide-react'
+import { Github, Code2, ArrowUpRight, TrendingUp, CheckCircle2, Layers, AlertCircle } from 'lucide-react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-
 
 interface Project {
   id: string
@@ -47,16 +45,15 @@ export const Projects = ({ projects }: ProjectsProps) => {
             >
                 <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider border border-primary/20">
                     <Code2 className="w-3 h-3" />
-                    Selected Works
+                    Production-Grade Work
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Case Studies</span></h2>
+                <h2 className="text-4xl md:text-5xl font-bold mb-6">Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Case Studies</span></h2>
                 <p className="text-muted-foreground mr-auto ml-auto max-w-2xl text-lg leading-relaxed">
-                    A selection of production-grade applications that solve real business problems. 
-                    Focusing on scalability, performance, and user experience.
+                    A deep dive into how I solve complex engineering problems, architect scalable solutions, and drive business impact.
                 </p>
             </motion.div>
             
-            <div className="space-y-24">
+            <div className="space-y-32">
                 {projects.map((project, index) => (
                     <motion.div 
                         key={project.id}
@@ -64,11 +61,11 @@ export const Projects = ({ projects }: ProjectsProps) => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.7, delay: index * 0.1 }}
-                        className={`flex flex-col lg:flex-row gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
+                        className={`flex flex-col lg:flex-row gap-16 items-start ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
                     >
                         {/* Image / Visual Side */}
-                        <div className="w-full lg:w-3/5 group">
-                            <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl bg-muted cursor-pointer">
+                        <div className="w-full lg:w-1/2 group sticky top-24">
+                            <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl bg-muted">
                                 <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
                                 {project.imageUrl ? (
                                     <img 
@@ -78,120 +75,78 @@ export const Projects = ({ projects }: ProjectsProps) => {
                                     />
                                 ) : (
                                     <div className="aspect-video flex items-center justify-center h-full w-full bg-gradient-to-br from-gray-50 to-gray-100 dark:from-slate-900 dark:to-slate-950 border border-border/50 relative overflow-hidden group-hover:border-primary/20 transition-colors">
-                                         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-                                         <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
-                                         <Code2 className="w-24 h-24 text-muted-foreground/10 group-hover:text-primary/20 transition-colors duration-500 transform group-hover:scale-110 relative z-10" />
+                                         <Code2 className="w-24 h-24 text-muted-foreground/10" />
                                     </div>
                                 )}
-                                
-                                {/* Overlay Links */}
-                                <div className="absolute bottom-6 right-6 z-20 flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0 duration-300">
-                                     {project.liveUrl && (
-                                        <Link href={project.liveUrl} target="_blank" className="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform">
-                                            Visit Live <ArrowUpRight className="w-4 h-4" />
-                                        </Link>
-                                     )}
-                                     {project.githubUrl && (
-                                        <Link href={project.githubUrl} target="_blank" className="flex items-center gap-2 bg-black/80 text-white backdrop-blur px-4 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform border border-white/20">
-                                            Github <Github className="w-4 h-4" />
-                                        </Link>
-                                     )}
-                                </div>
+                            </div>
+                            
+                            <div className="flex gap-4 mt-6 justify-center lg:justify-start">
+                                {project.liveUrl && (
+                                    <Button asChild variant="default" className="rounded-full">
+                                        <Link href={project.liveUrl} target="_blank">View Live Project <ArrowUpRight className="ml-2 w-4 h-4" /></Link>
+                                    </Button>
+                                )}
+                                {project.githubUrl && (
+                                    <Button asChild variant="outline" className="rounded-full">
+                                        <Link href={project.githubUrl} target="_blank">View Code <Github className="ml-2 w-4 h-4" /></Link>
+                                    </Button>
+                                )}
                             </div>
                         </div>
 
                         {/* Content Side */}
-                        <div className="w-full lg:w-2/5 space-y-6">
+                        <div className="w-full lg:w-1/2 space-y-8">
                             <div>
-                                <div className="flex items-center gap-3 mb-3">
-                                    <span className="text-primary font-mono text-sm tracking-wider">0{index + 1}</span>
-                                    <div className="h-px bg-primary/30 flex-grow"></div>
-                                    {project.category && (
-                                        <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground border border-border px-2 py-1 rounded">{project.category}</span>
-                                    )}
+                                <div className="flex items-center gap-3 mb-4">
+                                    <span className="text-primary font-mono text-xl font-bold opacity-50">0{index + 1}</span>
+                                    <div className="h-px bg-primary/30 w-12"></div>
+                                    <span className="text-sm font-bold uppercase tracking-widest text-muted-foreground">{project.role || 'Lead Engineer'}</span>
                                 </div>
-                                <h3 className="text-3xl font-bold mb-4">{project.title}</h3>
-                                <p className="text-muted-foreground text-lg leading-relaxed">
-                                    {project.description}
+                                <h3 className="text-4xl font-bold mb-4">{project.title}</h3>
+                                <p className="text-xl text-primary font-medium leading-relaxed italic">
+                                    "{project.description}"
                                 </p>
                             </div>
 
                             {/* Tech Stack Pills */}
                             <div className="flex flex-wrap gap-2">
                                 {project.techStack.map(tech => (
-                                    <Badge key={tech} variant="secondary" className="px-3 py-1 bg-secondary/50 hover:bg-secondary text-secondary-foreground border-transparent transition-colors">
+                                    <Badge key={tech} variant="outline" className="px-3 py-1 border-primary/20 text-foreground text-xs uppercase tracking-wide">
                                         {tech}
                                     </Badge>
                                 ))}
                             </div>
 
                             {/* Case Study Sections */}
-                            <div className="grid grid-cols-1 gap-6 pt-6 mt-6 border-t border-border/50">
+                            <div className="space-y-6 pt-6 border-t border-border/50">
                                 {project.problem && (
-                                    <div className="space-y-2">
-                                        <div className="flex items-center gap-2 text-red-500/80">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-red-500"></div>
-                                            <h4 className="font-bold text-xs uppercase tracking-widest">The Problem</h4>
+                                    <div className="space-y-3">
+                                        <div className="flex items-center gap-2 text-red-500/90">
+                                            <AlertCircle className="w-5 h-5" />
+                                            <h4 className="font-bold text-sm uppercase tracking-widest">The Problem</h4>
                                         </div>
-                                        <p className="text-sm text-muted-foreground leading-relaxed">{project.problem}</p>
+                                        <p className="text-muted-foreground leading-relaxed">{project.problem}</p>
                                     </div>
                                 )}
                                 
-                                {project.role && (
-                                    <div className="space-y-2">
-                                        <div className="flex items-center gap-2 text-blue-500/80">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                                            <h4 className="font-bold text-xs uppercase tracking-widest">My Role & Ownership</h4>
-                                        </div>
-                                        <p className="text-sm text-muted-foreground leading-relaxed">{project.role}</p>
-                                    </div>
-                                )}
-
                                 {project.architecture && (
-                                    <div className="space-y-2">
-                                        <div className="flex items-center gap-2 text-purple-500/80">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-purple-500"></div>
-                                            <h4 className="font-bold text-xs uppercase tracking-widest">Architecture Overview</h4>
+                                    <div className="space-y-3">
+                                        <div className="flex items-center gap-2 text-blue-500/90">
+                                            <Layers className="w-5 h-5" />
+                                            <h4 className="font-bold text-sm uppercase tracking-widest">Technical Solution</h4>
                                         </div>
-                                        <p className="text-sm text-muted-foreground leading-relaxed">{project.architecture}</p>
-                                    </div>
-                                )}
-
-                                {project.keyDecisions && (
-                                    <div className="space-y-2">
-                                        <div className="flex items-center gap-2 text-orange-500/80">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-orange-500"></div>
-                                            <h4 className="font-bold text-xs uppercase tracking-widest">Key Technical Decisions</h4>
-                                        </div>
-                                        <p className="text-sm text-muted-foreground leading-relaxed">{project.keyDecisions}</p>
+                                        <p className="text-muted-foreground leading-relaxed">{project.architecture}</p>
                                     </div>
                                 )}
                                 
                                 {project.outcome && (
-                                    <div className="space-y-2">
-                                        <div className="flex items-center gap-2 text-emerald-500">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
-                                            <h4 className="font-bold text-xs uppercase tracking-widest">Results & Impact</h4>
+                                    <div className="bg-emerald-500/5 border border-emerald-500/20 p-6 rounded-xl space-y-3">
+                                        <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400">
+                                            <TrendingUp className="w-5 h-5" />
+                                            <h4 className="font-bold text-sm uppercase tracking-widest">Business Impact</h4>
                                         </div>
-                                        <div className="flex gap-4 items-start bg-emerald-500/5 p-4 rounded-xl border border-emerald-500/10">
-                                            <div className="bg-emerald-500/10 p-2 rounded-lg text-emerald-500 mt-0.5">
-                                                <TrendingUp className="w-4 h-4" />
-                                            </div>
-                                            <p className="text-sm text-foreground font-medium leading-relaxed">{project.outcome}</p>
-                                        </div>
+                                        <p className="text-foreground/90 leading-relaxed font-medium">{project.outcome}</p>
                                     </div>
-                                )}
-                            </div>
-
-                            <div className="pt-4 lg:hidden">
-                                {project.liveUrl ? (
-                                    <Button asChild variant="default" className="w-full">
-                                        <Link href={project.liveUrl} target="_blank">View Live Project</Link>
-                                    </Button>
-                                ) : (
-                                     <Button asChild variant="outline" className="w-full">
-                                        <Link href={project.githubUrl || '#'} target="_blank">View Code</Link>
-                                    </Button>
                                 )}
                             </div>
                         </div>

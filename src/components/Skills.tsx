@@ -3,7 +3,7 @@
 import React from 'react'
 import { Badge } from '@/components/ui/badge'
 import { motion } from 'framer-motion'
-import { Code, Database, Layout, Server, Settings, Terminal } from 'lucide-react'
+import { Code, Database, Layout, Server, Settings, Terminal, Layers, Cloud, Smartphone } from 'lucide-react'
 
 interface Skill {
   id: string
@@ -16,37 +16,41 @@ interface SkillsProps {
   skills: Skill[]
 }
 
-const containerVars = {
-    hidden: { opacity: 0 },
-    visible: { 
-        opacity: 1,
-        transition: { 
-            staggerChildren: 0.05 
-        } 
-    }
-};
-
-const itemVars = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 }
-};
-
 const getIconForCategory = (category: string) => {
     const lower = category.toLowerCase();
     if (lower.includes('front')) return <Layout className="w-5 h-5" />;
     if (lower.includes('back')) return <Server className="w-5 h-5" />;
     if (lower.includes('data')) return <Database className="w-5 h-5" />;
-    if (lower.includes('tool') || lower.includes('devops')) return <Settings className="w-5 h-5" />;
-    if (lower.includes('lang')) return <Code className="w-5 h-5" />;
+    if (lower.includes('cloud') || lower.includes('devops')) return <Cloud className="w-5 h-5" />;
+    if (lower.includes('mobile')) return <Smartphone className="w-5 h-5" />;
+    if (lower.includes('arch')) return <Layers className="w-5 h-5" />;
+    if (lower.includes('tool')) return <Settings className="w-5 h-5" />;
     return <Terminal className="w-5 h-5" />;
 }
 
 export const Skills = ({ skills }: SkillsProps) => {
+  const containerVars = {
+      hidden: { opacity: 0 },
+      visible: { 
+          opacity: 1,
+          transition: { 
+              staggerChildren: 0.05 
+          } 
+      }
+  };
+
+  const itemVars = {
+      hidden: { y: 20, opacity: 0 },
+      visible: { y: 0, opacity: 1 }
+  };
+
+  // Group skills by category
   const categories = skills.reduce((acc, skill) => {
-    if (!acc[skill.category]) acc[skill.category] = []
-    acc[skill.category].push(skill)
-    return acc
-  }, {} as Record<string, Skill[]>)
+    const cat = skill.category || 'Other';
+    if (!acc[cat]) acc[cat] = [];
+    acc[cat].push(skill);
+    return acc;
+  }, {} as Record<string, Skill[]>);
 
   return (
     <section id="skills" className="py-24 bg-card/30 relative overflow-hidden">
@@ -63,7 +67,7 @@ export const Skills = ({ skills }: SkillsProps) => {
             >
                 <h2 className="text-3xl font-bold mb-4">Technical <span className="text-primary">Stack</span></h2>
                 <p className="text-muted-foreground mr-auto ml-auto max-w-2xl">
-                    Production-tested technologies organized by domain. Built through 6+ years of architecting high-scale systems.
+                    Broad technical expertise grouped by architectural domain.
                 </p>
             </motion.div>
             
@@ -87,24 +91,11 @@ export const Skills = ({ skills }: SkillsProps) => {
                             <h3 className="text-lg font-bold tracking-tight">{category}</h3>
                         </div>
                         
-                        <div className="space-y-4">
+                        <div className="flex flex-wrap gap-2">
                             {items.map(skill => (
-                                <div key={skill.id} className="space-y-1.5">
-                                    <div className="flex justify-between text-sm">
-                                        <span className="font-medium text-muted-foreground group-hover:text-foreground transition-colors">{skill.name}</span>
-                                        {skill.level && <span className="text-xs text-muted-foreground">{skill.level}%</span>}
-                                    </div>
-                                    {skill.level && (
-                                        <div className="h-1.5 w-full bg-muted rounded-full overflow-hidden">
-                                            <motion.div 
-                                                initial={{ width: 0 }}
-                                                whileInView={{ width: `${skill.level}%` }}
-                                                transition={{ duration: 1, ease: "easeOut" }}
-                                                className="h-full bg-gradient-to-r from-primary/80 to-primary rounded-full"
-                                            />
-                                        </div>
-                                    )}
-                                </div>
+                                <Badge key={skill.id} variant="secondary" className="px-3 py-1 bg-secondary/30 hover:bg-secondary transition-colors">
+                                    {skill.name}
+                                </Badge>
                             ))}
                         </div>
                     </motion.div>

@@ -60,7 +60,9 @@ export const Contact = () => {
                 <h2 className="text-4xl font-bold mb-6">Ready to <span className="text-primary">Collaborate?</span></h2>
              
                 <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-                    I'm currently available for full-time remote roles and high-impact freelance projects. Let's discuss how I can contribute to your engineering team.
+                    I am currently available for <strong className="text-foreground">Senior Remote Roles</strong> (EU/UK/US) and <strong className="text-foreground">Contract Architecture Consulting</strong>.
+                    <br className="mb-2" />
+                    Skip the recruiter spam—let's discuss your engineering challenges directly.
                 </p>
              </div>
 

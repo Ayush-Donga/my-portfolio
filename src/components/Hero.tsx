@@ -1,6 +1,8 @@
 'use client'
 
+
 import React from 'react'
+import { HERO_CONTENT } from '@/lib/portfolio-data'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react'
 import Link from 'next/link'
@@ -33,11 +35,11 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
             className="flex items-center gap-4"
           >
             <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-primary/10 text-primary">
-              6+ Years Experience | 20+ Production Launches
+              {HERO_CONTENT.badge}
             </div>
             <div className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-emerald-500/20 bg-emerald-500/10 text-emerald-500 animate-pulse">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-              Available for Remote Roles
+              {HERO_CONTENT.availability}
             </div>
           </motion.div>
           <motion.h1 
@@ -46,8 +48,8 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
             transition={{ delay: 0.3 }}
             className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1]"
           >
-            High-Impact Full-Stack Engineering <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">for Scale-Up SaaS</span>
+            Senior Full-Stack Engineer <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Scalable SaaS & Real-Time Production Systems</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -55,11 +57,7 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
             transition={{ delay: 0.4 }}
             className="text-lg text-muted-foreground leading-relaxed max-w-lg"
           >
-            Architecting resilient, production-ready systems with a focus on <strong>ownership and business growth</strong>. Expert in Node.js & React architecture with deep experience in cloud infrastructure.
-            <br className="mb-2" />
-            <span className="text-sm opacity-80 block mt-2">
-               ✅ 6+ hours overlap with <strong>EU/UK and US East</strong> time zones.
-            </span>
+            {HERO_CONTENT.subtitle}
           </motion.p>
           
           <motion.div 
@@ -70,11 +68,11 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
           >
             <Button size="lg" asChild className="rounded-full shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-shadow">
                 <Link href="#projects">
-                    View Case Studies <ArrowRight className="ml-2 h-4 w-4" />
+                    {HERO_CONTENT.ctaPrimary} <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
             </Button>
             <Button size="lg" variant="default" asChild className="rounded-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white border-none shadow-lg shadow-orange-500/20 px-8">
-                <Link href={calendlyUrl || "#contact"} target={calendlyUrl ? "_blank" : undefined}>Book a Strategy Call</Link>
+                <Link href={calendlyUrl || "#contact"} target={calendlyUrl ? "_blank" : undefined}>{HERO_CONTENT.ctaSecondary}</Link>
             </Button>
           </motion.div>
 
