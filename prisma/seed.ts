@@ -100,7 +100,7 @@ async function main() {
         keyDecisions: "Adopted a Micro-Frontend approach to allow different teams to work on Logistics, HR, and Finance modules independently.",
         outcome: "Reduced data loading times by 40%. Centralized operations into a single 'Source of Truth', cutting reporting time from 2 days to real-time.",
         techStack: ["React", "NestJS", "Microservices", "Docker", "PostgreSQL"],
-        imageUrl: "https://res.cloudinary.com/duxzb3nig/image/upload/v1769686640/9333-19720173_pqus3z.jpg",
+        imageUrl: "https://res.cloudinary.com/duxzb3nig/image/upload/v1769686793/sap-s4hana-cloud-public-edition-lb-hmpg-producthero_XL_r8mw9d.webp",
         category: "ERP / Enterprise",
         order: 3
       },
