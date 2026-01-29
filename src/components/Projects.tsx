@@ -83,7 +83,13 @@ export const Projects = ({ projects }: ProjectsProps) => {
                             <div className="flex gap-4 mt-6 justify-center lg:justify-start">
                                 {project.liveUrl && (
                                     <Button asChild variant="default" className="rounded-full">
-                                        <Link href={project.liveUrl} target="_blank">View Live Project <ArrowUpRight className="ml-2 w-4 h-4" /></Link>
+                                        <Link 
+                                            href={project.liveUrl} 
+                                            target={project.liveUrl.startsWith('/') ? "_self" : "_blank"}
+                                        >
+                                            {project.liveUrl.startsWith('/') ? 'View Case Study' : 'View Live Project'} 
+                                            {project.liveUrl.startsWith('/') ? <ArrowUpRight className="ml-2 w-4 h-4 rotate-45" /> : <ArrowUpRight className="ml-2 w-4 h-4" />}
+                                        </Link>
                                     </Button>
                                 )}
                                 {project.githubUrl && (

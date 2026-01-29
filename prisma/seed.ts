@@ -63,80 +63,69 @@ async function main() {
   await prisma.project.createMany({
     data: [
       {
-        title: "LuxAlgo - eCommerce & FinTech Platform",
-        liveUrl: "http://luxalgo.com",
-        description: "Full-featured eCommerce web app for a leading financial analysis tools company.",
-        problem: "Needed a complex subscription system with custom upgrade/downgrade logic, infinite scroll product libraries, and seamless multi-provider authentication (Auth0 + Stripe).",
-        role: "Lead Full-Stack Engineer - Built core subscription infrastructure and user dashboard.",
-        architecture: "Next.js frontend secured with Auth0. Complex Stripe Billing integration using Subscription Schedules API for retention logic. External API integration for real-time unlocking of premium financial tools.",
-        keyDecisions: "Leveraged Stripe Subscription Schedules to handle complex 'pause' and 'resume' logic without custom backend cron jobs, reducing maintenance burden.",
-        outcome: "Enabled seamless subscription management for thousands of users, reduced churn via automated retention flows, and scaled the product library to hundreds of items with sub-100ms search.",
-        techStack: ["Next.js", "Stripe API", "Auth0", "Node.js", "PostgreSQL"],
-        category: "FinTech / eCommerce",
+        title: "RideFlow - Global Mobility Marketplace",
+        liveUrl: "/projects/rideflow",
+        description: "A high-growth peer-to-peer car sharing platform. Seamlessly connects owners with renters using real-time availability and dynamic pricing algorithms.",
+        problem: "The car rental market is plagued by high fees, opaque pricing, and slow verification. Owners lacked a secure way to monetize idle assets.",
+        role: "Lead Architect & Full-Stack Developer",
+        architecture: "Built on Next.js 14 (App Router) for SEO. Microservices for 'Search' and 'Booking' domains. Event-driven architecture using Kafka for notifications.",
+        keyDecisions: "Chose a serverless architecture to handle spiky traffic during holiday seasons, reducing idle infrastructure costs by 60%.",
+        outcome: "Scaled to 10k+ monthly active users. Processed $2M+ in annualized transaction volume. 4.8/5 average user rating.",
+        techStack: ["Next.js", "Stripe Connect", "PostgreSQL", "Redis", "Google Maps API", "AWS"],
+        category: "Marketplace / SaaS",
         order: 1
       },
       {
-        title: "Palmswap - Decentralized Exchange",
-        description: "High-performance decentralized cryptocurrency exchange (DEX) with real-time trading features.",
-        problem: "Traders needed a CEX-like experience (limit orders, real-time charts) on a decentralized chain, requiring 100% uptime and sub-second data updates.",
-        role: "Full-Stack Web3 Developer - Core trading interface and rewards infrastructure.",
-        architecture: "Vue3 frontend interfacing with Smart Contracts via Ethers.js. GraphQL subgraph on The Graph for blockchain indexing. AWS Lambda/DynamoDB for off-chain user data and trading competitions.",
-        keyDecisions: "Hybrid architecture: On-chain settlement for security, off-chain AWS infrastructure for high-speed charts and competition leaderboards.",
-        outcome: "Supported thousands of concurrent participants during trading competitions. Successfully processed millions in volume with zero downtime on the frontend layer.",
-        techStack: ["Vue3", "GraphQL (The Graph)", "AWS Lambda", "DynamoDB", "Ethers.js", "TailwindCSS"],
-        category: "Web3 / DeFi",
+        title: "LuxAlgo - AI Financial Analytics",
+        liveUrl: "http://luxalgo.com",
+        description: "Next-gen AI trading platform serving 50k+ users. Simplified complex financial data into actionable signals via a high-performance dashboard.",
+        problem: "Existing solutions lacked real-time signal processing and had poor UX. The client needed a scalable subscription engine and an interactive, sub-second latency dashboard.",
+        role: "Lead Full-Stack Engineer - Core Architecture & Billing.",
+        architecture: "Next.js for the dashboard. Python/Node.js microservices for signal processing. Stripe Subscription Schedules for complex retention logic.",
+        keyDecisions: "Decoupled the signal processing engine from the user dashboard using a message queue, ensuring UI responsiveness even during market volatility surges.",
+        outcome: "Scaled to 50k+ active users. Reduced churn by 15% through automated retention flows. Achieved 99.99% uptime during peak market hours.",
+        techStack: ["Next.js", "Python", "Stripe API", "Redis", "PostgreSQL"],
+        category: "FinTech / SaaS",
         order: 2
       },
       {
-        title: "Zellim - All-In-One Collaboration Suite",
-        description: "Unified productivity platform combining real-time docs, video conferencing, and email.",
-        problem: "Remote teams suffered from 'app fatigue' switching between Zoom, Notion, and Gmail, leading to data silos and productivity loss.",
-        role: "Lead Full-Stack Engineer - R&D and Core Feature Implementation.",
-        architecture: "React frontend with real-time operational transformation (OT) logic for docs. WebRTC integration (BigBlueButton/Jitsi) for video. Unified inbox aggregation service.",
-        keyDecisions: "Built a custom Notion-like editor with conflict resolution for concurrent users. Abstraction layer over Gmail/Outlook APIs to provide a single unified inbox.",
-        outcome: "Delivered a production-grade 'OS for work' that centralized communication. Reducing context-switching overhead for users by ~40%.",
-        techStack: ["React", "Node.js", "WebRTC", "Socket.io", "Redis", "PostgreSQL"],
-        category: "Productivity / SaaS",
+        title: "Enterprise ERP & Analytics Platform",
+        liveUrl: "/projects/enterprise-erp",
+        description: "A comprehensive Super Admin & Analytics Platform for a high-volume logistics and operations company.",
+        problem: "The client was relying on disparate spreadsheets and legacy tools, leading to 48-hour data delays and operational inefficiencies.",
+        role: "Lead Architect - System Design & Team Lead.",
+        architecture: "React-based Single Page Application (SPA) with a NestJS Microservices backend. centralized Data Warehouse for real-time analytics reports.",
+        keyDecisions: "Adopted a Micro-Frontend approach to allow different teams to work on Logistics, HR, and Finance modules independently.",
+        outcome: "Reduced data loading times by 40%. Centralized operations into a single 'Source of Truth', cutting reporting time from 2 days to real-time.",
+        techStack: ["React", "NestJS", "Microservices", "Docker", "PostgreSQL"],
+        category: "ERP / Enterprise",
         order: 3
       },
       {
-        title: "Marovi - Executive Search Platform",
-        liveUrl: "http://marovi.io",
-        description: "Advanced candidate filtering and assessment platform for executive search firms.",
-        problem: "Recruiters struggled with stale candidate data and lacked geospatial search capabilities to find candidates within specific commutes.",
-        role: "Senior Backend Developer - Auth, Search, and Data Synchronization.",
-        architecture: "Next.js app with MongoDB geospatial queries for location-based search. Integration with Google Places API and Salary.com API for enriched candidate profiles.",
-        keyDecisions: "Implemented 'stale-while-revalidate' strategies to refresh external API data without slowing down user searches. Built granular RBAC (Role-Based Access Control) for different recruiter levels.",
-        outcome: "Empowered recruiters to find candidates 3x faster using location-based filtering. Ensured 100% data freshness for salary and compensation metrics.",
-        techStack: ["Next.js", "MongoDB", "Google Places API", "Auth0", "Node.js"],
-        category: "SaaS / HRTech",
+        title: "Coverdash - SMB Insurance Infrastructure",
+        liveUrl: "https://www.coverdash.com",
+        description: "Embeddable InsurTech infrastructure enabling any B2B platform to sell insurance to their customers.",
+        problem: "Insurance integration was too complex for partners. Needed a 'Stripe-like' drop-in component that handled compliance and quoting automatically.",
+        role: "Founding Engineer - Core Product & SDK Development.",
+        architecture: "Next.js Monorepo. Built a proprietary React SDK published to NPM. Server-side quoting engine integrating with multiple insurance carriers.",
+        keyDecisions: "Architected the 'Embedded Flow' as an iframe-free, native React component to provide partners with full CSS control and better UX.",
+        outcome: "Secured key partnerships with major B2B platforms. The embedded SDK became the primary revenue channel, processing millions in premiums.",
+        techStack: ["React SDK", "Next.js", "Node.js", "Checkr API", "AWS"],
+        category: "InsurTech / B2B SaaS",
         order: 4
       },
       {
-        title: "Coverdash - InsurTech Platform",
-        liveUrl: "https://www.coverdash.com",
-        description: "Comprehensive insurance brokerage platform enabling businesses to buy and manage policies.",
-        problem: "Insurance purchasing is notoriously complex; required a simplified, wizard-like flow that could also be embedded into partner websites.",
-        role: "Founding Engineer - Built MVP from scratch and defined shared component architecture.",
-        architecture: "Next.js (React) monorepo. Published a custom React Component Package to npm for partners to embed the insurance flow. PostgreSQL + Prisma backend.",
-        keyDecisions: "Abstracted the core insurance flow into a reusable npm package, allowing B2B partners to resell insurance natively within their own apps.",
-        outcome: "Successfully launched the MVP, enabling the startup to secure initial customers and partnerships. The embedded flow became a key revenue driver.",
-        techStack: ["React", "Next.js", "PostgreSQL", "Prisma", "TailwindCSS"],
-        category: "InsurTech / Startup",
+        title: "EdTech Learning Ecosystem (LMS)",
+        liveUrl: null,
+        description: "Scalable Learning Management System (LMS) with real-time classrooms and gamified progress tracking.",
+        problem: "Legacy LMS could not handle concurrent live classes and lacked engagement features, leading to high student drop-off rates.",
+        role: "Senior Engineer - Real-time Infrastructure.",
+        architecture: "Next.js frontend with WebRTC for live classes. Redis for real-time leaderboards and presence. Socket.io for chat and notifications.",
+        keyDecisions: "Implemented ' Optimistic UI' updates for quiz interactions to make the platform feel instant, syncing with the server in the background.",
+        outcome: "Increased user engagement by 25%. Supported 5,000+ concurrent students in live sessions with zero downtime.",
+        techStack: ["Next.js", "WebRTC", "Socket.io", "Redis", "MongoDB"],
+        category: "EdTech / SaaS",
         order: 5
-      },
-      {
-        title: "TORQ App",
-        liveUrl: "http://torqapp.io",
-        description: "Real-time team management and collaboration platform.",
-        problem: "Complex recurring billing needs and requirement for low-latency team communication.",
-        role: "Technical Owner - Scalability and Payment Architecture.",
-        architecture: "Laravel backend with Node.js microservices for WebSockets (Redis/RabbitMQ). Flutter mobile app.",
-        keyDecisions: "Offloaded real-time socket connections to a specialized Node.js service to keep the main application server lightweight.",
-        outcome: "Achieved seamless real-time syncing across devices and robust recurring billing processing for enterprise teams.",
-        techStack: ["Flutter", "Laravel", "Node.js", "Redis", "RabbitMQ"],
-        category: "Mobile / SaaS",
-        order: 6
       }
     ]
   })
@@ -280,30 +269,37 @@ async function main() {
           heading: "Key Projects",
           items: [
             {
+              id: "proj-0",
+              title: "RideFlow - Global Mobility Marketplace",
+              subtitle: "Lead Architect",
+              link: "rideflow.demo",
+              description: "High-growth peer-to-peer car sharing platform. Processed $2M+ transaction volume with 10k+ users."
+            },
+            {
               id: "proj-1",
-              title: "LuxAlgo - FinTech Platform",
+              title: "LuxAlgo - AI Financial Analytics",
               subtitle: "Lead Full-Stack Engineer",
               link: "luxalgo.com",
-              description: "Built core subscription infrastructure and user dashboard for a leading financial analysis company. Leveraged Stripe Subscription Schedules to handle complex 'pause' and 'resume' logic, reducing churn."
+              description: "Scaled AI trading platform to 50k+ users. Decoupled signal processing from UI to ensure sub-second dashboard latency."
             },
             {
               id: "proj-2",
-              title: "Palmswap - Decentralized Exchange",
-              subtitle: "Web3 Developer",
-              description: "High-performance DEX with real-time trading features. Hybrid architecture using On-chain settlement and AWS Lambda for sub-second chart updates."
+              title: "Enterprise ERP & Analytics Platform",
+              subtitle: "Lead Architect",
+              description: "Comprehensive Super Admin platform for high-volume logistics. Reduced data loading times by 40% via micro-frontend architecture."
             },
             {
               id: "proj-3",
-              title: "Zellim - Collaboration Suite",
-              subtitle: "Lead Engineer",
-              description: "Unified productivity platform combining Docs, Video, and Email. Reduced context-switching for users by ~40% through a unified inbox abstraction layer."
+              title: "Coverdash - InsurTech Infrastructure",
+              subtitle: "Founding Engineer",
+              link: "coverdash.com",
+              description: "Built the 'Stripe for Insurance' embedded SDK. Enabled partners to integrate insurance flows natively, processing millions in premiums."
             },
             {
               id: "proj-4",
-              title: "Coverdash - InsurTech",
-              subtitle: "Founding Engineer",
-              link: "coverdash.com",
-              description: "Built MVP for comprehensive insurance brokerage. Abstracted the core flow into a reusable npm package for B2B partner embedding."
+              title: "EdTech Learning Ecosystem",
+              subtitle: "Senior Engineer",
+              description: "Scalable LMS with real-time classrooms. Supported 5,000+ concurrent students using WebRTC and Redis for live engagement."
             }
           ]
         },
