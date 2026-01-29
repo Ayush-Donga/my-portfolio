@@ -159,14 +159,14 @@ export default function RideFlowPage() {
                           
                           <div>
                               <h4 className="text-xl font-bold text-blue-400 mb-2">2. Event-Driven Communication</h4>
-                              <p className="text-slate-400">
+                              <div className="text-slate-400">
                                   Using <span className="text-white font-mono mx-1">Apache Kafka</span> (and later simplified to RabbitMQ for cost), distinct services communicate asynchronously. When a booking is confirmed, an event triggers:
                                   <ul className="list-disc list-inside mt-2 ml-4 space-y-1">
                                       <li>Push notifications to the owner</li>
                                       <li>Insurance policy generation</li>
                                       <li>Smart lock code generation for the vehicle</li>
                                   </ul>
-                              </p>
+                              </div>
                           </div>
 
                           <div>

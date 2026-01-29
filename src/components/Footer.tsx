@@ -12,7 +12,7 @@ export const Footer = () => {
                             Ayush Donga
                         </Link>
                         <p className="text-muted-foreground max-w-sm leading-relaxed text-lg">
-                            Senior Full Stack Engineer architecting scalable, production-ready SaaS platforms. Expert in high-performance systems and profitable technical decision making.
+                        Full Stack Engineer architecting scalable, production-ready SaaS platforms. Expert in high-performance systems and profitable technical decision making.
                         </p>
                         <div className="flex gap-4 pt-2">
                            <Link href="https://github.com/ayush-donga" target="_blank" className="p-2 bg-background border border-border rounded-full hover:border-primary/50 hover:text-primary transition-all hover:-translate-y-1">

@@ -72,7 +72,8 @@ async function main() {
         keyDecisions: "Chose a serverless architecture to handle spiky traffic during holiday seasons, reducing idle infrastructure costs by 60%.",
         outcome: "Scaled to 10k+ monthly active users. Processed $2M+ in annualized transaction volume. 4.8/5 average user rating.",
         techStack: ["Next.js", "Stripe Connect", "PostgreSQL", "Redis", "Google Maps API", "AWS"],
-        category: "Marketplace / SaaS",
+        imageUrl: "https://res.cloudinary.com/duxzb3nig/image/upload/v1769686059/Screenshot_2026-01-29_165712_bwnyyr.png",
+        category: "Marketplace / SaaS",                                   
         order: 1
       },
       {
@@ -85,6 +86,7 @@ async function main() {
         keyDecisions: "Decoupled the signal processing engine from the user dashboard using a message queue, ensuring UI responsiveness even during market volatility surges.",
         outcome: "Scaled to 50k+ active users. Reduced churn by 15% through automated retention flows. Achieved 99.99% uptime during peak market hours.",
         techStack: ["Next.js", "Python", "Stripe API", "Redis", "PostgreSQL"],
+        imageUrl: "https://res.cloudinary.com/duxzb3nig/image/upload/v1767787093/xhf6irb1h4laaj6rni5c.png",
         category: "FinTech / SaaS",
         order: 2
       },
@@ -98,6 +100,7 @@ async function main() {
         keyDecisions: "Adopted a Micro-Frontend approach to allow different teams to work on Logistics, HR, and Finance modules independently.",
         outcome: "Reduced data loading times by 40%. Centralized operations into a single 'Source of Truth', cutting reporting time from 2 days to real-time.",
         techStack: ["React", "NestJS", "Microservices", "Docker", "PostgreSQL"],
+        imageUrl: "https://res.cloudinary.com/duxzb3nig/image/upload/v1769686640/9333-19720173_pqus3z.jpg",
         category: "ERP / Enterprise",
         order: 3
       },
@@ -111,12 +114,13 @@ async function main() {
         keyDecisions: "Architected the 'Embedded Flow' as an iframe-free, native React component to provide partners with full CSS control and better UX.",
         outcome: "Secured key partnerships with major B2B platforms. The embedded SDK became the primary revenue channel, processing millions in premiums.",
         techStack: ["React SDK", "Next.js", "Node.js", "Checkr API", "AWS"],
+        imageUrl: "https://res.cloudinary.com/duxzb3nig/image/upload/v1769685287/Screenshot-2023-01-23-at-11.58.07-AM_vapcnn.jpg",
         category: "InsurTech / B2B SaaS",
         order: 4
       },
       {
         title: "EdTech Learning Ecosystem (LMS)",
-        liveUrl: null,
+        liveUrl: "https://www.learnworlds.com/",
         description: "Scalable Learning Management System (LMS) with real-time classrooms and gamified progress tracking.",
         problem: "Legacy LMS could not handle concurrent live classes and lacked engagement features, leading to high student drop-off rates.",
         role: "Senior Engineer - Real-time Infrastructure.",
@@ -124,6 +128,7 @@ async function main() {
         keyDecisions: "Implemented ' Optimistic UI' updates for quiz interactions to make the platform feel instant, syncing with the server in the background.",
         outcome: "Increased user engagement by 25%. Supported 5,000+ concurrent students in live sessions with zero downtime.",
         techStack: ["Next.js", "WebRTC", "Socket.io", "Redis", "MongoDB"],
+        imageUrl: "https://res.cloudinary.com/duxzb3nig/image/upload/v1769685693/gl9jrUih6Nfa08grOvcSfmLebAyiGUkP7Q_zhrpxa.png",
         category: "EdTech / SaaS",
         order: 5
       }
@@ -226,7 +231,7 @@ async function main() {
         location: "Vadodara, India (Open to Remote)",
         linkedin: "linkedin.com/in/ayush-donga-696755197",
         github: "github.com/ayush-donga",
-        summary: "Senior Full-Stack Engineer with 6+ years of experience helping US/EU founders scale complex SaaS & real-time applications. Expert in React, Node.js, and Cloud-Native architectures. Proven track record of leading distributed teams, reducing technical debt, and delivering profitable technical decisions."
+        summary: "Full-Stack Engineer with 7+ years of experience building high-scale marketplace and SaaS platforms for US/EU startups. Remote-first expert specializing in Next.js, Cloud-Native Architectures, and System Design. Proven track record of driving $2M+ in revenue impact and leading distributed engineering teams."
       },
       content: [
         {
@@ -273,7 +278,7 @@ async function main() {
               title: "RideFlow - Global Mobility Marketplace",
               subtitle: "Lead Architect",
               link: "rideflow.demo",
-              description: "High-growth peer-to-peer car sharing platform. Processed $2M+ transaction volume with 10k+ users."
+              description: "High-growth peer-to-peer car sharing platform. Built with Next.js & Microservices. Processed $2M+ transaction volume with 10k+ users."
             },
             {
               id: "proj-1",
@@ -311,7 +316,7 @@ async function main() {
             { id: "s-1", title: "Frontend", description: "React, Next.js, TypeScript, Tailwind CSS, Redux, Vue.js" },
             { id: "s-2", title: "Backend", description: "Node.js, NestJS, Express, Python, Go (Basic)" },
             { id: "s-3", title: "Database & Cloud", description: "PostgreSQL, MongoDB, Redis, AWS, Docker, Kubernetes, CI/CD" },
-            { id: "s-4", title: "Architecture", description: "Microservices, Serverless, Event-Driven, Real-time Systems (WebSockets)" }
+            { id: "s-4", title: "Architecture", description: "System Design, Microservices, Serverless, Event-Driven, Real-time Systems (WebSockets)" }
           ]
         },
         {
