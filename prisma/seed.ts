@@ -456,19 +456,19 @@ async function main() {
             },
           ],
         },
-        {
-          id: "remote-excellence",
-          type: "custom",
-          heading: "Remote Excellence",
-          items: [
-            {
-              id: "re-1",
-              title: "Remote Expertise",
-              description:
-                "Expert in **Async workflows**, **Jira/Notion documentation**, and **6+ hours overlap** with CET/EST. Proven track record of leading distributed teams and delivering projects on time across multiple timezones.",
-            },
-          ],
-        },
+        // {
+        //   id: "remote-excellence",
+        //   type: "custom",
+        //   heading: "Remote Excellence",
+        //   items: [
+        //     {
+        //       id: "re-1",
+        //       title: "Remote Expertise",
+        //       description:
+        //         "Expert in **Async workflows**, **Jira/Notion documentation**, and **6+ hours overlap** with CET/EST. Proven track record of leading distributed teams and delivering projects on time across multiple timezones.",
+        //     },
+        //   ],
+        // },
         {
           id: "proj-section",
           type: "projects",
