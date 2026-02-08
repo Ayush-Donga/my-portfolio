@@ -99,6 +99,28 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 // --- PROJECTS / CASE STUDIES ---
 export const PROJECT_CASE_STUDIES = [
   {
+    id: "genai-stream",
+    title: "GenAI Real-Time Data Engine",
+    role: "Lead Backend Engineer (Rust)",
+    summary: "High-performance microservice for ingesting and processing real-time AI model data streams.",
+    problem: "Node.js predecessors struggled with latency and memory overhead when processing high-throughput token streams from multiple LLM providers concurrently, leading to dashboard lag and high cloud costs.",
+    solution: "Rewrote the ingestion pipeline in Rust using Tokio for async runtime. Implemented efficient buffering and WebSocket streaming to the dashboard, optimized for AWS Lambda cold starts of <10ms.",
+    impact: "Achieved 50% faster execution time compared to the previous Node.js implementation. Reduced AWS Lambda compute costs by 40% due to lower memory footprint and faster processing.",
+    stack: ["Rust", "Tokio", "AWS Lambda", "WebSockets", "Redis", "GenAI"],
+    imageUrl: "/projects/genai-stream.png"
+  },
+  {
+    id: "enterprise-erp",
+    title: "Smart Logistics ERP",
+    role: "Lead Backend Architect (NestJS)",
+    summary: "Microservices-based ERP system handling logistics, HR, and finance for a high-volume logistics firm.",
+    problem: "Legacy monolithic systems were causing 48-hour data delays and frequent crashes during peak loads. The client needed a real-time, scalable solution to manage 10k+ daily shipments.",
+    solution: "Designed a modular microservices architecture using NestJS and TypeScript. Implemented event-driven communication with RabbitMQ and a centralized data warehouse for real-time analytics.",
+    impact: "Reduced data reporting latency from 2 days to real-time. Improved system reliability to 99.99% uptime and cut infrastructure costs by 30% via Docker containerization.",
+    stack: ["NestJS", "TypeScript", "Microservices", "RabbitMQ", "PostgreSQL", "Docker"],
+    imageUrl: "/projects/erp-dashboard.png"
+  },
+  {
     id: "torq",
     title: "TORQ App",
     url: "http://torqapp.io",
