@@ -80,11 +80,21 @@ export const Footer = () => {
                                         Distributed systems delivery across <span className="text-foreground font-medium">US</span>, <span className="text-foreground font-medium">UK</span>, and <span className="text-foreground font-medium">EU</span> timezones.
                                     </p>
                                 </div>
-                                <Button size="sm" className="rounded-full h-10 px-6 font-bold uppercase tracking-widest text-[10px]" asChild>
+                                <Button 
+                                    size="sm" 
+                                    className="rounded-full h-10 px-6 font-bold uppercase tracking-widest text-[10px] bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition-all duration-300 border-none" 
+                                    asChild
+                                >
                                     <Link href="https://calendly.com/ayush-donga20/30min" target="_blank">
                                         Establish Sync <ExternalLink className="ml-1.5 w-3 h-3" />
                                     </Link>
                                 </Button>
+                            </div>
+                            <div className="mt-4 pt-4 border-t border-border/20">
+                                <p className="text-[10px] font-bold uppercase tracking-widest text-primary/80 flex items-center gap-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                    Verified 7+ Years Remote Experience | Expert in Async Documentation & Technical Leadership
+                                </p>
                             </div>
                          </div>
                     </div>
@@ -98,9 +108,9 @@ export const Footer = () => {
                             { icon: Shield, text: "Zero-Trust Architecture" },
                             { icon: Zap, text: "High Efficiency" }
                         ].map((item, i) => (
-                            <div key={i} className="flex items-center gap-2 group cursor-default">
-                                <item.icon className="w-3.5 h-3.5 text-primary/60 group-hover:text-primary transition-colors" />
-                                <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground group-hover:text-foreground transition-colors">{item.text}</span>
+                            <div key={i} className="flex items-center gap-2.5 group cursor-default">
+                                <item.icon className="w-4 h-4 text-primary mb-0.5 group-hover:scale-110 transition-transform" />
+                                <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">{item.text}</span>
                             </div>
                         ))}
                     </div>

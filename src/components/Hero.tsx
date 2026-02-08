@@ -66,8 +66,12 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
             transition={{ delay: 0.5 }}
             className="flex flex-wrap gap-4"
           >
-            <Button size="lg" asChild className="rounded-full shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-shadow">
-                <Link href={calendlyUrl || "https://calendly.com/"} target="_blank">
+            <Button 
+                size="lg" 
+                asChild 
+                className="rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition-all duration-300 border-none"
+            >
+                <Link href={calendlyUrl || "https://calendly.com/ayush-donga20/30min"} target="_blank">
                     Book a Call <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
             </Button>

@@ -36,8 +36,8 @@ export const CTA = ({ calendlyUrl }: CTAProps) => {
                         Open to Full-Time Remote Roles
                     </div>
                     <div className="flex flex-wrap justify-center gap-4">
-                        <Button size="lg" className="rounded-full px-10 h-14 text-lg bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white border-none shadow-xl shadow-orange-500/20" asChild>
-                            <Link href={calendlyUrl || "#contact"} target={calendlyUrl ? "_blank" : undefined}>
+                        <Button size="lg" className="rounded-full px-10 h-14 text-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white border-none shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition-all duration-300" asChild>
+                            <Link href={calendlyUrl || "https://calendly.com/ayush-donga20/30min"} target="_blank">
                                 <Rocket className="mr-2 h-5 w-5" /> Book a Strategy Call
                             </Link>
                         </Button>

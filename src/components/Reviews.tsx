@@ -59,7 +59,7 @@ export const Reviews = ({ testimonials = [] }: ReviewsProps) => {
                                 <div className="flex items-center gap-4">
                                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs uppercase overflow-hidden border border-primary/20">
                                         {t.avatar ? (
-                                            <img src={t.avatar} alt={t.name} className="w-full h-full object-cover" />
+                                            <img src={t.avatar} alt={t.name} loading="lazy" className="w-full h-full object-cover" />
                                         ) : (
                                             t.name.split(' ').map(n => n[0]).join('')
                                         )}
@@ -76,7 +76,7 @@ export const Reviews = ({ testimonials = [] }: ReviewsProps) => {
                                         <div className="text-xs text-muted-foreground flex items-center gap-1.5">
                                             {t.role}, {t.company}
                                             {t.logoUrl && (
-                                                <img src={t.logoUrl} alt={t.company} className="h-3 w-auto opacity-50 grayscale hover:grayscale-0 transition-all" />
+                                                <img src={t.logoUrl} alt={t.company} loading="lazy" className="h-3 w-auto opacity-50 grayscale hover:grayscale-0 transition-all" />
                                             )}
                                         </div>
                                     </div>

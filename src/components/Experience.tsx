@@ -97,11 +97,13 @@ export const Experience = ({ experience }: ExperienceProps) => {
 
                                     <ul className="space-y-3">
                                         {exp.description.map((item, idx) => {
-                                            // Highlight metrics like 25%, 30%, 4+ hours, etc.
-                                            const highlightedItem = item.replace(
-                                                /(\d+%|\d+\+?\s*(?:hours|developers|years|months|reduction|increase|improvement|growth))/gi, 
-                                                '<strong>$1</strong>'
-                                            );
+                                            // Handle markdown-style bolding first, then auto-highlight common metrics
+                                            const highlightedItem = item
+                                                .replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground font-bold">$1</strong>')
+                                                .replace(
+                                                    /(\b\d+(?:\.\d+)?%|\b\d+\+?\s*(?:hours|developers|years|months|reduction|increase|improvement|growth|TB|requests\/sec|RPS|sessions|users))/gi, 
+                                                    (match) => match.includes('<strong') ? match : `<strong class="text-foreground font-bold">${match}</strong>`
+                                                );
                                             
                                             return (
                                                 <li key={idx} className="flex items-start gap-3 text-muted-foreground text-sm leading-relaxed">

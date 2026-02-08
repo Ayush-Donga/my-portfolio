@@ -28,6 +28,16 @@ interface ProjectsProps {
 }
 
 export const Projects = ({ projects }: ProjectsProps) => {
+  const highlightMetrics = (text: string | null | undefined) => {
+    if (!text) return ''
+    return text
+      .replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground font-bold">$1</strong>')
+      .replace(
+        /(\b\d+(?:\.\d+)?%|\b\d+\+?\s*(?:hours|developers|years|months|reduction|increase|improvement|growth|TB|requests\/sec|RPS|sessions|users|daily volume|uptime|latency))/gi, 
+        (match) => match.includes('<strong') ? match : `<strong class="text-foreground font-bold">${match}</strong>`
+      )
+  }
+
   return (
     <section id="projects" className="py-24 bg-background relative overflow-hidden">
         {/* Background Decorative Elements */}
@@ -73,6 +83,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
                                             <img 
                                                 src={project.imageUrl} 
                                                 alt={project.title} 
+                                                loading="lazy"
                                                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" 
                                             />
                                         </Link>
@@ -80,6 +91,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
                                         <img 
                                             src={project.imageUrl} 
                                             alt={project.title} 
+                                            loading="lazy"
                                             className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" 
                                         />
                                     )
@@ -130,8 +142,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
                                     <span className="text-sm font-bold uppercase tracking-widest text-muted-foreground">{project.role || 'Lead Engineer'}</span>
                                 </div>
                                 <h3 className="text-4xl font-bold mb-4">{project.title}</h3>
-                                <p className="text-xl text-primary font-medium leading-relaxed italic">
-                                    "{project.description}"
+                                <p className="text-xl text-primary font-medium leading-relaxed italic" dangerouslySetInnerHTML={{ __html: `"${highlightMetrics(project.description)}"` }}>
                                 </p>
                             </div>
 
@@ -152,7 +163,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
                                             <AlertCircle className="w-5 h-5" />
                                             <h4 className="font-bold text-sm uppercase tracking-widest">The Problem</h4>
                                         </div>
-                                        <p className="text-muted-foreground leading-relaxed">{project.problem}</p>
+                                        <p className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: highlightMetrics(project.problem) }}></p>
                                     </div>
                                 )}
                                 
@@ -162,7 +173,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
                                             <Layers className="w-5 h-5" />
                                             <h4 className="font-bold text-sm uppercase tracking-widest">Technical Solution</h4>
                                         </div>
-                                        <p className="text-muted-foreground leading-relaxed">{project.architecture}</p>
+                                        <p className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: highlightMetrics(project.architecture) }}></p>
                                     </div>
                                 )}
                                 
@@ -172,7 +183,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
                                             <TrendingUp className="w-5 h-5" />
                                             <h4 className="font-bold text-sm uppercase tracking-widest">Business Impact</h4>
                                         </div>
-                                        <p className="text-foreground/90 leading-relaxed font-medium">{project.outcome}</p>
+                                        <p className="text-foreground/90 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: highlightMetrics(project.outcome) }}></p>
                                     </div>
                                 )}
                             </div>

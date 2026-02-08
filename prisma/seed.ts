@@ -19,11 +19,11 @@ async function main() {
         startDate: new Date("2025-01-01"),
         current: true,
         description: [
-          "Led a distributed team of 4 engineers, scaling sprint velocity by 40% through agile process optimization and automated testing strategies.",
-          "Architected a high-performance Super Admin Platform handling TB-scale data, slashing query response times by 65% (from 2s to 700ms).",
-          "Designed and deployed cloud-native microservices on AWS, supporting 10,000+ concurrent users with 99.99% availability strategies.",
-          "Built automated CI/CD pipelines using GitHub Actions, reducing deployment time from 30 mins to 5 mins (83% reduction) and enabling daily releases.",
-          "Optimized PostgreSQL queries and Next.js rendering, boosting Core Web Vitals (LCP) by 35% and directly improving SEO rankings."
+          "Architected a scalable Super Admin Platform handling **TB-scale** data, slashing query response times by **65%** (from **2s** to **700ms**) using PostgreSQL optimization.",
+          "Led a distributed team of **4** engineers to scale sprint velocity by **40%** through agile process refinement and automated testing strategies.",
+          "Designed and deployed AWS microservices that supported **10,000+** concurrent users with **99.99%** availability.",
+          "Streamlined CI/CD pipelines using GitHub Actions, reducing deployment time by **83%** (from **30m** to **5m**) and enabling daily releases.",
+          "Optimized full-stack performance across Next.js and Cloudfront, boosting Core Web Vitals (LCP) by **35%** for improved SEO and user retention."
         ]
       },
       {
@@ -34,11 +34,11 @@ async function main() {
         endDate: new Date("2024-12-31"),
         current: false,
         description: [
-          "Led end-to-end development of a SaaS LMS, driving a 25% increase in Daily Active Users (DAU) through performance tuning.",
-          "Re-architected legacy backend to NestJS & Redis, reducing API latency by 45% and handling 500+ concurrent requests/sec.",
-          "Containerized applications using Docker and optimized AWS ECS resource allocation, slashing monthly cloud infrastructure costs by 30%.",
-          "Delivered 15+ complex production features with a <2% regression rate, establishing code quality standards for the team.",
-          "Implemented real-time WebSocket collaboration features, increasing average user session time by 15%."
+          "Re-architected legacy infrastructure to NestJS & Redis, reducing API latency by **45%** and handling **500+** concurrent requests/sec.",
+          "Led end-to-end development of a SaaS LMS, driving a **25%** increase in Daily Active Users (DAU) through performance tuning.",
+          "Containerized applications using Docker, slashing monthly cloud infrastructure costs by **30%** through optimized resource allocation.",
+          "Delivered **15+** complex production features with a **<2%** regression rate, establishing high code quality standards.",
+          "Implemented real-time WebSocket features that increased average user session time by **15%**."
         ]
       },
       {
@@ -49,10 +49,10 @@ async function main() {
         endDate: new Date("2022-06-30"),
         current: false,
         description: [
-          "Developed a scalable Education ERP system serving 50+ institutes, utilizing optimized SQL queries to accelerate reporting speeds by 3x.",
-          "Engineered an automated payment processing module handling $500k+ in annual volume, reducing transaction failures by 60%.",
-          "Led the migration of legacy monolith frontend to React SPA, improving developer productivity by 35% through component reusability.",
-          "Automated fee collection workflows, cutting manual administrative overhead by 40% for client institutions."
+          "Engineered an automated payment processing module handling **$500k+** in annual volume, reducing transaction failures by **60%**.",
+          "Developed a scalable Education ERP system serving **50+** institutes, accelerating reporting speeds by **3x** via SQL optimization.",
+          "Led a legacy-to-React SPA migration, improving developer productivity by **35%** through modular component architecture.",
+          "Automated fee collection workflows, cutting manual administrative overhead by **40%** for partner institutions."
         ]
       }
     ]
@@ -68,7 +68,7 @@ async function main() {
       problem: "Legacy Node.js architecture suffered from significant garbage collection latency and memory leaks when processing high-throughput 24/7 token streams from multiple LLM providers.",
       role: "Lead Backend Engineer (Rust)",
       architecture: "Engineered a low-latency ingestion engine using Rust & Tokio. Implemented zero-copy parsing and custom buffer management to handle millions of tokens with sub-millisecond overhead.",
-      outcome: "Achieved 50% faster execution and a 40% reduction in cloud compute costs. Ensured deterministic <10ms cold starts on AWS Lambda for seamless real-time dashboards.",
+      outcome: "Achieved **50%** faster execution and a **40%** reduction in cloud compute costs. Ensured deterministic **<10ms** cold starts for real-time dashboards.",
       techStack: ["Rust", "Tokio", "AWS Lambda", "WebSockets", "Redis", "GenAI"],
       imageUrl: "https://res.cloudinary.com/duxzb3nig/image/upload/v1770545672/genai-hub-context-engine_sr6c5v.png",
       category: "Backend / AI",
@@ -82,7 +82,7 @@ async function main() {
       problem: "Existing solutions lacked real-time signal processing and had poor UX. The client needed a scalable subscription engine and an interactive, sub-second latency dashboard.",
       role: "Lead Full-Stack Engineer",
       architecture: "Decoupled the signal processing engine from the user dashboard using a message queue. Implemented advanced caching strategies and optimized database queries for speed.",
-      outcome: "Successfully scaled infrastructure to handle 10k+ concurrent users with 99.99% uptime. Achieved sub-100ms search and data retrieval performance for complex financial datasets.",
+      outcome: "Successfully scaled infrastructure to handle **10,000+** concurrent users with **99.9%** uptime. Achieved **<100ms** latency for complex financial datasets.",
       techStack: ["Next.js", "Python", "Stripe API", "Redis", "PostgreSQL"],
       imageUrl: "https://res.cloudinary.com/duxzb3nig/image/upload/v1769685288/83aa1c80a1665e70e16870cf1bd5418c_fvfd6e.png",
       category: "FinTech / SaaS",
@@ -96,7 +96,7 @@ async function main() {
       problem: "A legacy monolithic system caused 48-hour data synchronization delays and frequent production outages during peak load, blocking international shipments.",
       role: "Lead Backend Architect (NestJS)",
       architecture: "Designed a production-grade Microservices architecture using NestJS and RabbitMQ. Applied CQRS pattern and distributed caching to ensure high availability and data consistency.",
-      outcome: "Eliminated reporting latency, achieving 100% real-time accuracy for 10k+ daily shipments. Reduced CI/CD deployment cycles by 50% through automated infrastructure scaling.",
+      outcome: "Eliminated reporting latency, achieving **100%** real-time accuracy for **10,000+** daily shipments. Reduced deployment cycles by **50%**.",
       techStack: ["NestJS", "TypeScript", "Microservices", "RabbitMQ", "PostgreSQL", "Docker"],
       imageUrl: "https://res.cloudinary.com/duxzb3nig/image/upload/v1769686793/sap-s4hana-cloud-public-edition-lb-hmpg-producthero_XL_r8mw9d.webp",
       category: "Enterprise / Backend",
@@ -110,7 +110,7 @@ async function main() {
       description: "A premium all-in-one Learning Management System (LMS) for creating and selling online courses.",
       problem: "Creators struggled with fragmented tools for course hosting, marketing, and community building. The platform needed a unified, high-performance solution.",
       architecture: "Refactored the core course player using React/Next.js for 50% faster load times. Implemented a robust interactive video editor and real-time community engagement features.",
-      outcome: "Empowered 10k+ course creators to monetize content effectively. Increased user engagement by 35% through the new interactive video learning module.",
+      outcome: "Empowered **10,000+** course creators to monetize content. Increased user engagement by **35%** through the new high-performance video module.",
       techStack: ["Next.js", "React", "Node.js", "GraphQL", "Video.js"],
       imageUrl: "https://res.cloudinary.com/duxzb3nig/image/upload/v1769685693/gl9jrUih6Nfa08grOvcSfmLebAyiGUkP7Q_zhrpxa.png",
       category: "EdTech / SaaS",
@@ -124,7 +124,7 @@ async function main() {
       description: "A scalable subscription-based platform with recurring billing and real-time features.",
       problem: "Needed a robust system to handle complex subscription tiers, high-concurrency user requests, and real-time data synchronization across devices without latency.",
       architecture: "Architected a microservices-based backend using Node.js and Redis. Implemented recurring billing via Stripe webhooks and ensured sub-100ms real-time updates using WebSockets and RabbitMQ.",
-      outcome: "Successfully scaled to support thousands of active users with 99.9% uptime. Reduced billing errors by 100% through automated reconciliation.",
+      outcome: "Successfully scaled to support **thousands** of active users with **99.9%** uptime. Reduced billing errors by **100%** via automated reconciliation.",
       techStack: ["Flutter", "Laravel", "Node.js", "Redis", "RabbitMQ", "Microservices"],
       imageUrl: "https://res.cloudinary.com/duxzb3nig/image/upload/v1770546599/pad_screenshot_A0O7A8N9G2_houhrc.png",
       category: "SaaS / Mobile",
@@ -289,7 +289,7 @@ async function main() {
               location: "Vadodara, India",
               startDate: "Jan 2025",
               endDate: "Present",
-              description: "<ul><li>Scaled sprint velocity by 40% and reduced deployment time by 83% (30m to 5m) via CI/CD automation.</li><li>Architected Super Admin Platform handling TB-scale data, slashing query latency by 65%.</li><li>Designed AWS cloud-native microservices supporting 10k+ concurrent users with 99.99% uptime.</li><li>Boosted Core Web Vitals (LCP) by 35% through Next.js and PostgreSQL optimization.</li></ul>"
+              description: "<ul><li>Architected Super Admin Platform handling **TB-scale** data, slashing query latency by **65%** via PostgreSQL optimization.</li><li>Scaled sprint velocity by **40%** and reduced deployment time by **83%** (**30m** to **5m**) via CI/CD automation.</li><li>Designed AWS cloud-native microservices supporting **10,000+** concurrent users with **99.99%** uptime.</li><li>Boosted Core Web Vitals (LCP) by **35%** through full-stack performance tuning across Next.js and Cloudfront.</li></ul>"
             },
             {
               id: "exp-2",
@@ -298,7 +298,7 @@ async function main() {
               location: "Surat, India",
               startDate: "July 2022",
               endDate: "Dec 2024",
-              description: "<ul><li>Re-architected backend to NestJS & Redis, reducing API latency by 45% and cloud costs by 30%.</li><li>Led development of SaaS LMS, driving 25% increase in DAU through performance tuning.</li><li>Managed delivery of 15+ complex features with <2% regression rate.</li></ul>"
+              description: "<ul><li>Re-architected backend to NestJS & Redis, reducing API latency by **45%** and monthly cloud costs by **30%**.</li><li>Led end-to-end development of SaaS LMS, driving **25%** increase in DAU through iterative performance tuning.</li><li>Managed delivery of **15+** complex features with **<2%** regression rate via strict TDD.</li></ul>"
             },
             {
               id: "exp-3",
@@ -307,7 +307,7 @@ async function main() {
               location: "Surat, India",
               startDate: "Nov 2020",
               endDate: "June 2022",
-              description: "<ul><li>Accelerated financial reporting speeds by 3x via SQL optimization for ERP system serving 50+ institutes.</li><li>Engineered automated payment module handling $500k+ annual volume with 60% fewer failures.</li><li>Led React migration improving developer productivity by 35%.</li></ul>"
+              description: "<ul><li>Accelerated financial reporting speeds by **3x** via SQL optimization for ERP system serving **50+** institutes.</li><li>Engineered automated payment module handling **$500k+** annual volume with **60%** fewer transaction failures.</li><li>Led React migration improving developer productivity by **35%** through modular architecture.</li></ul>"
             }
           ]
         },
@@ -321,40 +321,40 @@ async function main() {
               title: "GenAI Real-Time Data Engine",
               subtitle: "Lead Backend Engineer (Rust)",
               link: null,
-              description: "High-performance microservice ingesting AI model streams. Reduced AWS costs by 40% and improved execution speed by 50% using Rust & Tokio."
+              description: "High-performance microservice ingesting AI model streams. Reduced AWS costs by **40%** and improved execution speed by **50%** using Rust & Tokio."
             },
             {
               id: "proj-palmswap",
               title: "Palmswap - Hybrid DEX",
               subtitle: "Lead Smart Contract Engineer",
               link: "palmswap.org",
-              description: "Decentralized Exchange on BSC processing $10M+ volume. Architected hybrid infrastructure with 100% non-custodial trading."
+              description: "Decentralized Exchange on BSC processing **$10M+** volume. Architected hybrid infrastructure with **100%** non-custodial trading."
             },
             {
               id: "proj-luxalgo",
               title: "LuxAlgo - AI Financial Analytics",
               subtitle: "Lead Full-Stack Engineer",
               link: "luxalgo.com",
-              description: "Scaled platform to 50k+ users and 10k+ concurrent sessions. Achieved sub-100ms latency for complex signal processing."
+              description: "Scaled platform to **50,000+** users and **10,000+** concurrent sessions. Achieved **<100ms** latency for complex signal processing."
             },
             {
               id: "proj-erp",
               title: "Super Admin Platform",
               subtitle: "Lead Backend Architect",
-              description: "Microservices ERP for logistics. Reduced data loading time by 40% and accelerated CI/CD pipelines by 50% via Docker/NestJS."
+              description: "Microservices ERP for logistics. Reduced data loading time by **40%** and accelerated CI/CD pipelines by **50%** via Docker & NestJS."
             },
             {
               id: "proj-0",
               title: "RideFlow - Global Mobility Marketplace",
               subtitle: "Lead Architect",
               link: "rideflow.demo",
-              description: "High-growth peer-to-peer car sharing platform. Built with Next.js & Microservices. Processed $2M+ transaction volume with 10k+ users."
+              description: "High-growth peer-to-peer car sharing platform. Built with Next.js & Microservices. Processed **$2M+** transaction volume with **10,000+** users."
             },
             {
               id: "proj-4",
               title: "EdTech Learning Ecosystem",
               subtitle: "Senior Engineer",
-              description: "Scalable LMS with real-time classrooms. Supported 5,000+ concurrent students using WebRTC and Redis for live engagement."
+              description: "Scalable LMS with real-time classrooms. Supported **5,000+** concurrent students using WebRTC and Redis for live engagement."
             }
           ]
         },

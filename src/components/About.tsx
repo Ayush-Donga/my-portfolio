@@ -30,6 +30,7 @@ export const About = ({ avatarUrl }: AboutProps) => {
                     <img 
                       src={avatarUrl} 
                       alt="Ayush Donga" 
+                      loading="lazy"
                       className="w-full h-full object-cover transition-all duration-700" 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent opacity-60"></div>
