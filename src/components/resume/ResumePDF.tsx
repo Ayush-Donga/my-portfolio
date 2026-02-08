@@ -109,7 +109,9 @@ export const ResumePDF = ({ resume }: { resume: any }) => {
           <View style={styles.contactRow}>
             {personalInfo.email && (
               <View style={styles.contactItem}>
-                 <Text style={styles.contactText}>Email</Text>
+                <PdfLink src={`mailto:${personalInfo.email}`} style={styles.link}>
+                  <Text style={styles.contactText}>{personalInfo.email}</Text>
+                </PdfLink>
               </View>
             )}
             {personalInfo.phone && (
