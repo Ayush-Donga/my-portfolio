@@ -30,10 +30,26 @@ interface ProjectsProps {
 export const Projects = ({ projects }: ProjectsProps) => {
   const highlightMetrics = (text: string | null | undefined) => {
     if (!text) return ''
-    return text
+    
+    // Handle code blocks first
+    let processedText = text.replace(/```(?:[a-z]*)\n([\s\S]*?)```/g, (match, code) => {
+      return `<div class="my-6 rounded-lg overflow-hidden border border-border/50 bg-slate-950 shadow-2xl group/code">
+                <div class="flex items-center justify-between px-4 py-2 bg-slate-900 border-b border-white/5">
+                  <div class="flex gap-1.5">
+                    <div class="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
+                    <div class="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
+                  </div>
+                  <span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Code Snapshot</span>
+                </div>
+                <pre class="p-4 font-mono text-[11px] leading-relaxed text-blue-300 overflow-x-auto selection:bg-blue-500/30"><code>${code.trim()}</code></pre>
+              </div>`
+    })
+
+    return processedText
       .replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground font-bold">$1</strong>')
       .replace(
-        /(\b\d+(?:\.\d+)?%|\b\d+\+?\s*(?:hours|developers|years|months|reduction|increase|improvement|growth|TB|requests\/sec|RPS|sessions|users|daily volume|uptime|latency))/gi, 
+        /(\b\d+(?:\.\d+)?%|\b\d+\+?\s*(?:hours|developers|years|months|reduction|increase|improvement|growth|TB|requests\/sec|RPS|sessions|users|daily volume|uptime|latency|users\/sec|ms|throughput|revenue|MRR|ARR))/gi, 
         (match) => match.includes('<strong') ? match : `<strong class="text-foreground font-bold">${match}</strong>`
       )
   }
@@ -142,8 +158,8 @@ export const Projects = ({ projects }: ProjectsProps) => {
                                     <span className="text-sm font-bold uppercase tracking-widest text-muted-foreground">{project.role || 'Lead Engineer'}</span>
                                 </div>
                                 <h3 className="text-4xl font-bold mb-4">{project.title}</h3>
-                                <p className="text-xl text-primary font-medium leading-relaxed italic" dangerouslySetInnerHTML={{ __html: `"${highlightMetrics(project.description)}"` }}>
-                                </p>
+                                <div className="text-xl text-primary font-medium leading-relaxed italic" dangerouslySetInnerHTML={{ __html: `"${highlightMetrics(project.description)}"` }}>
+                                </div>
                             </div>
 
                             {/* Tech Stack Pills */}
@@ -163,7 +179,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
                                             <AlertCircle className="w-5 h-5" />
                                             <h4 className="font-bold text-sm uppercase tracking-widest">The Problem</h4>
                                         </div>
-                                        <p className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: highlightMetrics(project.problem) }}></p>
+                                        <div className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: highlightMetrics(project.problem) }}></div>
                                     </div>
                                 )}
                                 
@@ -173,7 +189,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
                                             <Layers className="w-5 h-5" />
                                             <h4 className="font-bold text-sm uppercase tracking-widest">Technical Solution</h4>
                                         </div>
-                                        <p className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: highlightMetrics(project.architecture) }}></p>
+                                        <div className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: highlightMetrics(project.architecture) }}></div>
                                     </div>
                                 )}
                                 
@@ -183,7 +199,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
                                             <TrendingUp className="w-5 h-5" />
                                             <h4 className="font-bold text-sm uppercase tracking-widest">Business Impact</h4>
                                         </div>
-                                        <p className="text-foreground/90 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: highlightMetrics(project.outcome) }}></p>
+                                        <div className="text-foreground/90 leading-relaxed font-medium" dangerouslySetInnerHTML={{ __html: highlightMetrics(project.outcome) }}></div>
                                     </div>
                                 )}
                             </div>

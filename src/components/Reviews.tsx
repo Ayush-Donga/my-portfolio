@@ -54,7 +54,10 @@ export const Reviews = ({ testimonials = [] }: ReviewsProps) => {
                             className="bg-card p-8 rounded-2xl border border-border/50 relative group hover:shadow-xl transition-all"
                         >
                             <Quote className="absolute top-6 right-8 w-10 h-10 text-primary/5 group-hover:text-primary/10 transition-colors" />
-                            <p className="text-muted-foreground italic mb-6 relative z-10 leading-relaxed">"{t.quote}"</p>
+                            <div 
+                                className="text-muted-foreground italic mb-6 relative z-10 leading-relaxed" 
+                                dangerouslySetInnerHTML={{ __html: `"${t.quote.replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground font-bold">$1</strong>')}"` }}
+                            />
                             <div className="flex items-center justify-between gap-4">
                                 <div className="flex items-center gap-4">
                                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs uppercase overflow-hidden border border-primary/20">

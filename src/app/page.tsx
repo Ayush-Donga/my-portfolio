@@ -15,9 +15,9 @@ import { Metadata } from "next";
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Ayush Donga | Senior Full-Stack Engineer | Rust, NestJS & GenAI',
-  description: 'Senior Full-Stack Engineer with 7+ years of experience building high-performance, cloud-native platforms for US & EU startups. Expert in Rust, NestJS, and GenAI.',
-  keywords: ['Senior Full-Stack Engineer', 'Rust', 'NestJS', 'GenAI', 'Remote Engineer', 'Cloud Native', 'Node.js', 'React', 'TypeScript', 'Scalable Architecture', 'Distributed Systems'],
+  title: 'Ayush Donga | Senior Full-Stack Engineer | Systems Architect',
+  description: 'Senior Full-Stack Engineer with 7+ years of experience building high-performance, cloud-native platforms for US & EU startups. Specialist in Rust, NestJS, and AWS.',
+  keywords: ['Senior Full-Stack Engineer', 'Remote Developer', 'Systems Architect', 'Rust', 'NestJS', 'AWS', 'High-Performance Systems', 'FinTech', 'SaaS', 'US Startups', 'EU Tech'],
 };
 
 export default async function Home() {
@@ -38,7 +38,11 @@ export default async function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary">
       <Navbar />
-      <Hero calendlyUrl={(settings as any)?.calendlyUrl} />
+      <Hero 
+        calendlyUrl={(settings as any)?.calendlyUrl} 
+        bio={(settings as any)?.bio}
+        professionalTitle={(settings as any)?.professionalTitle}
+      />
       <About avatarUrl={(settings as any)?.avatarUrl} />
       <Skills skills={skills} />
       <Experience experience={experience} />

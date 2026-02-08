@@ -10,9 +10,11 @@ import { motion } from 'framer-motion'
 
 interface HeroProps {
   calendlyUrl?: string | null
+  bio?: string | null
+  professionalTitle?: string | null
 }
 
-export const Hero = ({ calendlyUrl }: HeroProps) => {
+export const Hero = ({ calendlyUrl, bio, professionalTitle }: HeroProps) => {
   return (
     <section id="about" className="min-h-screen flex items-center pt-16 relative overflow-hidden bg-gradient-to-b from-background to-background/50">
         {/* Background Gradients & Grid */}
@@ -35,11 +37,11 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
             className="flex items-center gap-4"
           >
             <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-primary/10 text-primary">
-              {HERO_CONTENT.badge}
+              Senior Full-Stack Engineer
             </div>
             <div className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-emerald-500/20 bg-emerald-500/10 text-emerald-500 animate-pulse">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-              {HERO_CONTENT.availability}
+              Available for Remote (EU/UK/US)
             </div>
           </motion.div>
             <motion.h1 
@@ -49,7 +51,7 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
             className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1]"
           >
             <span className="block text-xl md:text-2xl text-primary font-medium mb-2">Senior Full-Stack Engineer | 7+ Years Exp</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Specialist in Rust, NestJS & GenAI</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">{professionalTitle || 'Systems Architect & Specialist'}</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -57,7 +59,7 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
             transition={{ delay: 0.4 }}
             className="text-lg text-muted-foreground leading-relaxed max-w-lg"
           >
-            Building high-performance, cloud-native platforms for US & EU startups. Expert in 99.9% uptime and async-first remote collaboration.
+            {bio || 'Building high-performance, cloud-native platforms for US & EU startups. Expert in scalability, reliability, and remote collaboration.'}
           </motion.p>
           
           <motion.div 
