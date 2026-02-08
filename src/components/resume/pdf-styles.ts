@@ -1,5 +1,21 @@
 import { StyleSheet, Font } from '@react-pdf/renderer';
 
+// Register Inter Font for Premium Look
+// Note: Using built-in Helvetica fonts for better reliability
+// If you want to use custom fonts, uncomment below and ensure fonts load properly
+/*
+Font.register({
+  family: 'Inter',
+  fonts: [
+    { src: 'https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2', fontWeight: 400 },
+    { src: 'https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hiA.woff2', fontWeight: 600 },
+    { src: 'https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuI6fAZ9hiA.woff2', fontWeight: 700 },
+    { src: 'https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLu7AZ9hiA.woff2', fontWeight: 800 },
+    { src: 'https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuL67AZ9hiA.woff2', fontWeight: 900 },
+  ]
+});
+*/
+
 // Modern Color Palette - Refined for Print
 export const colors = {
   white: '#FFFFFF',
@@ -20,63 +36,65 @@ export const colors = {
 };
 
 export const styles = StyleSheet.create({
-  // Base Layout - A4 Optimized for multi-page
+  // Base Layout - A4 Optimized for 2 pages max
   page: {
     flexDirection: 'column',
     backgroundColor: colors.white,
     fontFamily: 'Helvetica',
-    fontSize: 9,
-    lineHeight: 1.45,
+    fontSize: 8.5,
+    lineHeight: 1.4,
     paddingTop: 25,
     paddingBottom: 25,
     paddingHorizontal: 40,
   },
   
-  // Header Section - Perfect Balance
+  // Header Section - Compact
   header: {
-    paddingBottom: 20,
+    paddingBottom: 18,
     backgroundColor: colors.white,
-    borderBottomWidth: 0.5,
-    borderBottomColor: colors.slate200,
-    marginBottom: 10,
+    borderBottomWidth: 1.5,
+    borderBottomColor: colors.slate100,
+    marginBottom: 12,
     alignItems: 'center',
     textAlign: 'center',
   },
   name: {
-    fontSize: 25,
+    fontSize: 26,
     fontFamily: 'Helvetica-Bold',
+    fontWeight: 900,
     color: colors.slate900,
-    marginBottom: 4,
+    marginBottom: 5,
     lineHeight: 1.1,
-    letterSpacing: -0.2,
+    letterSpacing: -0.5,
   },
   professionalTitle: {
-    fontSize: 9,
+    fontSize: 8,
     fontFamily: 'Helvetica-Bold',
-    color: colors.blue600,
-    letterSpacing: 2.2,
-    textTransform: 'uppercase',
+    fontWeight: 700,
+    color: colors.slate700,
     marginBottom: 12,
+    maxWidth: 400,
+    lineHeight: 1.3,
   },
   contactRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
-    gap: 12,
-    rowGap: 4,
+    gap: 10,
+    rowGap: 3,
   },
   contactItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 4,
+    gap: 3,
   },
   contactText: {
-    fontSize: 8.2,
+    fontSize: 7.5,
     color: colors.slate600,
     fontFamily: 'Helvetica',
   },
   contactSeparator: {
-    fontSize: 8.2,
+    fontSize: 7.5,
     color: colors.slate300,
     marginHorizontal: 0,
   },
@@ -90,21 +108,21 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   
-  // Section Headers
+  // Section Headers - Compact
   section: {
-    marginBottom: 14,
+    marginBottom: 10,
   },
   sectionHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 6,
-    gap: 10,
+    marginBottom: 5,
+    gap: 8,
   },
   sectionTitle: {
-    fontSize: 9.5,
+    fontSize: 9,
     fontFamily: 'Helvetica-Bold',
     color: colors.slate900,
-    letterSpacing: 2.2,
+    letterSpacing: 2,
     textTransform: 'uppercase',
   },
   sectionLine: {
@@ -113,127 +131,127 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.slate200,
   },
   
-  // Experience/Project/Item Lists
+  // Experience/Project/Item Lists - Compact
   itemsList: {
     width: '100%',
   },
   itemGroup: {
-    marginBottom: 8,
+    marginBottom: 6,
   },
   itemHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'baseline',
-    marginBottom: 4,
+    marginBottom: 3,
   },
   itemTitleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    gap: 5,
     flex: 1,
   },
   itemTitle: {
-    fontSize: 11,
+    fontSize: 10,
     fontFamily: 'Helvetica-Bold',
     color: colors.slate900,
     lineHeight: 1.2,
   },
   itemDate: {
-    fontSize: 8,
+    fontSize: 7.5,
     fontFamily: 'Helvetica-Bold',
     color: colors.slate400,
-    marginLeft: 10,
+    marginLeft: 8,
     textAlign: 'right',
   },
   itemCompany: {
-    fontSize: 9,
+    fontSize: 8.5,
     fontFamily: 'Helvetica-Bold',
     color: colors.blue600,
-    marginBottom: 4,
+    marginBottom: 3,
   },
   itemLocation: {
-    fontSize: 8,
+    fontSize: 7.5,
     color: colors.slate400,
-    marginLeft: 6,
+    marginLeft: 5,
   },
   itemDescription: {
-    fontSize: 9,
+    fontSize: 8.5,
     color: colors.slate700,
-    lineHeight: 1.5,
+    lineHeight: 1.45,
   },
   
-  // Skills Grid
+  // Skills Grid - Compact
   skillsGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 15,
+    gap: 12,
   },
   skillItemFull: {
     width: '47%',
-    marginBottom: 12,
+    marginBottom: 8,
   },
   skillTitle: {
-    fontSize: 9.2,
+    fontSize: 8.5,
     fontFamily: 'Helvetica-Bold',
     color: colors.slate800,
-    marginBottom: 3,
+    marginBottom: 2,
   },
   skillText: {
-    fontSize: 8.5,
+    fontSize: 8,
     color: colors.slate600,
-    lineHeight: 1.4,
+    lineHeight: 1.35,
   },
   
-  // Education List
+  // Education List - Compact
   educationList: {
     width: '100%',
   },
   educationItemFull: {
-    marginBottom: 14,
+    marginBottom: 10,
   },
   educationDegree: {
-    fontSize: 10,
+    fontSize: 9.5,
     fontFamily: 'Helvetica-Bold',
     color: colors.slate800,
-    marginBottom: 3,
+    marginBottom: 2,
   },
   educationSchool: {
-    fontSize: 9.2,
+    fontSize: 8.5,
     fontFamily: 'Helvetica-Bold',
     color: colors.blue600,
     marginBottom: 2,
   },
   educationDate: {
-    fontSize: 8.5,
+    fontSize: 8,
     color: colors.slate500,
   },
   
-  // Bullet Points
+  // Bullet Points - Compact
   bullet: {
-    width: 3,
-    height: 3,
+    width: 2.5,
+    height: 2.5,
     backgroundColor: colors.slate300,
-    borderRadius: 1.5,
-    marginRight: 8,
-    marginTop: 5,
+    borderRadius: 1.25,
+    marginRight: 7,
+    marginTop: 4,
   },
   bulletRow: {
     flexDirection: 'row',
-    marginBottom: 4,
+    marginBottom: 3,
     alignItems: 'flex-start',
   },
   bulletText: {
     flex: 1,
-    fontSize: 9.2,
+    fontSize: 8.5,
     color: colors.slate700,
-    lineHeight: 1.55,
+    lineHeight: 1.5,
   },
   
-  // Summary/Profile Section
+  // Summary/Profile Section - Compact
   summaryText: {
-    fontSize: 9.5,
+    fontSize: 9,
     color: colors.slate700,
-    lineHeight: 1.6,
+    lineHeight: 1.55,
     textAlign: 'justify',
   },
 });

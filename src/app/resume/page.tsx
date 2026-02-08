@@ -103,7 +103,7 @@ export default function PublicResume() {
     return cleaned
       .replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-900 dark:text-white font-bold print:text-black">$1</strong>')
       .replace(
-        /(\b\d+(?:\.\d+)?%|\b\d+\+?\s*(?:hours|developers|years|months|reduction|increase|improvement|growth|TB|requests\/sec|RPS|sessions|users|daily volume|uptime|latency|\d+m to \d+m))/gi, 
+        /(\b\d+(?:\.\d+)?%|\b\d+,?\d*\+?\s*(?:hours|developers|years|months|reduction|increase|improvement|growth|TB|requests\/sec|RPS|sessions|users|daily volume|uptime|latency|\d+m to \d+m|volume|RPS|throughput)|(?:\$|£|€)\d+(?:\.\d+)?[kKmMBb]?\+?)/gi, 
         (match) => match.includes('<strong') ? match : `<strong class="text-slate-900 dark:text-white font-bold print:text-black">${match}</strong>`
       )
   }
@@ -145,8 +145,10 @@ export default function PublicResume() {
   // Let's stick to safe bets: Experience/Projects -> Main. Skills/Education/Contact -> Sidebar (Right side).
   
   return (
-    <div className="min-h-screen bg-[#eef1f5] dark:bg-black md:py-12 px-0 print:p-0 print:bg-white">
+    <div className="min-h-screen bg-[#f8fafc] dark:bg-black md:py-12 px-0 print:p-0 print:bg-white font-[family-name:var(--font-inter)]">
       <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        
         @media print {
           @page {
             margin: 0;
@@ -154,8 +156,13 @@ export default function PublicResume() {
           }
           body {
             -webkit-print-color-adjust: exact;
+            font-family: 'Inter', sans-serif !important;
           }
           /* Hide headers/footers injected by browser */
+        }
+        
+        #resume-content {
+          font-family: 'Inter', sans-serif;
         }
       `}</style>
       
@@ -168,9 +175,19 @@ export default function PublicResume() {
                 <ChevronLeft className="w-4 h-4" /> Back
              </Button>
           </Link>
-          {resume && (
-            <ResumeDownloadButton resume={resume} />
-          )}
+          <div className="flex gap-2">
+            <Button 
+              onClick={handleDownload}
+              variant="outline"
+              className="h-9 md:h-10 px-4 md:px-6 rounded-xl font-bold gap-2 border-blue-200 dark:border-blue-900 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950 transition-all text-xs"
+            >
+              <Download className="w-4 h-4" /> 
+              Print to PDF
+            </Button>
+            {resume && (
+              <ResumeDownloadButton resume={resume} />
+            )}
+          </div>
         </div>
 
         {/* 
@@ -184,40 +201,40 @@ export default function PublicResume() {
           id="resume-content"
         >
           {/* HEADER (Full Width) */}
-          <header className="px-6 py-6 md:px-16 md:py-8 border-b border-slate-100 dark:border-white/5 bg-white dark:bg-zinc-950 print:bg-white text-center">
+          <header className="px-6 py-6 md:px-16 md:py-10 border-b-2 border-slate-900/5 dark:border-white/5 bg-white dark:bg-zinc-950 print:bg-white text-center">
              <div className="max-w-3xl mx-auto">
-                <h1 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white print:text-black leading-tight mb-2">
+                <h1 className="text-4xl md:text-6xl font-[900] tracking-tight text-slate-900 dark:text-white print:text-black leading-tight mb-4">
                     {personalInfo.fullName}
                 </h1>
-                <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.25em] text-blue-600 dark:text-blue-400 print:text-blue-700 mb-4">
+                <p className="text-xs md:text-sm font-bold text-slate-700 dark:text-slate-300 print:text-slate-800 mb-6 max-w-2xl mx-auto leading-relaxed">
                     {personalInfo.professionalTitle}
                 </p>
                 
                 {/* Contact Info - Optimized for Professional Look */}
-                <div className="flex flex-wrap justify-center items-center gap-x-5 gap-y-2 text-[10px] md:text-[11px] font-bold text-slate-500 dark:text-slate-400 print:text-slate-600">
+                <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 text-[11px] md:text-[12px] font-semibold text-slate-600 dark:text-slate-400 print:text-slate-700">
                     <a href={`mailto:${personalInfo.email}`} className="flex items-center gap-2 hover:text-blue-600 transition-colors">
-                      <Mail className="w-3.5 h-3.5 text-blue-500/70" /> 
-                      <span>{personalInfo.email}</span>
+                      <Mail className="w-4 h-4 text-slate-400" /> 
+                      <span>Email</span>
                     </a>
-                    <div className="flex items-center gap-2">
-                      <Phone className="w-3.5 h-3.5 text-blue-500/70" /> <span>{personalInfo.phone}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <MapPin className="w-3.5 h-3.5 text-blue-500/70" /> <span>{personalInfo.location}</span>
-                    </div>
-                    {(personalInfo.linkedin || personalInfo.github) && (
-                      <div className="w-full md:w-auto h-px bg-slate-200 dark:bg-white/10 hidden md:block" />
+                    {personalInfo.phone && (
+                      <a href={`tel:${personalInfo.phone}`} className="flex items-center gap-2 hover:text-blue-600 transition-colors">
+                        <Phone className="w-4 h-4 text-slate-400" /> 
+                        <span>{personalInfo.phone}</span>
+                      </a>
                     )}
                     {personalInfo.linkedin && (
                       <a href={personalInfo.linkedin.startsWith('http') ? personalInfo.linkedin : `https://${personalInfo.linkedin}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-600 transition-colors">
-                          <Linkedin className="w-3.5 h-3.5 text-blue-500/70" /> <span>LinkedIn</span>
+                          <Linkedin className="w-4 h-4 text-slate-400" /> <span>LinkedIn</span>
                       </a>
                     )}
                     {personalInfo.github && (
                       <a href={personalInfo.github.startsWith('http') ? personalInfo.github : `https://${personalInfo.github}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-blue-600 transition-colors">
-                          <Github className="w-3.5 h-3.5 text-blue-500/70" /> <span>GitHub</span>
+                          <Github className="w-4 h-4 text-slate-400" /> <span>GitHub</span>
                       </a>
                     )}
+                    <Link href="/" className="flex items-center gap-2 hover:text-blue-600 transition-colors">
+                        <Globe className="w-4 h-4 text-slate-400" /> <span>Portfolio</span>
+                    </Link>
                 </div>
              </div>
           </header>
@@ -261,62 +278,75 @@ export default function PublicResume() {
                 );
               })()}
 
-              {/* Main Content Loop (Experience, Skills, Education, Projects) */}
-              {['experience', 'skills', 'education', 'projects'].map(type => {
+              {/* Main Content Loop (Experience, Skills, Remote Excellence, Projects, Education) */}
+              {['experience', 'skills', 'custom', 'projects', 'education'].map(type => {
                  const sections = content.filter((s: ResumeSection) => s.type === type);
                  if (sections.length === 0) return null;
 
                  return sections.map((section: ResumeSection) => (
-                    <section key={section.id} className="space-y-2 md:space-y-3 break-inside-avoid">
-                       <div className="flex items-center gap-2 md:gap-3 mb-2">
-                          <h2 className="text-[11px] md:text-[12px] font-bold uppercase tracking-widest text-slate-900 dark:text-white print:text-black whitespace-nowrap">
+                    <section key={section.id} className="space-y-4 md:space-y-6 break-inside-avoid">
+                       <div className="flex items-center gap-4 md:gap-6 mb-2">
+                          <h2 className="text-[13px] md:text-[14px] font-[800] uppercase tracking-[0.2em] text-slate-900 dark:text-white print:text-black whitespace-nowrap">
                             {section.heading}
                           </h2>
-                          <div className="flex-1 h-px bg-slate-200 dark:bg-white/10" />
+                          <div className="flex-1 h-[2px] bg-slate-900/5 dark:bg-white/5 print:bg-slate-100" />
                        </div>
 
-                       <div className="space-y-3 md:space-y-4">
-                          {section.items.map((item: ResumeItem) => (
-                            <div key={item.id} className="relative group">
-                               {/* Common Header Structure for all types */}
-                               <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-1 gap-1">
-                                  <div className="flex items-start gap-2 flex-1 min-w-0">
-                                    <h3 className="text-[12px] md:text-[13px] font-bold text-slate-900 dark:text-white print:text-black break-words">
-                                      {item.title || item.degree}
-                                    </h3>
-                                    {item.link && (
-                                      <a href={item.link.startsWith('http') ? item.link : `https://${item.link}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 print:hidden flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
-                                         <ExternalLink className="w-3 h-3" />
-                                      </a>
-                                    )}
-                                  </div>
-                                  {(item.startDate) && (
-                                    <span className="text-[9px] md:text-[10px] font-bold text-slate-400 md:whitespace-nowrap print:text-slate-600 flex-shrink-0">
-                                      {item.startDate} {item.endDate ? `— ${item.endDate}` : '— Present'}
+                       {/* Special rendering for custom sections (Remote Excellence) */}
+                       {section.type === 'custom' ? (
+                         <div className="space-y-3">
+                           {section.items.map((item: ResumeItem) => (
+                             <div 
+                               key={item.id}
+                               className="text-[11px] md:text-[13px] leading-[1.7] text-slate-600 dark:text-slate-400 print:text-slate-800"
+                               dangerouslySetInnerHTML={{ __html: highlightMetrics(item.description || '') }}
+                             />
+                           ))}
+                         </div>
+                       ) : (
+                         <div className="space-y-6 md:space-y-8">
+                           {section.items.map((item: ResumeItem) => (
+                             <div key={item.id} className="relative group">
+                                {/* Common Header Structure for all types */}
+                                <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-1.5 gap-1">
+                                   <div className="flex items-start gap-2 flex-1 min-w-0">
+                                     <h3 className="text-[14px] md:text-[16px] font-bold text-slate-900 dark:text-white print:text-black break-words">
+                                       {item.title || item.degree}
+                                     </h3>
+                                     {item.link && (
+                                       <a href={item.link.startsWith('http') ? item.link : `https://${item.link}`} target="_blank" rel="noopener noreferrer" className="text-blue-600 print:hidden flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
+                                          <ExternalLink className="w-3.5 h-3.5" />
+                                       </a>
+                                     )}
+                                   </div>
+                                   {(item.startDate) && (
+                                     <span className="text-[11px] md:text-[12px] font-bold text-slate-500 md:whitespace-nowrap print:text-slate-600 flex-shrink-0">
+                                       {item.startDate} {item.endDate ? `— ${item.endDate}` : '— Present'}
+                                     </span>
+                                   )}
+                                </div>
+                                
+                                {/* Subtitle / Company / School */}
+                                {(item.company || item.school || item.subtitle) && (
+                                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                                    <span className="text-[12px] md:text-[13px] font-bold text-blue-600 dark:text-blue-500 print:text-blue-700 break-words underline underline-offset-4 decoration-2 decoration-blue-100 dark:decoration-blue-900/30">
+                                      {item.company || item.school || item.subtitle}
                                     </span>
-                                  )}
-                               </div>
-                               
-                               {/* Subtitle / Company / School */}
-                               {(item.company || item.school || item.subtitle) && (
-                                 <div className="flex flex-wrap items-center gap-2 mb-2">
-                                   <span className="text-[10px] md:text-[11px] font-semibold text-blue-600 dark:text-blue-500 break-words">
-                                     {item.company || item.school || item.subtitle}
-                                   </span>
-                                   {item.location && <span className="text-[9px] md:text-[10px] text-slate-400 flex-shrink-0">• {item.location}</span>}
-                                 </div>
-                               )}
+                                    {item.location && <span className="text-[11px] md:text-[12px] text-slate-400 font-medium flex-shrink-0">• {item.location}</span>}
+                                  </div>
+                                )}
 
-                               {/* Description / Subskills */}
-                               {(item.description || item.subskills) && (
-                                 <div 
-                                   className="text-[10px] md:text-[11px] leading-[1.6] text-slate-600 dark:text-slate-400 print:text-black/85 [&>ul]:list-disc [&>ul]:pl-4 [&>ul]:space-y-1.5 [&>ul>li::marker]:text-slate-400 break-words overflow-hidden"
-                                   dangerouslySetInnerHTML={{ __html: highlightMetrics(item.description || item.subskills || '') }}
-                                 />
-                               )}
-                            </div>
-                          ))}
-                       </div>
+                                {/* Description / Subskills */}
+                                {(item.description || item.subskills) && (
+                                  <div 
+                                    className="text-[11px] md:text-[13px] leading-[1.7] text-slate-600 dark:text-slate-400 print:text-slate-800 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:space-y-2.5 [&>ul>li::marker]:text-slate-300 dark:[&>ul>li::marker]:text-slate-700 break-words overflow-hidden"
+                                    dangerouslySetInnerHTML={{ __html: highlightMetrics(item.description || item.subskills || '') }}
+                                  />
+                                )}
+                             </div>
+                           ))}
+                         </div>
+                       )}
                     </section>
                  ));
               })}

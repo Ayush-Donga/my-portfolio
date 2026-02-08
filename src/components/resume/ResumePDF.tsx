@@ -37,10 +37,14 @@ const HtmlRenderer = ({ html, style, isBullet = false }: { html: string; style?:
           {parts.map((part, index) => {
              const cleanText = part.replace(/<[^>]+>/g, '').trim();
              if (!cleanText) return null;
+             
+             // Parse bold text within bullets
              return (
                <View key={index} style={styles.bulletRow}>
                  <View style={styles.bullet} />
-                 <Text style={styles.bulletText}>{cleanText}</Text>
+                 <Text style={styles.bulletText}>
+                   {parseBoldText(cleanText)}
+                 </Text>
                </View>
              );
           })}
@@ -56,15 +60,36 @@ const HtmlRenderer = ({ html, style, isBullet = false }: { html: string; style?:
     .replace(/<[^>]+>/g, '')
     .trim();
     
-  return <Text style={style}>{cleanText}</Text>;
+  return <Text style={style}>{parseBoldText(cleanText)}</Text>;
+};
+
+// Helper function to parse **bold** markdown into Text components
+const parseBoldText = (text: string) => {
+  if (!text) return '';
+  
+  // Split by **bold** markers
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+  
+  return parts.map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      // Remove ** markers and render as bold
+      const boldText = part.slice(2, -2);
+      return (
+        <Text key={index} style={{ fontFamily: 'Helvetica-Bold', fontWeight: 700 }}>
+          {boldText}
+        </Text>
+      );
+    }
+    return part;
+  });
 };
 
 export const ResumePDF = ({ resume }: { resume: any }) => {
   if (!resume) return null;
   const { personalInfo, content } = resume;
 
-  // Render sections in a specific order: Experience, Skills, Education, Projects
-  const orderedSectionTypes = ['experience', 'skills', 'education', 'projects'];
+  // Render sections in a specific order: Experience, Skills, Remote Excellence (Custom), Education, Projects
+  const orderedSectionTypes = ['experience', 'skills', 'custom', 'education', 'projects'];
   
   // Filter out any sections that are already covered by personalInfo.summary
   const mainContent = content.filter((s: any) => 
@@ -84,22 +109,14 @@ export const ResumePDF = ({ resume }: { resume: any }) => {
           <View style={styles.contactRow}>
             {personalInfo.email && (
               <View style={styles.contactItem}>
-                 <Text style={styles.contactText}>{personalInfo.email}</Text>
+                 <Text style={styles.contactText}>Email</Text>
               </View>
             )}
             {personalInfo.phone && (
               <>
                 <Text style={styles.contactSeparator}>|</Text>
                 <View style={styles.contactItem}>
-                   <Text style={styles.contactText}>{personalInfo.phone}</Text>
-                </View>
-              </>
-            )}
-            {personalInfo.location && (
-              <>
-                <Text style={styles.contactSeparator}>|</Text>
-                <View style={styles.contactItem}>
-                    <Text style={styles.contactText}>{personalInfo.location}</Text>
+                  <Text style={styles.contactText}>{personalInfo.phone}</Text>
                 </View>
               </>
             )}
@@ -123,6 +140,12 @@ export const ResumePDF = ({ resume }: { resume: any }) => {
                 </View>
               </>
             )}
+            <Text style={styles.contactSeparator}>|</Text>
+            <View style={styles.contactItem}>
+              <PdfLink src={personalInfo.portfolio?.startsWith('http') ? personalInfo.portfolio : `https://${personalInfo.portfolio || 'ayushdonga.pro'}`} style={styles.link}>
+                  <Text style={styles.contactText}>Portfolio</Text>
+              </PdfLink>
+            </View>
           </View>
         </View>
 
@@ -159,7 +182,7 @@ export const ResumePDF = ({ resume }: { resume: any }) => {
             if (sections.length === 0) return null;
 
             return sections.map((section: any) => (
-              <View key={section.id} style={styles.section}>
+              <View key={section.id} style={styles.section} wrap={false}>
                 <View style={styles.sectionHeader}>
                   <Text style={styles.sectionTitle}>{section.heading}</Text>
                   <View style={styles.sectionLine} />
@@ -185,6 +208,14 @@ export const ResumePDF = ({ resume }: { resume: any }) => {
                           </Text>
                         </View>
                         <Text style={styles.itemCompany}>{item.school || item.company}</Text>
+                      </View>
+                    ))}
+                  </View>
+                ) : section.type === 'custom' ? (
+                  <View style={styles.itemsList}>
+                    {section.items.map((item: any) => (
+                      <View key={item.id} style={styles.itemGroup} wrap={false}>
+                        <HtmlRenderer html={item.description} style={styles.summaryText} />
                       </View>
                     ))}
                   </View>
