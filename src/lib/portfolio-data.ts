@@ -3,9 +3,9 @@ import { Code, Database, Globe, Layers, Layout, Server, Settings, Smartphone, Te
 
 // --- HERO SECTION ---
 export const HERO_CONTENT = {
-  badge: "Senior Full-Stack Engineer | 6+ Years Exp.",
-  title: "Building Scalable SaaS & Real-Time Production Systems",
-  subtitle: "I help startups and product companies build, scale, and stabilize complex web applications. Remote-first, ownership-driven, and production-ready architecture.",
+  badge: "Senior Full-Stack Engineer | 7+ Years Exp.",
+  title: "Scaling Next.js, Node & Rust Apps from 0 to 1",
+  subtitle: "I help US & European startups build high-performance platforms with 99.9% uptime. 7+ years of experience leading teams and delivering production-grade architecture.",
   availability: "Available for Remote & Contract Roles (EU/UK/US)",
   ctaPrimary: "View Case Studies",
   ctaSecondary: "Discuss Your Project",

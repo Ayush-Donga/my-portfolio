@@ -55,7 +55,7 @@ export const About = ({ avatarUrl }: AboutProps) => {
             >
               <div className="flex items-center gap-4">
                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
-                    6+
+                    7+
                  </div>
                  <div>
                     <h4 className="font-bold text-sm">Years Experience</h4>

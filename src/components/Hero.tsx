@@ -49,7 +49,7 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
             className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1]"
           >
             Senior Full-Stack Engineer <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Building High-Performance SaaS & Cloud-Native Platforms</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Scaling Next.js, Node & Rust from 0 to 1 with 99.9% Uptime</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
             transition={{ delay: 0.4 }}
             className="text-lg text-muted-foreground leading-relaxed max-w-lg"
           >
-            I help US/EU founders scale complex web applications. No fluff, just production-ready code and ownership.
+            I help US & European startups build high-performance platforms. 7+ years of experience leading remote teams and delivering production-grade architecture.
           </motion.p>
           
           <motion.div 
@@ -123,7 +123,7 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
                         <p><span className="text-blue-300">name</span>: <span className="text-orange-300">"Ayush Donga"</span>,</p>
                         <p><span className="text-blue-300">focus</span>: <span className="text-orange-300">"Scalable Architecture"</span>,</p>
                         <p><span className="text-blue-300">stack</span>: [</p>
-                        <p className="pl-4 text-green-300">"Next.js", "React", "Node.js", "AWS", "Docker",</p>
+                        <p className="pl-4 text-green-300">"Next.js", "Rust", "Node.js", "AWS", "Docker",</p>
                         <p className="pl-4 text-green-300">"PostgreSQL", "Redis", "TypeScript"</p>
                         <p>],</p>
                         <p><span className="text-blue-300">location</span>: <span className="text-orange-300">"Remote ( Germany / UK / EU / US)"</span>,</p>
