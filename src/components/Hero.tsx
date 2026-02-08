@@ -48,8 +48,8 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
             transition={{ delay: 0.3 }}
             className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1]"
           >
-            Senior Full-Stack Engineer <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Scaling Next.js, Node & Rust from 0 to 1 with 99.9% Uptime</span>
+            <span className="block text-xl md:text-2xl text-primary font-medium mb-2">Senior Full-Stack Engineer | 7+ Years Exp</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Specialist in Rust, NestJS & GenAI</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
             transition={{ delay: 0.4 }}
             className="text-lg text-muted-foreground leading-relaxed max-w-lg"
           >
-            I help US & European startups build high-performance platforms. 7+ years of experience leading remote teams and delivering production-grade architecture.
+            Building high-performance, cloud-native platforms for US & EU startups. Expert in 99.9% uptime and async-first remote collaboration.
           </motion.p>
           
           <motion.div 
@@ -105,7 +105,7 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
             className="relative hidden lg:block"
         >
              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full blur-[100px] opacity-20"></div>
-             <div className="relative bg-card/50 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 group">
+             <div className="relative bg-slate-950/90 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 group">
                 {/* Floating Badge */}
                 <div className="absolute -top-6 -right-6 bg-primary text-white p-4 rounded-xl shadow-xl transform -rotate-12 group-hover:rotate-0 transition-transform duration-500">
                     <div className="font-bold text-lg">Senior</div>
@@ -117,21 +117,39 @@ export const Hero = ({ calendlyUrl }: HeroProps) => {
                     <div className="w-3 h-3 rounded-full bg-yellow-500 group-hover:bg-yellow-400 transition-colors"></div>
                     <div className="w-3 h-3 rounded-full bg-green-500 group-hover:bg-green-400 transition-colors"></div>
                 </div>
-                <div className="space-y-4 font-mono text-sm">
+                <div className="space-y-4 font-mono text-[10px] sm:text-xs leading-relaxed">
                     <p className="text-muted-foreground"><span className="text-purple-400">const</span> <span className="text-blue-400">lead</span> = <span className="text-yellow-400">new</span> <span className="text-green-400">SeniorFullStack</span>({'{'}</p>
-                    <div className="pl-6 space-y-2 border-l-2 border-border/50">
+                    <div className="pl-6 space-y-1 border-l-2 border-border/50">
                         <p><span className="text-blue-300">name</span>: <span className="text-orange-300">"Ayush Donga"</span>,</p>
-                        <p><span className="text-blue-300">focus</span>: <span className="text-orange-300">"Scalable Architecture"</span>,</p>
-                        <p><span className="text-blue-300">stack</span>: [</p>
-                        <p className="pl-4 text-green-300">"Next.js", "Rust", "Node.js", "AWS", "Docker",</p>
-                        <p className="pl-4 text-green-300">"PostgreSQL", "Redis", "TypeScript"</p>
-                        <p>],</p>
-                        <p><span className="text-blue-300">location</span>: <span className="text-orange-300">"Remote ( Germany / UK / EU / US)"</span>,</p>
-                        <p><span className="text-blue-300">style</span>: <span className="text-orange-300">"Async-First & Proactive"</span></p>
+                        <p><span className="text-blue-300">experience</span>: <span className="text-orange-300">"7+ Years"</span>,</p>
+                        <p><span className="text-blue-300">focus</span>: [<span className="text-orange-300">"Scalable Architecture"</span>, <span className="text-orange-300">"Distributed Systems"</span>],</p>
+                        
+                        <p className="mt-2"><span className="text-blue-300">stack</span>: {'{'}</p>
+                        <div className="pl-4">
+                            <p><span className="text-blue-300">frontend</span>: [<span className="text-orange-300">"Next.js"</span>, <span className="text-orange-300">"TypeScript"</span>, <span className="text-orange-300">"React"</span>],</p>
+                            <p><span className="text-blue-300">backend</span>: [<span className="text-orange-300">"Node.js"</span>, <span className="text-orange-300">"NestJS"</span>, <span className="text-orange-300">"Rust"</span>],</p>
+                            <p><span className="text-blue-300">cloud</span>: [<span className="text-orange-300">"AWS"</span>, <span className="text-orange-300">"Docker"</span>, <span className="text-orange-300">"Kubernetes"</span>, <span className="text-orange-300">"Serverless"</span>],</p>
+                            <p><span className="text-blue-300">ai</span>: [<span className="text-orange-300">"OpenAI"</span>, <span className="text-orange-300">"LangChain"</span>, <span className="text-orange-300">"VectorDBs"</span>]</p>
+                        </div>
+                        <p>{'},'}</p>
+
+                        <p className="mt-2"><span className="text-blue-300">workflow</span>: {'{'}</p>
+                        <div className="pl-4">
+                            <p><span className="text-blue-300">style</span>: <span className="text-orange-300">"Async-First"</span>,</p>
+                            <p><span className="text-blue-300">overlap</span>: <span className="text-orange-300">"6+ hours (CET / EST / GMT)"</span>,</p>
+                            <p><span className="text-blue-300">principle</span>: <span className="text-orange-300">"Ownership over Execution"</span></p>
+                        </div>
+                        <p>{'}'}</p>
                     </div>
                     <p className="text-muted-foreground">{'}'});</p>
                     
-                    <p className="text-muted-foreground mt-4"><span className="text-purple-400">await</span> lead.<span className="text-blue-400">buildProductionReady</span>();</p>
+                    <p className="text-muted-foreground mt-3"><span className="text-purple-400">await</span> lead.<span className="text-blue-400">buildProductionReady</span>({'{'}</p>
+                    <div className="pl-6 space-y-1 border-l-2 border-border/50">
+                        <p><span className="text-blue-300">scalability</span>: <span className="text-orange-300">"100k+ concurrent users"</span>,</p>
+                        <p><span className="text-blue-300">security</span>: <span className="text-orange-300">"Zero-Trust Architecture"</span>,</p>
+                        <p><span className="text-blue-300">performance</span>: <span className="text-orange-300">"Sub-100ms Latency"</span></p>
+                    </div>
+                    <p className="text-muted-foreground">{'}'});</p>
                 </div>
              </div>
         </motion.div>

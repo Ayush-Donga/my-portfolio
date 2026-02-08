@@ -63,7 +63,7 @@ async function main() {
     {
       id: "genai-stream",
       title: "GenAI Real-Time Data Engine",
-      liveUrl: null,
+      liveUrl: "https://genai-stream.railway.app",
       description: "High-performance microservice for ingesting and processing real-time AI model data streams.",
       problem: "Node.js predecessors struggled with latency and memory overhead when processing high-throughput token streams from multiple LLM providers concurrently, leading to dashboard lag and high cloud costs.",
       role: "Lead Backend Engineer (Rust)",
@@ -75,18 +75,46 @@ async function main() {
       order: 1
     },
     {
+      id: "luxalgo",
+      title: "LuxAlgo - AI Financial Analytics",
+      liveUrl: "https://luxalgo.com",
+      description: "Next-gen AI trading platform serving 50k+ users with real-time signal processing.",
+      problem: "Existing solutions lacked real-time signal processing and had poor UX. The client needed a scalable subscription engine and an interactive, sub-second latency dashboard.",
+      role: "Lead Full-Stack Engineer",
+      architecture: "Decoupled the signal processing engine from the user dashboard using a message queue. Implemented advanced caching strategies and optimized database queries for speed.",
+      outcome: "Successfully scaled infrastructure to handle 10k+ concurrent users with 99.99% uptime. Achieved sub-100ms search and data retrieval performance for complex financial datasets.",
+      techStack: ["Next.js", "Python", "Stripe API", "Redis", "PostgreSQL"],
+      imageUrl: "/projects/luxalgo.png",
+      category: "FinTech / SaaS",
+      order: 2
+    },
+    {
+      id: "palmswap",
+      title: "Palmswap - Hybrid DEX",
+      liveUrl: "https://palmswap.org",
+      description: "Decentralized Perpetual Exchange built on BSC with a hybrid infrastructure.",
+      problem: "Traders needed a platform that offered the user experience of a CEX with the security/custody of a DEX, capable of handling high-frequency trading volume.",
+      role: "Lead Smart Contract & Backend Engineer",
+      architecture: "Architected a hybrid Web3 infrastructure. Built efficient smart contracts for trade execution and a high-speed off-chain matching engine for order management.",
+      outcome: "Processed $10M+ in trading volume within the first quarter. Delivered a robust Web3 architecture ensuring secure, non-custodial trading with near-instant finality.",
+      techStack: ["Solidity", "Node.js", "Web3.js", "BSC", "The Graph"],
+      imageUrl: "/projects/palmswap.png",
+      category: "Web3 / DeFi",
+      order: 3
+    },
+    {
       id: "enterprise-erp",
-      title: "Smart Logistics ERP",
-      liveUrl: null,
+      title: "Super Admin Platform",
+      liveUrl: "https://smart-logistics-erp.vercel.app",
       description: "Microservices-based ERP system handling logistics, HR, and finance for a high-volume logistics firm.",
       problem: "Legacy monolithic systems were causing 48-hour data delays and frequent crashes during peak loads. The client needed a real-time, scalable solution to manage 10k+ daily shipments.",
       role: "Lead Backend Architect (NestJS)",
-      architecture: "Designed a modular microservices architecture using NestJS and TypeScript. Implemented event-driven communication with RabbitMQ and a centralized data warehouse for real-time analytics.",
-      outcome: "Reduced data reporting latency from 2 days to real-time. Improved system reliability to 99.99% uptime and cut infrastructure costs by 30% via Docker containerization.",
+      architecture: "Designed a modular microservices architecture using NestJS and TypeScript. Implemented event-driven communication with RabbitMQ and a centralized data warehouse.",
+      outcome: "Achieved a 40% reduction in data loading times for critical reports. Implemented automated pipelines resulting in 50% faster CI/CD deployment cycles.",
       techStack: ["NestJS", "TypeScript", "Microservices", "RabbitMQ", "PostgreSQL", "Docker"],
       imageUrl: "/projects/erp-dashboard.png",
       category: "Enterprise / Backend",
-      order: 2
+      order: 4
     },
     {
       id: "torq",
@@ -100,12 +128,12 @@ async function main() {
       techStack: ["Flutter", "Laravel", "Node.js", "Redis", "RabbitMQ", "Microservices"],
       imageUrl: "/projects/torq.png",
       category: "SaaS / Mobile",
-      order: 2
+      order: 5
     },
     {
       id: "zellim",
       title: "Zellim",
-      liveUrl: null,
+      liveUrl: "https://zellim.com",
       role: "Lead Full-Stack Engineer",
       description: "An all-in-one productivity suite combining documents, video conferencing, and unified email.",
       problem: "Users were fragmented across multiple tools (Zoom, Notion, Gmail). The client wanted a unified, low-latency collaboration hub with seamless integrations.",
@@ -114,7 +142,7 @@ async function main() {
       techStack: ["React", "Node.js", "WebRTC", "Socket.io", "Google API", "Outlook API"],
       imageUrl: "/projects/zellim.png",
       category: "SaaS / Productivity",
-      order: 3
+      order: 6
     },
     {
       id: "fitgmr",
@@ -126,23 +154,23 @@ async function main() {
       architecture: "Stabilized the React Native codebase, reducing crash rate to <1%. Built a high-performance GraphQL API to serve complex analytics data to the React dashboard efficiently.",
       outcome: "stabilized the mobile experience leading to a 4.8/5 store rating. Empowered coaches with real-time data, directly improving team training outcomes.",
       techStack: ["React", "React Native", "Node.js", "GraphQL", "PostgreSQL"],
-      imageUrl: "/projects/fitgmr.png",
+      imageUrl: null,
       category: "HealthTech / Mobile",
-      order: 4
+      order: 7
     },
     {
       id: "pidespeed",
       title: "PideSpeed",
-      liveUrl: null,
+      liveUrl: "https://pidespeed.com",
       role: "Lead Full-Stack Developer",
       description: "Scalable food-ordering and delivery management platform.",
       problem: "Simplifying the complex order flow from customer selection to restaurant acceptance and courier assignment in real-time.",
       architecture: "Developed a Node.js/Express backend handling complex order state machines. Built an Angular frontend for intuitive user ordering and real-time tracking integration.",
       outcome: "Streamlined order processing time by 30%. Handled peak hour traffic without degradation in order tracking accuracy.",
       techStack: ["Angular", "Node.js", "Express", "MongoDB", "Socket.io"],
-      imageUrl: "/projects/pidespeed.png",
+      imageUrl: null,
       category: "Marketplace / FoodTech",
-      order: 5
+      order: 8
     },
     {
       id: "weather",
@@ -154,23 +182,23 @@ async function main() {
       architecture: "Integrated Sentry for granular error tracking and aggressively resolved technical debt. Optimized Firebase implementation and ad network mediation layers.",
       outcome: "Reduced crash-free user rate to >99%. Improved ad impression consistency, directly boosting ad revenue stability.",
       techStack: ["React Native", "Firebase", "Sentry", "AdMob"],
-      imageUrl: "/projects/weather.png",
+      imageUrl: null,
       category: "Mobile App",
-      order: 6
+      order: 9
     },
     {
       id: "rock",
       title: "Rock Ultrasound",
-      liveUrl: null,
+      liveUrl: "https://rockultrasound.com",
       role: "Frontend Developer",
       description: "Medical diagnosis services website focusing on patient trust and SEO.",
       problem: "The previous site was slow, non-responsive, and failed to convert visitors into booked appointments.",
       architecture: "Built a highly responsive, accessible frontend with a focus on Core Web Vitals and SEO best practices. Simplified the appointment booking user flow.",
       outcome: "Achieved 90+ Lighthouse scores. Increased organic search traffic and improved appointment booking conversion rates significantly.",
       techStack: ["React", "Next.js", "SEO", "TailwindCSS"],
-      imageUrl: "/projects/rock.png",
+      imageUrl: null,
       category: "Healthcare / Web",
-      order: 7
+      order: 10
     }
   ]
 
@@ -180,10 +208,10 @@ async function main() {
 
   // Skills
   const skillsConfig = [
-    { category: "Frontend Technologies", skills: ["React.js", "Next.js (SSR)", "Redux Toolkit", "JavaScript (ES6+)", "TypeScript", "Tailwind CSS", "Framer Motion"] },
-    { category: "Backend Technologies", skills: ["Node.js", "Express.js", "NestJS", "RESTful APIs", "Microservices Architecture", "WebSockets"] },
-    { category: "Databases & ORM", skills: ["MongoDB", "PostgreSQL", "MySQL", "Redis", "Prisma", "TypeORM"] },
-    { category: "DevOps & Cloud", skills: ["Docker", "CI/CD Pipelines", "GitHub Actions", "AWS (EC2, S3)", "Nginx", "Linux"] }
+    { category: "Core Architecture", skills: ["NestJS (Expert)", "Rust (Expert)", "Node.js", "TypeScript", "Microservices", "System Design"] },
+    { category: "Frontend Excellence", skills: ["React.js", "Next.js (App Router)", "TailwindCSS", "State Management", "Performance Optimization"] },
+    { category: "Cloud & DevOps", skills: ["AWS (EC2/S3/Lambda)", "Docker & Kubernetes", "Serverless Architecture", "CI/CD Pipelines", "Terraform"] },
+    { category: "AI & Future Tech", skills: ["Generative AI APIs", "LangChain", "Vector Databases (Pinecone/Milvus)", "LLM Integration", "RAG Architecture"] }
   ]
 
   for (const group of skillsConfig) {
@@ -251,13 +279,13 @@ async function main() {
       email: 'ayush.donga20@gmail.com',
       avatarUrl: 'https://res.cloudinary.com/duxzb3nig/image/upload/v1766469968/vbnevvvxieqxcgmgdaaz.jpg', 
       calendlyUrl: 'https://calendly.com/ayush-donga20/30min',
-      bio: "I help US & European startups build high-performance platforms with 99.9% uptime. 7+ years of experience leading teams and delivering production-grade architecture.",
+      bio: "Building high-performance, cloud-native platforms for US & EU startups. Expert in 99.9% uptime and async-first remote collaboration.",
       location: 'Vadodara, India',
       githubUrl: 'https://github.com/Ayush-Donga',
       linkedinUrl: 'https://linkedin.com/in/ayush-donga-696755197',
-      seoTitle: 'Ayush Donga | Senior Full-Stack Engineer',
-      seoDescription: 'Senior Full-Stack Engineer | Scaling Next.js, Node & Rust Apps from 0 to 1.',
-      seoKeywords: ['Senior Full Stack Engineer', 'Rust', 'Next.js', 'Node.js', 'Remote Engineer', 'Cloud Native']
+      seoTitle: 'Ayush Donga | Senior Full-Stack Engineer | Rust, NestJS & GenAI',
+      seoDescription: 'Senior Full-Stack Engineer | 7+ Years Exp | Specialist in Rust, NestJS & GenAI. Building high-performance, cloud-native platforms for US & EU startups.',
+      seoKeywords: ['Senior Full Stack Engineer', 'Rust', 'NestJS', 'GenAI', 'Remote Engineer', 'Cloud Native', 'US Stups', 'EU Startups']
     }
   })
   // Resume
@@ -324,31 +352,31 @@ async function main() {
               description: "High-performance microservice ingesting AI model streams. Reduced AWS costs by 40% and improved execution speed by 50% using Rust & Tokio."
             },
             {
+              id: "proj-palmswap",
+              title: "Palmswap - Hybrid DEX",
+              subtitle: "Lead Smart Contract Engineer",
+              link: "palmswap.org",
+              description: "Decentralized Exchange on BSC processing $10M+ volume. Architected hybrid infrastructure with 100% non-custodial trading."
+            },
+            {
+              id: "proj-luxalgo",
+              title: "LuxAlgo - AI Financial Analytics",
+              subtitle: "Lead Full-Stack Engineer",
+              link: "luxalgo.com",
+              description: "Scaled platform to 50k+ users and 10k+ concurrent sessions. Achieved sub-100ms latency for complex signal processing."
+            },
+            {
+              id: "proj-erp",
+              title: "Super Admin Platform",
+              subtitle: "Lead Backend Architect",
+              description: "Microservices ERP for logistics. Reduced data loading time by 40% and accelerated CI/CD pipelines by 50% via Docker/NestJS."
+            },
+            {
               id: "proj-0",
               title: "RideFlow - Global Mobility Marketplace",
               subtitle: "Lead Architect",
               link: "rideflow.demo",
               description: "High-growth peer-to-peer car sharing platform. Built with Next.js & Microservices. Processed $2M+ transaction volume with 10k+ users."
-            },
-            {
-              id: "proj-1",
-              title: "LuxAlgo - AI Financial Analytics",
-              subtitle: "Lead Full-Stack Engineer",
-              link: "luxalgo.com",
-              description: "Scaled AI trading platform to 50k+ users. Decoupled signal processing from UI to ensure sub-second dashboard latency."
-            },
-            {
-              id: "proj-2",
-              title: "Enterprise ERP & Analytics Platform",
-              subtitle: "Lead Architect",
-              description: "Comprehensive Super Admin platform for high-volume logistics. Reduced data loading times by 40% via micro-frontend architecture."
-            },
-            {
-              id: "proj-3",
-              title: "Coverdash - InsurTech Infrastructure",
-              subtitle: "Founding Engineer",
-              link: "coverdash.com",
-              description: "Built the 'Stripe for Insurance' embedded SDK. Enabled partners to integrate insurance flows natively, processing millions in premiums."
             },
             {
               id: "proj-4",
@@ -363,10 +391,10 @@ async function main() {
           type: "skills",
           heading: "Technical Skills",
           items: [
-            { id: "s-1", title: "Frontend", description: "React, Next.js, TypeScript, Tailwind CSS, Redux, Vue.js" },
-            { id: "s-2", title: "Backend", description: "Node.js, NestJS, Express, Python, Go (Basic)" },
-            { id: "s-3", title: "Database & Cloud", description: "PostgreSQL, MongoDB, Redis, AWS, Docker, Kubernetes, CI/CD" },
-            { id: "s-4", title: "Architecture", description: "System Design, Microservices, Serverless, Event-Driven, Real-time Systems (WebSockets)" }
+            { id: "s-1", title: "Core Architecture", description: "NestJS (Expert), Rust (Expert), Node.js, TypeScript, Microservices, System Design" },
+            { id: "s-2", title: "Frontend Excellence", description: "React.js, Next.js (App Router), TailwindCSS, State Management" },
+            { id: "s-3", title: "Cloud & DevOps", description: "AWS (EC2/S3/Lambda), Docker, Kubernetes, Serverless, CI/CD" },
+            { id: "s-4", title: "AI & Future Tech", description: "Generative AI APIs, LangChain, Vector Databases, RAG Architecture" }
           ]
         },
         {

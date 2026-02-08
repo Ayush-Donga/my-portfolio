@@ -65,18 +65,39 @@ export const Projects = ({ projects }: ProjectsProps) => {
                     >
                         {/* Image / Visual Side */}
                         <div className="w-full lg:w-1/2 group relative lg:sticky lg:top-24">
-                            <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl bg-muted">
-                                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10"></div>
+                            <div className="relative rounded-2xl overflow-hidden border border-border/50 shadow-2xl bg-muted group-hover:border-primary/20 transition-colors">
+                                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10 pointer-events-none"></div>
                                 {project.imageUrl ? (
-                                    <img 
-                                      src={project.imageUrl} 
-                                      alt={project.title} 
-                                      className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" 
-                                    />
+                                    project.liveUrl ? (
+                                        <Link href={project.liveUrl} target={project.liveUrl.startsWith('/') ? "_self" : "_blank"} className="block cursor-pointer">
+                                            <img 
+                                                src={project.imageUrl} 
+                                                alt={project.title} 
+                                                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" 
+                                            />
+                                        </Link>
+                                    ) : (
+                                        <img 
+                                            src={project.imageUrl} 
+                                            alt={project.title} 
+                                            className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" 
+                                        />
+                                    )
                                 ) : (
-                                    <div className="aspect-video flex items-center justify-center h-full w-full bg-gradient-to-br from-gray-50 to-gray-100 dark:from-slate-900 dark:to-slate-950 border border-border/50 relative overflow-hidden group-hover:border-primary/20 transition-colors">
-                                         <Code2 className="w-24 h-24 text-muted-foreground/10" />
-                                    </div>
+                                    project.liveUrl ? (
+                                        <Link href={project.liveUrl} target={project.liveUrl.startsWith('/') ? "_self" : "_blank"} className="block cursor-pointer h-full w-full">
+                                            <div className="aspect-video flex flex-col gap-3 items-center justify-center h-full w-full bg-gradient-to-br from-gray-50 to-gray-200 dark:from-slate-900 dark:to-slate-800 border border-border/50 relative overflow-hidden group-hover:border-primary/20 transition-all group-hover:scale-105">
+                                                 <div className="p-4 rounded-full bg-background shadow-sm">
+                                                    <Code2 className="w-8 h-8 text-primary/40" />
+                                                 </div>
+                                                 <span className="text-xs font-medium text-muted-foreground uppercase tracking-widest">View Project</span>
+                                            </div>
+                                        </Link>
+                                    ) : (
+                                        <div className="aspect-video flex items-center justify-center h-full w-full bg-gradient-to-br from-gray-50 to-gray-200 dark:from-slate-900 dark:to-slate-800 border border-border/50 relative overflow-hidden">
+                                             <Code2 className="w-16 h-16 text-muted-foreground/10" />
+                                        </div>
+                                    )
                                 )}
                             </div>
                             

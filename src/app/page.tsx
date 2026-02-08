@@ -8,7 +8,6 @@ import { Projects } from "@/components/Projects";
 import { RemoteReadiness } from "@/components/RemoteReadiness";
 import { CTA } from "@/components/CTA";
 import { Contact } from "@/components/Contact";
-import { FloatingContact } from "@/components/FloatingContact";
 import { Footer } from "@/components/Footer";
 import { prisma } from "@/lib/prisma";
 import { Metadata } from "next";
@@ -27,8 +26,7 @@ export default async function Home() {
   const projects = await prisma.project.findMany({
     orderBy: {
       order: 'asc'
-    },
-    take: 4
+    }
   });
   
   const testimonials = await prisma.testimonial.findMany({
@@ -49,7 +47,6 @@ export default async function Home() {
       <Reviews testimonials={testimonials} />
       <CTA calendlyUrl={(settings as any)?.calendlyUrl} />
       <Contact />
-      <FloatingContact />
       <Footer />
     </main>
   );
