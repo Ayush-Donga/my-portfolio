@@ -15,9 +15,9 @@ import { Metadata } from "next";
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Ayush Donga | Senior Full-Stack Engineer - Remote (EU/UK/US)',
-  description: 'Senior Full-Stack Engineer with 6+ years architecting scalable systems. Expert in MERN stack, Cloud (AWS/Azure), and remote-first collaboration. Available for EU/UK/US opportunities.',
-  keywords: ['Senior Full-Stack Engineer', 'Remote Engineer', 'MERN Stack', 'Cloud Architect', 'AWS', 'Azure', 'Node.js', 'React', 'TypeScript', 'Scalable Systems'],
+  title: 'Ayush Donga | Senior Full-Stack Engineer | Rust, NestJS & GenAI',
+  description: 'Senior Full-Stack Engineer with 7+ years of experience building high-performance, cloud-native platforms for US & EU startups. Expert in Rust, NestJS, and GenAI.',
+  keywords: ['Senior Full-Stack Engineer', 'Rust', 'NestJS', 'GenAI', 'Remote Engineer', 'Cloud Native', 'Node.js', 'React', 'TypeScript', 'Scalable Architecture', 'Distributed Systems'],
 };
 
 export default async function Home() {
