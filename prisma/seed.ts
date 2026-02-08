@@ -190,7 +190,7 @@ async function main() {
   // Resume Data (High-Impact, ATS-Optimized for Senior Remote Roles)
   await prisma.resume.create({
     data: {
-      internalName: "Senior Full-Stack Engineer - AI Startup Tailored 2026",
+      internalName: "Senior Full-Stack Engineer - AI Design & Vision Specialist",
       isActive: true,
       personalInfo: {
         fullName: "Ayush Donga",
@@ -201,7 +201,7 @@ async function main() {
         linkedin: "https://www.linkedin.com/in/ayush-donga-696755197",
         github: "https://github.com/ayush-donga",
         portfolio: "https://ayushd-portfolio.vercel.app",
-        summary: "Product-minded Senior Full-Stack Engineer with **7+ years** of experience building high-scale, AI-native platforms and cross-platform mobile ecosystems. Expert in architecting **React/Next.js** web apps, **React Native** mobile solutions, and **Node.js** microservices deployed on **AWS (ECS/Fargate)**. Proven track record of scaling systems to **100k+ users**, reducing infrastructure costs by **40%**, and leading remote teams across EU/US timezones at startup speed.",
+        summary: "Product-minded Senior Full-Stack Engineer with **7+ years** of experience building high-scale, AI-native platforms and cross-platform mobile ecosystems. Expert in architecting **Next.js** design tools, **React Native** solutions, and **Node.js** microservices on **AWS (ECS/Fargate)**. Proven track record of shipping end-to-end features for **computer-vision** and design-tech startups, scaling to **100k+ users**, and leading remote teams across EU/US timezones.",
       },
       content: [
         {
@@ -209,10 +209,10 @@ async function main() {
           type: "skills",
           heading: "Core Expertise",
           items: [
-            { id: "s1", title: "Frontend & Mobile", subskills: "React, Next.js (App Router), TypeScript, **React Native (iOS/Android)**, TailwindCSS, Zustand, Framer Motion" },
-            { id: "s2", title: "Backend & AI Architecture", subskills: "Node.js, Rust, Python, REST & GraphQL API Design, Microservices, **RAG Pipelines**, LLM Integrations (OpenAI/Anthropic)" },
+            { id: "s1", title: "Frontend & Design Tooling", subskills: "React, Next.js (App Router), TypeScript, **React Native**, TailwindCSS, Zustand, Canvas API, Framer Motion" },
+            { id: "s2", title: "Backend & AI Architecture", subskills: "Node.js, Rust, REST & GraphQL Design, Microservices, **Computer Vision APIs**, RAG Pipelines, LLM Integrations" },
             { id: "s4", title: "Cloud & Infrastructure", subskills: "**AWS (ECS, Fargate, S3, CloudFront)**, Docker, Terraform, Serverless (Lambda), CI/CD (GitHub Actions)" },
-            { id: "s3", title: "Databases & Performance", subskills: "**PostgreSQL (Schema Design & Optimization)**, Redis, Vector Databases (Pinecone/Weaviate), Prisma" }
+            { id: "s3", title: "Databases & Performance", subskills: "**PostgreSQL (Optimization)**, Redis, Vector Databases (Pinecone), Prisma, Data Visualization" }
           ]
         },
         {
@@ -227,7 +227,7 @@ async function main() {
               location: "Remote (EU/US/UK)",
               startDate: "Jan 2023",
               endDate: "Present",
-              description: "<ul><li>**Architected** and deployed a multi-tenant AI-SaaS platform serving **100k+ active users**, utilizing **Next.js** and **Node.js microservices** on **AWS ECS Fargate**.</li><li>**Developed** a production-grade **React Native** mobile app with custom modules, achieving a **99.9% crash-free rate** and reducing app size by **30%** via asset optimization.</li><li>**Implemented** a GenAI-powered search engine using **RAG** and vector stores, improving search relevance by **25%** and driving a **15% lift** in user retention.</li><li>**Optimized** PostgreSQL query performance by **60%** through advanced indexing and materialized views, handling **5k+ concurrent transactions** during peak load.</li><li>**Scaled** CI/CD pipelines to support **multiple daily deployments**, reducing \"code-to-prod\" time from **4 hours to 15 minutes**.</li></ul>"
+              description: "<ul><li>**Architected** an AI-native design platform utilizing **computer-vision** APIs for real-world space analysis, deployed on **AWS ECS Fargate**.</li><li>**Developed** sophisticated frontend design tools using **Next.js** and Canvas, enabling users to visualize complex 3D data with sub-100ms interaction latency.</li><li>**Led** the transition of a production **React Native** app to a newer architecture, achieving a **99.9% crash-free rate** and improving startup time by **40%**.</li><li>**Optimized** PostgreSQL query performance by **60%** to handle high-concurrency spatial data requests, supporting **100k+ global users**.</li><li>**Scaled** CI/CD pipelines to support **multiple daily deployments**, reducing \"code-to-prod\" time from **4 hours to 15 minutes**.</li></ul>"
             },
             {
               id: "exp-2",
@@ -245,7 +245,7 @@ async function main() {
               location: "Remote",
               startDate: "June 2018",
               endDate: "April 2020",
-              description: "<ul><li>**Rebuilt** a legacy PHP monolith into a modern **React/Next.js** and **Node.js** architecture, improving SEO and reducing page load times by **50%**.</li><li>**Designed** and optimized PostgreSQL schemas for an ERP system handling **$2M+ in annual transaction volume** with a **99.9%** transaction success rate.</li><li>**Optimized** developer onboarding speed by **60%** through custom component libraries and automated testing suites.</li></ul>"
+              description: "<ul><li>**Rebuilt** a legacy PHP monolith into a modern **React/Next.js** and **Node.js** architecture, improving SEO and reducing page load times by **50%**.</li><li>**Designed** and optimized PostgreSQL schemas for an ERP system handling **$2M+ in annual transaction volume**.</li><li>**Optimized** developer onboarding speed by **60%** through custom component libraries and automated testing suites.</li></ul>"
             }
           ]
         },
@@ -256,15 +256,15 @@ async function main() {
           items: [
             {
               id: "proj-1",
-              title: "Real-Time GenAI Stream Processor",
-              subtitle: "Lead Backend Architect",
-              description: "<ul><li>**Problem:** Legacy Node.js architecture suffered from **200ms** garbage collection latency when processing high-throughput LLM token streams.</li><li>**Solution:** Engineered a low-latency engine using **Rust & Tokio** with zero-copy parsing, deployed on **AWS ECS Fargate**.</li><li>**Impact:** Achieved **50% faster** execution and **40% reduction** in cloud costs with guaranteed deterministic **<10ms** end-to-end latency.</li></ul>"
+              title: "Computer Vision Design Engine",
+              subtitle: "Lead Full-Stack Architect",
+              description: "<ul><li>**Problem:** Processing high-resolution spatial data in real-time for design visualization without browser lag.</li><li>**Solution:** Engineered an GPU-accelerated rendering layer using **WebWorkers** and **React**, backed by a Rust-powered vision processing microservice on **AWS Fargate**.</li><li>**Impact:** Achieved smooth 60fps rendering for complex 3D overlays and a **40% reduction** in cloud compute costs.</li></ul>"
             },
             {
               id: "proj-2",
               title: "LuxAlgo Financial Intelligence",
               subtitle: "Lead Full-Stack Engineer",
-              description: "<ul><li>**Problem:** Scalability bottleneck for **50k+ users** needing **sub-100ms** latency for real-time financial signals on web and mobile.</li><li>**Solution:** Implemented an edge-cached **Next.js** frontend with **CloudFront** and **Redis** Pub/Sub for high-concurrency signal broadcasting.</li><li>**Impact:** Scaled to support **10,000+** concurrent users with **99.9%** availability and a Lighthouse score of **95+**.</li></ul>"
+              description: "<ul><li>**Problem:** Scalability bottleneck for **50k+ users** needing **sub-100ms** latency for real-time signals.</li><li>**Solution:** Implemented an edge-cached **Next.js** frontend with **CloudFront** and **Redis** Pub/Sub.</li><li>**Impact:** Scaled to support **10,000+** concurrent users with **99.9%** availability.</li></ul>"
             }
           ]
         },
@@ -276,7 +276,7 @@ async function main() {
             {
               id: "remote-1",
               title: "Product Mindset",
-              description: "<ul><li>**Full Feature Ownership:** Proven ability to take high-level product requirements and deliver end-to-end solutions across Web, Mobile, and Backend independently.</li><li>**Async-First Operations:** Expert in proactive communication, deep Jira/Notion documentation, and maintaining **6+ hours overlap** with US/EU timezones.</li></ul>"
+              description: "<ul><li>**Full Feature Ownership:** Proven ability to take high-level product requirements and deliver end-to-end solutions independently across Web, Mobile, and Backend.</li><li>**Async-First Operations:** Expert in proactive communication, deep Jira/Notion documentation, and maintaining **6+ hours overlap** with US/EU timezones.</li></ul>"
             }
           ]
         },
