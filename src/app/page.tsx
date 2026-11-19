@@ -15,9 +15,9 @@ import { Metadata } from "next";
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Ayush Donga | Senior Full-Stack Engineer | Systems Architect',
-  description: 'Senior Full-Stack Engineer with 7+ years of experience building high-performance, cloud-native platforms for US & EU startups. Specialist in Rust, NestJS, and AWS.',
-  keywords: ['Senior Full-Stack Engineer', 'Remote Developer', 'Systems Architect', 'Rust', 'NestJS', 'AWS', 'High-Performance Systems', 'FinTech', 'SaaS', 'US Startups', 'EU Tech'],
+  title: 'Ayush Donga — Senior Full-Stack Engineer & Backend Architect',
+  description: 'Senior Full-Stack Engineer & Backend Architect with 8+ years of experience building scalable enterprise SaaS, ERP, and AI platforms. Specializing in TypeScript, Node.js, NestJS, Next.js, PostgreSQL, Redis, RabbitMQ, and AWS.',
+  keywords: ['Senior Full-Stack Engineer', 'Backend Architect', 'Distributed Systems', 'TypeScript', 'NestJS', 'Next.js', 'PostgreSQL', 'Redis', 'RabbitMQ', 'Apache Kafka', 'AWS', 'AI/LLM Workflows', 'Remote Engineer'],
 };
 
 export default async function Home() {

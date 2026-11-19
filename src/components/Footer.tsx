@@ -15,22 +15,23 @@ export const Footer = () => {
                             Ayush Donga
                         </Link>
                         <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
-                            Senior Systems Architect specializing in Rust, Distributed Systems, and AI infrastructure for global-scale products.
+                            Senior Full-Stack & Distributed Systems Engineer specializing in TypeScript, Node.js, NestJS, Next.js, PostgreSQL, Redis, RabbitMQ, AWS, and Production AI/LLM Workflows.
                         </p>
                         <div className="flex gap-4">
                             {[
-                                { icon: Github, href: "https://github.com/ayush-donga", label: "GitHub" },
-                                { icon: Linkedin, href: "https://linkedin.com/in/ayush-donga-696755197", label: "LinkedIn" },
-                                { icon: Mail, href: "mailto:ayush.donga20@gmail.com", label: "Email" }
+                                { icon: Github, href: "https://github.com/ayush-donga", label: "Visit GitHub profile" },
+                                { icon: Linkedin, href: "https://linkedin.com/in/ayush-donga-696755197", label: "Visit LinkedIn profile" },
+                                { icon: Mail, href: "mailto:ayush.donga@gmail.com", label: "Send direct email" }
                             ].map((social, i) => (
                                 <Link 
                                     key={i} 
                                     href={social.href} 
-                                    target="_blank"
+                                    target={social.href.startsWith('mailto') ? '_self' : '_blank'}
+                                    rel={social.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
                                     className="p-2 rounded-full border border-border/50 hover:border-primary/50 text-muted-foreground hover:text-primary transition-all group"
                                     aria-label={social.label}
                                 >
-                                    <social.icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                                    <social.icon className="w-4 h-4 group-hover:scale-110 transition-transform" aria-hidden="true" />
                                 </Link>
                             ))}
                         </div>
@@ -77,23 +78,28 @@ export const Footer = () => {
                                         <span className="text-emerald-500 text-[10px] font-bold tracking-widest uppercase">Active for Global Hire</span>
                                     </div>
                                     <p className="text-muted-foreground text-sm max-w-xs">
-                                        Distributed systems delivery across <span className="text-foreground font-medium">US</span>, <span className="text-foreground font-medium">UK</span>, and <span className="text-foreground font-medium">EU</span> timezones.
+                                        Distributed systems delivery across <span className="text-foreground font-medium">US</span>, <span className="text-foreground font-medium">UK</span>, and <span className="text-foreground font-medium">EU</span> timezones (CET/EST/GMT overlap).
                                     </p>
                                 </div>
                                 <Button 
                                     size="sm" 
-                                    className="rounded-full h-10 px-6 font-bold uppercase tracking-widest text-[10px] bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition-all duration-300 border-none" 
+                                    className="rounded-full h-10 px-6 font-bold uppercase tracking-widest text-[10px] bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:from-blue-500 text-white shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition-all duration-300 border-none" 
                                     asChild
                                 >
-                                    <Link href="https://calendly.com/ayush-donga20/30min" target="_blank">
-                                        Establish Sync <ExternalLink className="ml-1.5 w-3 h-3" />
+                                    <Link 
+                                      href="https://calendly.com/ayush-donga20/30min" 
+                                      target="_blank" 
+                                      rel="noopener noreferrer"
+                                      aria-label="Establish meeting sync with Ayush Donga via Calendly"
+                                    >
+                                        Establish Sync <ExternalLink className="ml-1.5 w-3 h-3" aria-hidden="true" />
                                     </Link>
                                 </Button>
                             </div>
                             <div className="mt-4 pt-4 border-t border-border/20">
                                 <p className="text-[10px] font-bold uppercase tracking-widest text-primary/80 flex items-center gap-2">
                                     <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-                                    Verified 7+ Years Remote Experience | Expert in Async Documentation & Technical Leadership
+                                    Verified 8+ Years Experience | Async-First Ownership & Distributed Architecture
                                 </p>
                             </div>
                          </div>
@@ -104,9 +110,9 @@ export const Footer = () => {
                 <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-border/40 gap-6">
                     <div className="flex flex-wrap items-center justify-center md:justify-start gap-8">
                         {[
-                            { icon: Cpu, text: "Next.js & Rust Core" },
-                            { icon: Shield, text: "Zero-Trust Architecture" },
-                            { icon: Zap, text: "High Efficiency" }
+                            { icon: Cpu, text: "TypeScript & Node.js Core" },
+                            { icon: Shield, text: "Distributed Systems" },
+                            { icon: Zap, text: "Production AI Workflows" }
                         ].map((item, i) => (
                             <div key={i} className="flex items-center gap-2.5 group cursor-default">
                                 <item.icon className="w-4 h-4 text-primary mb-0.5 group-hover:scale-110 transition-transform" />
@@ -117,7 +123,7 @@ export const Footer = () => {
                     
                     <div className="flex flex-col items-center md:items-end gap-1.5 text-center md:text-right">
                         <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-[0.3em]">
-                            © {new Date().getFullYear()} AYUSH DONGA <span className="mx-2 text-border">|</span> ELITE SYSTEMS ARCHITECT
+                            © {new Date().getFullYear()} AYUSH DONGA <span className="mx-2 text-border">|</span> SENIOR FULL-STACK & DISTRIBUTED SYSTEMS ENGINEER
                         </p>
                         <p className="text-[9px] font-medium text-muted-foreground/50 uppercase tracking-[0.2em]">
                             Built for scale • Secured by high-entropy encryption

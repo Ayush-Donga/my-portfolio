@@ -71,8 +71,14 @@ export const Reviews = ({ testimonials = [] }: ReviewsProps) => {
                                         <div className="flex items-center gap-2">
                                             <div className="font-bold text-sm tracking-wide">{t.name}</div>
                                             {t.linkedinUrl && (
-                                                <Link href={t.linkedinUrl} target="_blank" className="text-muted-foreground hover:text-[#0077B5] transition-colors">
-                                                    <Linkedin className="w-3 h-3" />
+                                                <Link 
+                                                  href={t.linkedinUrl} 
+                                                  target="_blank" 
+                                                  rel="noopener noreferrer"
+                                                  aria-label={`View ${t.name}'s LinkedIn profile`}
+                                                  className="text-muted-foreground hover:text-[#0077B5] transition-colors"
+                                                >
+                                                    <Linkedin className="w-3 h-3" aria-hidden="true" />
                                                 </Link>
                                             )}
                                         </div>

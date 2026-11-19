@@ -15,10 +15,10 @@ export async function GET() {
       settings = await prisma.settings.create({
         data: {
           fullName: 'Ayush Donga',
-          professionalTitle: 'Full Stack Developer',
-          email: 'ayush.donga20@gmail.com',
-          bio: 'Building scalable applications and intuitive user experiences.',
-          seoKeywords: ['full stack', 'developer', 'react', 'next.js', 'node.js']
+          professionalTitle: 'Senior Full-Stack & Distributed Systems Engineer',
+          email: 'ayush.donga@gmail.com',
+          bio: 'Building scalable distributed systems, high-performance APIs, and production AI workflows with async-first remote ownership.',
+          seoKeywords: ['full stack', 'distributed systems', 'backend architect', 'react', 'next.js', 'node.js', 'nestjs', 'postgresql', 'redis', 'rabbitmq']
         }
       })
     }

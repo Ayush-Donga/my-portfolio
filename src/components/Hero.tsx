@@ -34,24 +34,24 @@ export const Hero = ({ calendlyUrl, bio, professionalTitle }: HeroProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="flex items-center gap-4"
+            className="flex flex-wrap items-center gap-3"
           >
-            <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-primary/10 text-primary">
-              Senior Full-Stack Engineer
+            <div className="inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold transition-colors border-transparent bg-primary/10 text-primary">
+              Senior Full-Stack & Distributed Systems Engineer
             </div>
-            <div className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors border-emerald-500/20 bg-emerald-500/10 text-emerald-500 animate-pulse">
+            <div className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold transition-colors border-emerald-500/20 bg-emerald-500/10 text-emerald-500 animate-pulse">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-              Available for Remote (EU/UK/US)
+              Available for Remote (US/EU/UK • CET/EST/GMT)
             </div>
           </motion.div>
-            <motion.h1 
+          <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
             className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1]"
           >
-            <span className="block text-xl md:text-2xl text-primary font-medium mb-2">Senior Full-Stack Engineer | 7+ Years Exp</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">{professionalTitle || 'Systems Architect & Specialist'}</span>
+            <span className="block text-xl md:text-2xl text-primary font-medium mb-2">8+ Years of Experience | Senior Full-Stack & Distributed Systems Engineer</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">{professionalTitle || 'Backend Architect & Distributed Systems'}</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -59,7 +59,7 @@ export const Hero = ({ calendlyUrl, bio, professionalTitle }: HeroProps) => {
             transition={{ delay: 0.4 }}
             className="text-lg text-muted-foreground leading-relaxed max-w-lg"
           >
-            {bio || 'Building high-performance, cloud-native platforms for US & EU startups. Expert in scalability, reliability, and remote collaboration.'}
+            {bio && !bio.includes('7+') ? bio : 'Specializing in TypeScript, Node.js, NestJS, Next.js, PostgreSQL, Redis, RabbitMQ, AWS, and Production AI/LLM Workflows. Driving async-first engineering ownership and scalable architectures across US, UK, and EU time zones (CET/EST/GMT).'}
           </motion.p>
           
           <motion.div 
@@ -73,12 +73,19 @@ export const Hero = ({ calendlyUrl, bio, professionalTitle }: HeroProps) => {
                 asChild 
                 className="rounded-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-bold shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] transition-all duration-300 border-none"
             >
-                <Link href={calendlyUrl || "https://calendly.com/ayush-donga20/30min"} target="_blank">
-                    Book a Call <ArrowRight className="ml-2 h-4 w-4" />
+                <Link 
+                  href={calendlyUrl || "https://calendly.com/ayush-donga20/30min"} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  aria-label="Book a 30-minute strategy call with Ayush Donga via Calendly"
+                >
+                    Book a Call <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                 </Link>
             </Button>
             <Button size="lg" variant="outline" asChild className="rounded-full px-8 hover:bg-muted">
-                <Link href="mailto:ayush.donga20@gmail.com">Email Me</Link>
+                <Link href="mailto:ayush.donga@gmail.com" aria-label="Send direct email to Ayush Donga">
+                  Email Me
+                </Link>
             </Button>
           </motion.div>
 
@@ -88,75 +95,95 @@ export const Hero = ({ calendlyUrl, bio, professionalTitle }: HeroProps) => {
             transition={{ delay: 0.6 }}
             className="flex gap-4 pt-4"
           >
-            <Link href="https://github.com/ayush-donga" target="_blank" className="p-2 rounded-full hover:bg-muted transition-colors hover:text-primary">
-                <Github className="h-6 w-6" />
+            <Link 
+              href="https://github.com/ayush-donga" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-2 rounded-full hover:bg-muted transition-colors hover:text-primary"
+              aria-label="Visit Ayush Donga's GitHub profile"
+            >
+                <Github className="h-6 w-6" aria-hidden="true" />
                 <span className="sr-only">GitHub</span>
             </Link>
-            <Link href="https://linkedin.com/in/ayush-donga-696755197" target="_blank" className="p-2 rounded-full hover:bg-muted transition-colors hover:text-primary">
-                <Linkedin className="h-6 w-6" />
+            <Link 
+              href="https://linkedin.com/in/ayush-donga-696755197" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-2 rounded-full hover:bg-muted transition-colors hover:text-primary"
+              aria-label="Visit Ayush Donga's LinkedIn profile"
+            >
+                <Linkedin className="h-6 w-6" aria-hidden="true" />
                  <span className="sr-only">LinkedIn</span>
             </Link>
-            <Link href="mailto:ayush.donga20@gmail.com" className="p-2 rounded-full hover:bg-muted transition-colors hover:text-primary">
-                <Mail className="h-6 w-6" />
+            <Link 
+              href="mailto:ayush.donga@gmail.com" 
+              className="p-2 rounded-full hover:bg-muted transition-colors hover:text-primary"
+              aria-label="Send email to Ayush Donga"
+            >
+                <Mail className="h-6 w-6" aria-hidden="true" />
                  <span className="sr-only">Email</span>
             </Link>
           </motion.div>
         </motion.div>
         
-        {/* Visual Element */}
+        {/* Visual Element - Impact Dashboard */}
         <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative hidden lg:block"
         >
-             <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full blur-[100px] opacity-20"></div>
-             <div className="relative bg-slate-950/90 backdrop-blur-xl border border-white/10 p-8 rounded-2xl shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500 group">
-                {/* Floating Badge */}
-                <div className="absolute -top-6 -right-6 bg-primary text-white p-4 rounded-xl shadow-xl transform -rotate-12 group-hover:rotate-0 transition-transform duration-500">
-                    <div className="font-bold text-lg">Senior</div>
-                    <div className="text-[10px] opacity-80 uppercase tracking-widest text-center">Expertise</div>
-                </div>
+             <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-[2rem] blur-[100px] opacity-20"></div>
+             
+             <div className="relative bg-slate-950/80 backdrop-blur-2xl border border-white/10 p-8 rounded-2xl shadow-2xl flex flex-col gap-6">
                 
-                <div className="flex items-center gap-2 mb-6">
-                    <div className="w-3 h-3 rounded-full bg-red-500 group-hover:bg-red-400 transition-colors"></div>
-                    <div className="w-3 h-3 rounded-full bg-yellow-500 group-hover:bg-yellow-400 transition-colors"></div>
-                    <div className="w-3 h-3 rounded-full bg-green-500 group-hover:bg-green-400 transition-colors"></div>
+                {/* Status Bar */}
+                <div className="flex items-center justify-between border-b border-white/5 pb-4">
+                    <div className="flex items-center gap-3">
+                        <div className="w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)] animate-pulse"></div>
+                        <span className="text-sm font-medium text-emerald-500 tracking-wider uppercase">Systems Operational</span>
+                    </div>
+                    <span className="text-xs text-muted-foreground font-mono">US/EU/UK Async Overlap (CET/EST/GMT)</span>
                 </div>
-                <div className="space-y-4 font-mono text-[10px] sm:text-xs leading-relaxed">
-                    <p className="text-muted-foreground"><span className="text-purple-400">const</span> <span className="text-blue-400">lead</span> = <span className="text-yellow-400">new</span> <span className="text-green-400">SeniorFullStack</span>({'{'}</p>
-                    <div className="pl-6 space-y-1 border-l-2 border-border/50">
-                        <p><span className="text-blue-300">name</span>: <span className="text-orange-300">"Ayush Donga"</span>,</p>
-                        <p><span className="text-blue-300">experience</span>: <span className="text-orange-300">"7+ Years"</span>,</p>
-                        <p><span className="text-blue-300">focus</span>: [<span className="text-orange-300">"Scalable Architecture"</span>, <span className="text-orange-300">"Distributed Systems"</span>],</p>
-                        
-                        <p className="mt-2"><span className="text-blue-300">stack</span>: {'{'}</p>
-                        <div className="pl-4">
-                            <p><span className="text-blue-300">frontend</span>: [<span className="text-orange-300">"Next.js"</span>, <span className="text-orange-300">"TypeScript"</span>, <span className="text-orange-300">"React"</span>],</p>
-                            <p><span className="text-blue-300">backend</span>: [<span className="text-orange-300">"Node.js"</span>, <span className="text-orange-300">"NestJS"</span>, <span className="text-orange-300">"Rust"</span>],</p>
-                            <p><span className="text-blue-300">cloud</span>: [<span className="text-orange-300">"AWS"</span>, <span className="text-orange-300">"Docker"</span>, <span className="text-orange-300">"Kubernetes"</span>, <span className="text-orange-300">"Serverless"</span>],</p>
-                            <p><span className="text-blue-300">ai</span>: [<span className="text-orange-300">"OpenAI"</span>, <span className="text-orange-300">"LangChain"</span>, <span className="text-orange-300">"VectorDBs"</span>]</p>
-                        </div>
-                        <p>{'},'}</p>
 
-                        <p className="mt-2"><span className="text-blue-300">workflow</span>: {'{'}</p>
-                        <div className="pl-4">
-                            <p><span className="text-blue-300">style</span>: <span className="text-orange-300">"Async-First"</span>,</p>
-                            <p><span className="text-blue-300">overlap</span>: <span className="text-orange-300">"6+ hours (CET / EST / GMT)"</span>,</p>
-                            <p><span className="text-blue-300">principle</span>: <span className="text-orange-300">"Ownership over Execution"</span></p>
-                        </div>
-                        <p>{'}'}</p>
+                {/* Key Metrics Grid */}
+                <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-white/5 border border-white/5 rounded-xl p-4 flex flex-col gap-2 hover:bg-white/10 transition-colors">
+                        <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Scale & Reliability</div>
+                        <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">100k+</div>
+                        <div className="text-xs text-muted-foreground">Active Users | 99.99% SLA</div>
                     </div>
-                    <p className="text-muted-foreground">{'}'});</p>
-                    
-                    <p className="text-muted-foreground mt-3"><span className="text-purple-400">await</span> lead.<span className="text-blue-400">buildProductionReady</span>({'{'}</p>
-                    <div className="pl-6 space-y-1 border-l-2 border-border/50">
-                        <p><span className="text-blue-300">scalability</span>: <span className="text-orange-300">"100k+ concurrent users"</span>,</p>
-                        <p><span className="text-blue-300">security</span>: <span className="text-orange-300">"Zero-Trust Architecture"</span>,</p>
-                        <p><span className="text-blue-300">performance</span>: <span className="text-orange-300">"Sub-100ms Latency"</span></p>
+                    <div className="bg-white/5 border border-white/5 rounded-xl p-4 flex flex-col gap-2 hover:bg-white/10 transition-colors">
+                        <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Event-Driven Architecture</div>
+                        <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-300">RabbitMQ</div>
+                        <div className="text-xs text-muted-foreground">Redis Caching & Kafka</div>
                     </div>
-                    <p className="text-muted-foreground">{'}'});</p>
+                    <div className="bg-white/5 border border-white/5 rounded-xl p-4 flex flex-col gap-2 hover:bg-white/10 transition-colors">
+                        <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">API Performance</div>
+                        <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-300">&lt;100ms</div>
+                        <div className="text-xs text-muted-foreground">Optimized PostgreSQL Queries</div>
+                    </div>
+                    <div className="bg-white/5 border border-white/5 rounded-xl p-4 flex flex-col gap-2 hover:bg-white/10 transition-colors">
+                        <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Cloud & Production AI</div>
+                        <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-300">AWS + AI</div>
+                        <div className="text-xs text-muted-foreground">OpenAI & Claude LLM Pipelines</div>
+                    </div>
                 </div>
+
+                {/* Tech Stack */}
+                 <div className="mt-4 pt-6 border-t border-white/5">
+                    <div className="text-xs text-muted-foreground mb-4 font-mono uppercase tracking-widest text-center">Core Engineering Specialization</div>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                        <span className="px-2.5 py-1 bg-blue-500/10 text-blue-400 border border-blue-500/20 rounded-md text-xs font-medium">TypeScript</span>
+                        <span className="px-2.5 py-1 bg-green-500/10 text-green-400 border border-green-500/20 rounded-md text-xs font-medium">Node.js</span>
+                        <span className="px-2.5 py-1 bg-red-500/10 text-red-400 border border-red-500/20 rounded-md text-xs font-medium">NestJS</span>
+                        <span className="px-2.5 py-1 bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 rounded-md text-xs font-medium">Next.js / React</span>
+                        <span className="px-2.5 py-1 bg-slate-500/10 text-slate-300 border border-slate-500/20 rounded-md text-xs font-medium">PostgreSQL</span>
+                        <span className="px-2.5 py-1 bg-amber-500/10 text-amber-400 border border-amber-500/20 rounded-md text-xs font-medium">RabbitMQ & Redis</span>
+                        <span className="px-2.5 py-1 bg-orange-500/10 text-orange-400 border border-orange-500/20 rounded-md text-xs font-medium">AWS</span>
+                        <span className="px-2.5 py-1 bg-purple-500/10 text-purple-400 border border-purple-500/20 rounded-md text-xs font-medium">AI / LLM Workflows</span>
+                    </div>
+                 </div>
              </div>
         </motion.div>
       </div>

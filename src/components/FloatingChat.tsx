@@ -81,8 +81,14 @@ export default function FloatingChat() {
                 </div>
               </div>
               <div className="flex items-center gap-1">
-                 <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full hover:bg-black/5 dark:hover:bg-white/10" onClick={() => setIsOpen(false)}>
-                  <Minus className="w-4 h-4 text-zinc-500" />
+                 <Button 
+                   variant="ghost" 
+                   size="icon" 
+                   className="h-8 w-8 rounded-full hover:bg-black/5 dark:hover:bg-white/10" 
+                   onClick={() => setIsOpen(false)}
+                   aria-label="Minimize AI chat assistant"
+                 >
+                  <Minus className="w-4 h-4 text-zinc-500" aria-hidden="true" />
                 </Button>
               </div>
             </div>
@@ -149,9 +155,10 @@ export default function FloatingChat() {
                 <Button 
                   type="submit" 
                   disabled={!input.trim() || isLoading}
+                  aria-label="Send query to AI assistant"
                   className="rounded-xl w-12 h-[46px] bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/20"
                 >
-                  <Send className="w-4 h-4" />
+                  <Send className="w-4 h-4" aria-hidden="true" />
                 </Button>
               </form>
             </div>
@@ -163,6 +170,7 @@ export default function FloatingChat() {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? "Close AI chat assistant" : "Open AI chat assistant"}
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-full shadow-xl shadow-blue-600/30 flex items-center justify-center border-2 border-white/20 backdrop-blur-md group"
       >
         <AnimatePresence mode="wait">
