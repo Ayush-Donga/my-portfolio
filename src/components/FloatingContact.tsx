@@ -38,6 +38,8 @@ export const FloatingContact = () => {
                         <Link 
                             href="https://linkedin.com/in/ayush-donga-696755197" 
                             target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Connect with Ayush Donga on LinkedIn"
                             className="block w-full text-center bg-primary text-primary-foreground py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity"
                         >
                             Open LinkedIn
@@ -53,6 +55,7 @@ export const FloatingContact = () => {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={() => setIsOpen(!isOpen)}
+                    aria-label={isOpen ? "Close direct contact popup" : "Open direct contact popup"}
                     className="w-14 h-14 bg-primary text-primary-foreground rounded-full shadow-xl flex items-center justify-center relative overflow-hidden group"
                 >
                     <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>

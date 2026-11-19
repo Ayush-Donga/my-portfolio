@@ -45,14 +45,19 @@ export const Navbar = () => {
           <Button variant="ghost" className="text-sm font-medium" asChild>
             <Link href="/resume">Resume</Link>
           </Button>
-          <Button size="sm" className="rounded-full shadow-lg shadow-primary/20" asChild>
-            <Link href="#contact">Hire Me</Link>
+          <Button size="sm" className="rounded-full shadow-md hover:shadow-lg transition-all" asChild>
+            <Link href="#contact">Book Intro Call</Link>
           </Button>
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button className="md:hidden text-foreground" onClick={toggleMobileMenu}>
-          {isMobileMenuOpen ? <X /> : <Menu />}
+        <button 
+          className="md:hidden text-foreground p-2 rounded-md hover:bg-muted/50 transition-colors" 
+          onClick={toggleMobileMenu}
+          aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isMobileMenuOpen}
+        >
+          {isMobileMenuOpen ? <X className="w-5 h-5" aria-hidden="true" /> : <Menu className="w-5 h-5" aria-hidden="true" />}
         </button>
       </div>
 

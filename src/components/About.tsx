@@ -41,9 +41,8 @@ export const About = ({ avatarUrl }: AboutProps) => {
                   </div>
                )}
                
-               {/* Decorative rings */}
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] border border-primary/20 rounded-full -z-10 animate-[spin_10s_linear_infinite]"></div>
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-dashed border-primary/10 rounded-full -z-10 animate-[spin_20s_linear_infinite_reverse]"></div>
+               {/* Clean, minimalist border presentation instead of spinning generic templates */}
+               <div className="absolute inset-[-15px] border border-border/40 rounded-full -z-10 shadow-sm pointer-events-none"></div>
             </div>
 
             {/* Floating stats or badge next to photo */}
@@ -56,18 +55,17 @@ export const About = ({ avatarUrl }: AboutProps) => {
             >
               <div className="flex items-center gap-4">
                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold">
-                    7+
+                    8+
                  </div>
                  <div>
                     <h4 className="font-bold text-sm">Years Experience</h4>
-                    <p className="text-xs text-muted-foreground">in Full Stack Engineering</p>
+                    <p className="text-xs text-muted-foreground">in Full Stack & Systems</p>
                  </div>
               </div>
             </motion.div>
 
-            {/* Background blobs */}
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
-            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl -z-10"></div>
+            {/* Subtle premium background glow (Non-pulsing) */}
+            <div className="absolute -inset-10 bg-primary/5 rounded-full blur-3xl -z-20 pointer-events-none"></div>
           </motion.div>
 
           {/* Text Content */}
@@ -95,7 +93,7 @@ export const About = ({ avatarUrl }: AboutProps) => {
                        <span className="w-2 h-2 rounded-full bg-primary"></span>
                        Remote-First Expert
                     </h4>
-                    <p className="text-sm">Self-managed, documentation-driven, and highly communicative. 6+ hour overlap with EU/US.</p>
+                    <p className="text-sm">Self-managed, documentation-driven, and highly communicative. Overlap with US/EU/UK time zones (CET/EST/GMT).</p>
                  </div>
                  <div className="space-y-2">
                     <h4 className="font-bold text-foreground flex items-center gap-2">

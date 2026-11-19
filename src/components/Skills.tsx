@@ -82,7 +82,7 @@ export const Skills = ({ skills }: SkillsProps) => {
                     <motion.div 
                         key={category} 
                         variants={itemVars}
-                        className="bg-card border border-border/50 rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all hover:-translate-y-1 group"
+                        className="bg-card border border-border/50 rounded-xl p-6 hover:shadow-sm hover:border-primary/20 transition-colors group"
                     >
                         <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border/50">
                             <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">

@@ -20,9 +20,67 @@ interface ExperienceProps {
   experience: Experience[]
 }
 
+export const DEFAULT_EXPERIENCES: Experience[] = [
+  {
+    id: "exp-1",
+    title: "Software Engineer III",
+    company: "Pardy Panda Studios",
+    location: "Vadodara / Remote",
+    startDate: new Date("2025-04-01"),
+    endDate: null,
+    current: true,
+    description: [
+      "**Lead and mentor** an agile team of **2–5 developers**, guiding technical implementation, unblocking architecture bottlenecks, and supporting feature delivery.",
+      "**Architect** end-to-end multi-tenant enterprise ERP systems using **Next.js, NestJS, Prisma ORM, and PostgreSQL**, establishing modular service boundaries.",
+      "**Cut p95 API latency by 55%** and **database CPU load by 40%** via composite indexing, Redis-backed caching strategies, and query tuning.",
+      "**Architect** robust PostgreSQL database schemas and Prisma data models to handle complex relationships across inventory, sales, purchasing, customer management, and operations.",
+      "**Build** reusable frontend components using **React.js and Next.js**, supported by **Zustand** state management and structured **Zod-based** validation.",
+      "**Design** RESTful API contracts and implement backend business logic for interconnected enterprise ERP modules.",
+      "**Coordinate** technical execution across frontend, backend, and database layers, ensuring complete consistency between business requirements and application behavior."
+    ]
+  },
+  {
+    id: "exp-2",
+    title: "Senior Software Engineer",
+    company: "SaaS Innova",
+    location: "Surat / Remote",
+    startDate: new Date("2022-07-01"),
+    endDate: new Date("2025-03-31"),
+    current: false,
+    description: [
+      "**Owned** backend architecture and technical implementation for enterprise SaaS modules across document management, quality management, CRM, and travel technology.",
+      "**Led and mentored** engineering teams of **2–5 developers**, defining service boundaries, API contracts, and database interactions for complex business applications.",
+      "**Architected** high-throughput **REST and GraphQL APIs** using **NestJS and TypeScript**, powering seamless communication between frontend and distributed services.",
+      "**Designed** event-driven, asynchronous background pipelines using **RabbitMQ and Redis**, decoupling microservices and processing millions of background events.",
+      "**Integrated** production **LLM-powered document processing** and intelligent workflow automation into enterprise software products.",
+      "**Optimized** PostgreSQL database queries, access patterns, and caching strategies, reducing complex reporting generation time from **12s to <800ms**.",
+      "**Implemented** enterprise-grade security with JWT authentication and granular Role-Based Access Control (**RBAC**)."
+    ]
+  },
+  {
+    id: "exp-3",
+    title: "Software Engineer",
+    company: "Red & White Softtech",
+    location: "Surat",
+    startDate: new Date("2018-11-01"),
+    endDate: new Date("2022-06-30"),
+    current: false,
+    description: [
+      "**Developed** and maintained full-stack enterprise web applications across backend microservices, responsive web interfaces, and relational databases.",
+      "**Designed and implemented** robust RESTful APIs supporting business logic, third-party integrations, and automated payment gateways handling **$500k+ annual volume**.",
+      "**Architected** relational database schemas (**MySQL and PostgreSQL**) and optimized complex SQL queries for maximum throughput and ACID compliance.",
+      "**Built** secure authentication, session management, and Role-Based Access Control (**RBAC**) mechanisms to protect sensitive enterprise operations.",
+      "**Modernized** legacy application codebases by transitioning to **React and Node.js**, improving developer onboarding speed by **60%** and reducing defect rates.",
+      "**Collaborated** with international cross-functional teams and product stakeholders to translate complex operational workflows into scalable software."
+    ]
+  }
+];
+
 export const Experience = ({ experience }: ExperienceProps) => {
+    // Fallback to verified default experiences if database is empty or pending seed
+    const dataToUse = experience && experience.length > 0 ? experience : DEFAULT_EXPERIENCES;
     // Sort by start date desc
-    const sorted = [...experience].sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
+    const sorted = [...dataToUse].sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
 
   return (
     <section id="experience" className="py-24 relative overflow-hidden bg-muted/20">
@@ -71,12 +129,12 @@ export const Experience = ({ experience }: ExperienceProps) => {
                                         <div className="text-primary font-semibold text-lg flex items-center gap-2">
                                             {exp.company}
                                         </div>
-                                        {/* Industry/Scale Metadata - Hardcoded lookup for portfolio polish */}
+                                        {/* Industry/Scale Metadata */}
                                         <div className="text-xs font-medium text-muted-foreground/80">
-                                            {exp.company.includes('Pardy') ? 'Mobile Gaming Studio • 30+ Team' : 
-                                             exp.company.includes('Saas') ? 'SaaS Product Company • 15+ Team' :
-                                             exp.company.includes('Red') ? 'Enterprise Software Agency • 100+ Team' : 
-                                             'Tech Company'}
+                                            {exp.company.includes('Pardy') ? 'Enterprise ERP & Multi-Tenant SaaS • Leading 2–5 Devs' : 
+                                             exp.company.includes('Saas') ? 'Modular Microservices & Event-Driven SaaS • Led 2–5 Devs' :
+                                             exp.company.includes('Red') ? 'Full-Stack Enterprise Applications & SQL Optimization' : 
+                                             'Enterprise SaaS / Distributed Systems'}
                                         </div>
                                     </div>
                                 </CardHeader>
@@ -101,7 +159,7 @@ export const Experience = ({ experience }: ExperienceProps) => {
                                             const highlightedItem = item
                                                 .replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground font-bold">$1</strong>')
                                                 .replace(
-                                                    /(\b\d+(?:\.\d+)?%|\b\d+\+?\s*(?:hours|developers|years|months|reduction|increase|improvement|growth|TB|requests\/sec|RPS|sessions|users))/gi, 
+                                                    /(\b\d+(?:\.\d+)?%|\bp95\b|\bCPU\b|\b\d+\+?\s*(?:hours|developers|engineers|devs|years|months|reduction|increase|improvement|growth|TB|requests\/sec|RPS|sessions|users|volume)|\b12s to <800ms\b|\$500k\+?)/gi, 
                                                     (match) => match.includes('<strong') ? match : `<strong class="text-foreground font-bold">${match}</strong>`
                                                 );
                                             

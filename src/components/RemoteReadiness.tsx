@@ -8,23 +8,23 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 const remoteFeatures = [
   {
     icon: Clock,
-    title: "Time Zone Overlap",
-    description: "Full 8-hour overlap with Europe (CET/GMT) and 5-hour overlap with US East (EST). Available for real-time collaboration during core business hours."
+    title: "Strategic Timezone Overlap",
+    description: "Consistent guaranteed overlap with US (EST) and full overlap with Europe & UK (CET/GMT) for synchronous technical planning and daily unblocking."
   },
   {
     icon: MessageSquare,
-    title: "Async-First Communication",
-    description: "Expert in Loom for walkthroughs, Slack for updates, and Notion/Google Docs for detailed technical documentation. Clear, proactive communication style."
+    title: "Async-First Engineering",
+    description: "Fluent in asynchronous delivery. I leverage Loom for architectural walkthroughs, deep Notion/Jira documentation, and GitHub Discussions to keep progress moving 24/7."
   },
   {
     icon: Target,
-    title: "Independent Ownership",
-    description: "Daily status reports and solution-oriented updates. Minimal need for constant sync meetings. I unblock myself and keep stakeholders informed."
+    title: "Ownership Over Execution",
+    description: "I don't require micro-management. Give me a complex business problem, and I'll return with a scalable architecture, production-ready code, and comprehensive monitoring."
   },
   {
     icon: Globe,
-    title: "Global Team Experience",
-    description: "4+ years working with diverse, globally distributed teams. Comfortable with remote-first culture and asynchronous workflows."
+    title: "Global Startup Experience",
+    description: "8+ years of track record building and scaling SaaS platforms alongside globally distributed engineering teams. Deeply adjusted to remote-native startup cultures."
   }
 ]
 
